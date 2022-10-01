@@ -1,11 +1,14 @@
 import { Routes, Route } from "react-router-dom";
-import MuiLayout from "../components/layout/MuiLayout";
+import ASICPage from "./ASICPage";
 import AuthPage from "./AuthPage";
+import ShopPage from "./ShopPage";
 
 const AllPages = () => {
   return (
     <Routes>
-      <Route path="auth" element={<MuiLayout />} />
+      <Route path="/" element={<AuthPage />} />
+      <Route path="/shop/*" element={<ShopPage />} />
+      <Route path="/shop/asic" element={<ASICPage />} />
     </Routes>
   );
 };

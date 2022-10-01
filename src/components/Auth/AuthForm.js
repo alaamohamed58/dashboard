@@ -1,8 +1,16 @@
 import { Box, Typography, TextField, Button, Link } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 import CancleIcon from "../icons/CancleIcon";
 
 const AuthForm = () => {
+  const navigate = useNavigate();
+
+  //main page route
+  const routeHandler = () => {
+    navigate("/shop");
+  };
+
   const containerCss = {
     padding: "16px 20px",
     width: "597px",
@@ -127,7 +135,7 @@ const AuthForm = () => {
           }}
         >
           <Link
-            href="#"
+            onClick={routeHandler}
             underline="always"
             sx={{
               textAlign: "center",
@@ -137,6 +145,7 @@ const AuthForm = () => {
               fontWeight: 600,
               lineHeight: "26px",
               margin: "auto",
+              cursor: "pointer",
             }}
           >
             Already have an account?
