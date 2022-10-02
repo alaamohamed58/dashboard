@@ -1,4 +1,4 @@
-import Shop from "../components/DashBoard/shop/Shop";
+import Shop from "../components/shop/Shop";
 
 const ShopPage = () => {
   return <Shop />;

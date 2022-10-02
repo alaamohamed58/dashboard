@@ -12,3 +12,48 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: #eff7ff;
 }
+a {
+  color: unset;
+  text-decoration: none;
+}
+.active {
+  color: #fff;
+}
+tspan {
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 8px !important;
+  fill: #a2bcdc !important;
+}
+.pending {
+  background-color: #ea2727 !important;
+}
+.activeBill {
+  background-color: #2776ea !important;
+}
+
+.installing {
+  background-color: #eab327 !important;
+}
+
+.pendingText {
+  color: #ea2727 !important;
+}
+.activeText {
+  color: #2776ea !important;
+}
+
+.installingText {
+  color: #eab327 !important;
+}
+
+.pendingBarShadow {
+  background-color: #d46060 !important;
+}
+.activeBarShadow {
+  background-color: #d5e5f6 !important;
+}
+
+.installingBarShadow {
+  background-color: #d1d4d7 !important;
+}

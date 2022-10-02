@@ -1,10 +1,9 @@
+import { NavLink } from "react-router-dom";
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Stack, Accordion } from "@mui/material";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-
-import React from "react";
 
 const MainNavigation = () => {
   const iconStyle = {
@@ -77,7 +76,13 @@ const MainNavigation = () => {
                 sx={{ fontWeight: 700, fontSize: "20px" }}
                 component="h5"
               >
-                Shop
+                <NavLink
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                  to="/shop"
+                >
+                  {" "}
+                  Shop{" "}
+                </NavLink>
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -103,7 +108,12 @@ const MainNavigation = () => {
             />
 
             <Typography sx={typographyStyle} component="h5">
-              Dashboard
+              <NavLink
+                className={({ isActive }) => (isActive ? "active" : "")}
+                to="/dashboard"
+              >
+                Dashboard
+              </NavLink>
             </Typography>
           </Box>{" "}
         </item>
@@ -134,7 +144,12 @@ const MainNavigation = () => {
               sx={{ fontWeight: 700, fontSize: "20px" }}
               component="h5"
             >
-              Wallet
+              <NavLink
+                className={({ isActive }) => (isActive ? "active" : "")}
+                to="/wallet"
+              >
+                Wallet
+              </NavLink>
             </Typography>
           </AccordionSummary>
           <AccordionDetails>

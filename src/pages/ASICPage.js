@@ -1,4 +1,4 @@
-import ASIC from "../components/DashBoard/shop/ASIC";
+import ASIC from "../components/shop/ASIC";
 
 const ASICPage = () => {
   return <ASIC />;

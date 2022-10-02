@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Stack, Button } from "@mui/material";
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
-import MuiLayout from "../../layout/MuiLayout";
+import MuiLayout from "../layout/MuiLayout";
 
 const DUMMY_DATA = [
   {
@@ -45,7 +45,9 @@ const Shop = () => {
         Market Place
       </Typography>
 
-      <Box sx={{ display: "flex", gap: "55px", marginTop: "36px" }}>
+      <Box
+        sx={{ display: "flex", gap: "55px", marginTop: "36px", width: "692px" }}
+      >
         {DUMMY_DATA.map((data) => {
           return (
             <Stack key={data.id}>

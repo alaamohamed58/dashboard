@@ -2,8 +2,7 @@ import { Stack } from "@mui/material";
 import { Button } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Stepper, Step, StepLabel, Box } from "@mui/material";
-import MuiLayout from "../../layout/MuiLayout";
-
+import MuiLayout from "../layout/MuiLayout";
 const DUMMY_DATA = [
   {
     id: "d1",
