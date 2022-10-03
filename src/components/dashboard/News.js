@@ -27,7 +27,7 @@ const DUMMY_NEWS = [
 
 const News = () => {
   return (
-    <Stack sx={{ width: "322px", height: "645px", background: "#fff" }}>
+    <Stack sx={{ width: "322px", background: "#fff" }}>
       <Typography
         component="h3"
         sx={{

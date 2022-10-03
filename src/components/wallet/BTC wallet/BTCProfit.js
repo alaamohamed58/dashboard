@@ -1,5 +1,6 @@
 import { VictoryBar, VictoryChart, VictoryAxis } from "victory";
 import { Box } from "@mui/material";
+import { Typography } from "@mui/material";
 const data = [
   { quarter: 1, earnings: 0.3 },
   { quarter: 2, earnings: 0.5 },
@@ -26,6 +27,9 @@ const BTCProfit = () => {
         padding: "40px 49px",
       }}
     >
+      <Typography sx={{ fontSize: "35px", fontWeight: 700, color: "#0A194E" }}>
+        BTC Profit
+      </Typography>
       <VictoryChart domain={{ x: [0, 12] }}>
         <VictoryAxis
           tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}

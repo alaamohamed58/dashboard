@@ -29,7 +29,6 @@ const MainNavigation = () => {
   const subAccordion = {
     ...typographyStyle,
     padding: "4px 60px",
-
     "&:hover": {
       backgroundColor: "#1B2B65",
     },
@@ -41,8 +40,11 @@ const MainNavigation = () => {
         justifyContent: "space-between",
         backgroundColor: "#00255B",
         width: "317px",
-        minHeight: "1440px",
+        minHeight: "calc(100vh - 93px)",
         paddingTop: "50px",
+        position: "fixed",
+        top: "93px",
+        "z-index": 10,
       }}
     >
       <Box>
@@ -181,13 +183,18 @@ const MainNavigation = () => {
           <Box sx={{ marginTop: "34px" }}>
             <Box
               component="img"
-              src="/images/icons/electricity.svg"
+              src="/images/icons/products.svg"
               alt="cart"
               sx={iconStyle}
             />
 
             <Typography sx={typographyStyle} component="h5">
-              Electricity Bills
+              <NavLink
+                className={({ isActive }) => (isActive ? "active" : "")}
+                to="/bills"
+              >
+                Electricity Bills
+              </NavLink>
             </Typography>
           </Box>
         </item>

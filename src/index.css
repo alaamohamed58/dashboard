@@ -57,3 +57,32 @@ tspan {
 .installingBarShadow {
   background-color: #d1d4d7 !important;
 }
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
+  margin-top: 30px;
+  margin-right: 63px;
+}
+.activeLink {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2776ea;
+  color: #fff !important;
+}
+.page-num {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 143%;
+  text-align: center;
+  letter-spacing: 0.17px;
+  color: rgba(0, 0, 0, 0.87);
+  cursor: pointer;
+}

@@ -1,10 +1,10 @@
 import { useState } from "react";
-
-import { Stack, Box, Tab, Typography } from "@mui/material";
+import { Box, Tab, Typography } from "@mui/material";
 import { TabPanel, TabContext, TabList } from "@mui/lab";
 
 import MuiLayout from "../layout/MuiLayout";
-import BTCWallet from "./BTCWallet";
+import BTCWallet from "./BTC wallet/BTCWallet";
+import FIATWallet from "./FIAT wallet/FIATWallet";
 const typographyStyle = {
   fontWeight: 700,
   fontSize: "35px",
@@ -33,8 +33,17 @@ const Wallet = () => {
           </TabList>
         </Box>
 
-        <TabPanel value="1" sx={{ height: 1, width: 1 }}>
+        <TabPanel
+          value="1"
+          sx={{ height: 1, width: 1, padding: 0, marginTop: "51px" }}
+        >
           <BTCWallet />
+        </TabPanel>
+        <TabPanel
+          value="2"
+          sx={{ height: 1, width: 1, padding: 0, marginTop: "51px" }}
+        >
+          <FIATWallet />
         </TabPanel>
       </TabContext>
     </MuiLayout>

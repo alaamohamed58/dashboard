@@ -1,8 +1,6 @@
-import { Typography } from "@mui/material";
-import { Button } from "@mui/material";
-import { Box } from "@mui/material";
-import { Stack } from "@mui/material";
+import { Typography, Button, Box, Stack } from "@mui/material";
 import BTCProfit from "./BTCProfit";
+import HistoryProfit from "./HistoryProfit";
 
 const boxStyle = {
   display: "flex",
@@ -25,9 +23,11 @@ const h3Style = {
 const btnStyle = {
   background: "#fff",
   border: "2px solid #2776EA",
-  width: "265px",
+  minWidth: "265px",
   height: "71px",
   color: "#2776EA",
+  fontSize: "24px",
+  fontWeight: 600,
   "&:hover": {
     background: "unset",
   },
@@ -88,6 +88,7 @@ const BTCWallet = () => {
         </Box>
       </Box>
       <BTCProfit />
+      <HistoryProfit />
     </Stack>
   );
 };

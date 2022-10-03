@@ -32,7 +32,7 @@ const BillDetail = (props) => {
       component="li"
       sx={{
         display: "flex",
-        width: "1437px",
+
         height: "281px",
         background: "#fff",
         marginTop: "55px",

@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import ASICPage from "./ASICPage";
 import AuthPage from "./AuthPage";
 import DashboardPage from "./DashboardPage";
+import ElectricityBillsPage from "./ElectricityBillsPage";
 import ShopPage from "./ShopPage";
 import WalletPage from "./WalletPage";
 
@@ -13,6 +14,7 @@ const AllPages = () => {
       <Route path="/shop/asic" element={<ASICPage />} />
       <Route path="/dashboard" element={<DashboardPage />} />
       <Route path="/wallet" element={<WalletPage />} />
+      <Route path="/bills" element={<ElectricityBillsPage />} />
     </Routes>
   );
 };

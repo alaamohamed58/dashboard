@@ -8,16 +8,19 @@ const MuiLayout = ({ children }) => {
   return (
     <Fragment>
       <Header />
-      <Box component="main" sx={{ display: "flex" }}>
+
+      <Box sx={{ display: "flex" }}>
         <MainNavigation />
+
         <Box
-          component="section"
-          sx={{ padding: "50px 60px", width: "calc(100% - 317px)" }}
+          component="main"
+          sx={{ marginLeft: "317px", width: "calc(100% - 317px)" }}
         >
-          {children}
+          <Box component="section" sx={{ padding: "50px 60px" }}>
+            {children}
+          </Box>
         </Box>
       </Box>
-      ;
     </Fragment>
   );
 };
