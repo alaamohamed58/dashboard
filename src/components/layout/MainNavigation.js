@@ -173,9 +173,13 @@ const MainNavigation = () => {
               alt="cart"
               sx={iconStyle}
             />
-
             <Typography sx={typographyStyle} component="h5">
-              My Products
+              <NavLink
+                className={({ isActive }) => (isActive ? "active" : "")}
+                to="/products"
+              >
+                My Products
+              </NavLink>
             </Typography>
           </Box>
         </item>

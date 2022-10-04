@@ -42,7 +42,7 @@ const Header = () => {
         gap: "213.92px",
         backgroundColor: "#011B41",
         padding: "0 27px",
-        "z-index": 11,
+        "z-index": 10,
       }}
     >
       <nav>

@@ -112,7 +112,6 @@ const AuthForm = () => {
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
-              padding: "0px",
               width: 1,
               height: "55px",
               background: "#2776EA",

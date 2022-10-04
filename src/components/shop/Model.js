@@ -1,0 +1,45 @@
+import { Box } from "@mui/material";
+import ModelData from "./ModelData";
+
+const DUMMY_DATA = [
+  {
+    id: "m1",
+    title: "power Model 001",
+    model: "AntiMiner S19 pro",
+    rate: "110 TH/s",
+    power: "3250 w",
+    algorithm: "SHA256",
+    estimatedDate: "07/10/2022",
+    warrenty: "11 Months",
+    conditions: "New",
+    price: "2000",
+    img: "/images/icons/model.svg",
+  },
+];
+
+const Model = () => {
+  return (
+    <Box component="ul">
+      {DUMMY_DATA.map((data) => {
+        return (
+          <ModelData
+            key={data.id}
+            id={data.id}
+            title={data.title}
+            model={data.model}
+            rate={data.rate}
+            power={data.power}
+            algorithm={data.algorithm}
+            estimatedDate={data.estimatedDate}
+            warrenty={data.warrenty}
+            conditions={data.conditions}
+            price={data.price}
+            img={data.img}
+          />
+        );
+      })}
+    </Box>
+  );
+};
+
+export default Model;

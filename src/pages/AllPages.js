@@ -3,6 +3,7 @@ import ASICPage from "./ASICPage";
 import AuthPage from "./AuthPage";
 import DashboardPage from "./DashboardPage";
 import ElectricityBillsPage from "./ElectricityBillsPage";
+import MyProductsPage from "./MyProductsPage";
 import ShopPage from "./ShopPage";
 import WalletPage from "./WalletPage";
 
@@ -15,6 +16,7 @@ const AllPages = () => {
       <Route path="/dashboard" element={<DashboardPage />} />
       <Route path="/wallet" element={<WalletPage />} />
       <Route path="/bills" element={<ElectricityBillsPage />} />
+      <Route path="/products" element={<MyProductsPage />} />
     </Routes>
   );
 };

@@ -1,6 +1,9 @@
+import { useState, Fragment } from "react";
 import { Typography, Button, Box, Stack } from "@mui/material";
 import BTCProfit from "./BTCProfit";
 import HistoryProfit from "./HistoryProfit";
+import ConvertModel from "../../UI/ConvertModel";
+import Model from "../../UI/Model";
 
 const boxStyle = {
   display: "flex",
@@ -47,49 +50,64 @@ const DUMMY_DATA = [
 ];
 
 const BTCWallet = () => {
-  return (
-    <Stack sx={{ width: "1437px" }}>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
+  const [toggleModel, setToggleModel] = useState(false);
 
-          justifyContent: "space-between",
-        }}
-      >
-        <Box sx={{ display: "flex", alignItems: "flex-end", gap: "50px" }}>
-          {DUMMY_DATA.map((data) => {
-            return (
-              <Box sx={boxStyle} key={data.id}>
-                <Typography component="h3" sx={h3Style}>
-                  {data.title}
-                </Typography>
-                <Typography
-                  component="span"
-                  sx={{
-                    fontSize: "35px",
-                    color: "#0A194E",
-                    fontWeight: 700,
-                  }}
-                >
-                  {data.value}
-                </Typography>
-              </Box>
-            );
-          })}
+  const toggleModelHandler = () => {
+    setToggleModel(true);
+  };
+  const hideModelHandler = () => {
+    setToggleModel(false);
+  };
+  return (
+    <Fragment>
+      {toggleModel && <Model hideModelHandler={hideModelHandler} />}
+      <Stack sx={{ width: "1437px" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+
+            justifyContent: "space-between",
+          }}
+        >
+          <Box sx={{ display: "flex", alignItems: "flex-end", gap: "50px" }}>
+            {DUMMY_DATA.map((data) => {
+              return (
+                <Box sx={boxStyle} key={data.id}>
+                  <Typography component="h3" sx={h3Style}>
+                    {data.title}
+                  </Typography>
+                  <Typography
+                    component="span"
+                    sx={{
+                      fontSize: "35px",
+                      color: "#0A194E",
+                      fontWeight: 700,
+                    }}
+                  >
+                    {data.value}
+                  </Typography>
+                </Box>
+              );
+            })}
+          </Box>
+          <Box sx={{ display: "flex", gap: "36px" }}>
+            <Button sx={btnStyle} variant="contained">
+              WITHDRAW
+            </Button>
+            <Button
+              sx={btnStyle}
+              variant="contained"
+              onClick={toggleModelHandler}
+            >
+              CONVERT BTC TO BALANCE
+            </Button>
+          </Box>
         </Box>
-        <Box sx={{ display: "flex", gap: "36px" }}>
-          <Button sx={btnStyle} variant="contained">
-            WITHDRAW
-          </Button>
-          <Button sx={btnStyle} variant="contained">
-            CONVERT BTC TO BALANCE
-          </Button>
-        </Box>
-      </Box>
-      <BTCProfit />
-      <HistoryProfit />
-    </Stack>
+        <BTCProfit />
+        <HistoryProfit />
+      </Stack>
+    </Fragment>
   );
 };
 
