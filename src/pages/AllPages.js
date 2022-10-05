@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import CheckoutPage from "./CheckoutPage";
 import ASICPage from "./ASICPage";
 import AuthPage from "./AuthPage";
 import DashboardPage from "./DashboardPage";
@@ -6,6 +7,8 @@ import ElectricityBillsPage from "./ElectricityBillsPage";
 import MyProductsPage from "./MyProductsPage";
 import ShopPage from "./ShopPage";
 import WalletPage from "./WalletPage";
+import PaymentPage from "./PaymentPage";
+import NotificationPage from "./NotificationPage";
 
 const AllPages = () => {
   return (
@@ -17,6 +20,9 @@ const AllPages = () => {
       <Route path="/wallet" element={<WalletPage />} />
       <Route path="/bills" element={<ElectricityBillsPage />} />
       <Route path="/products" element={<MyProductsPage />} />
+      <Route path="/shop/checkout" element={<CheckoutPage />} />
+      <Route path="/shop/payment" element={<PaymentPage />} />
+      <Route path="/notification" element={<NotificationPage />} />
     </Routes>
   );
 };

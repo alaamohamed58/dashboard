@@ -11,7 +11,7 @@ const detailStyle = {
   fontSize: "22px",
   fontWeight: 600,
 };
-const Farm = ({ data }) => {
+const Farm = ({ data, activeStepHandler }) => {
   return (
     <Box
       sx={{
@@ -190,7 +190,11 @@ const Farm = ({ data }) => {
               marginBottom: "31px",
             }}
           >
-            <Button variant="contained" sx={{ width: "203px", height: "42px" }}>
+            <Button
+              variant="contained"
+              sx={{ width: "203px", height: "42px" }}
+              onClick={activeStepHandler}
+            >
               SELECT FARM
             </Button>
             <Button variant="outlined" sx={{ width: "203px", height: "42px" }}>

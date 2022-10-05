@@ -30,7 +30,7 @@ const AuthForm = () => {
 
   const container = {
     padding: "20px 25px 0px",
-
+    position: "relative",
     width: "647px",
     height: "614px",
     margin: "150px auto",

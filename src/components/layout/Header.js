@@ -1,33 +1,38 @@
-import { Typography } from "@mui/material";
-import { Box } from "@mui/material";
+import { Typography, Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+const imgStyle = {
+  width: "32.8px",
+  height: "24.79px",
+  display: "inline-block",
+};
+
+const dataStyle = {
+  width: "110px",
+  height: "58px",
+  fontStyle: "normal",
+  fontWeight: 700,
+  fontSize: "28px",
+  lineHeight: "24px",
+  letterSpacing: "0.4px",
+  color: "#FFFFFF",
+};
+
+const liStyle = {
+  display: "flex",
+  alignItems: "center",
+  gap: "18.92px",
+};
+
+const rightIconsStyle = {
+  width: "29.17px",
+  height: "29.17px",
+};
 
 const Header = () => {
-  const imgStyle = {
-    width: "32.8px",
-    height: "24.79px",
-    display: "inline-block",
-  };
+  const navigate = useNavigate();
 
-  const dataStyle = {
-    width: "110px",
-    height: "58px",
-    fontStyle: "normal",
-    fontWeight: 700,
-    fontSize: "28px",
-    lineHeight: "24px",
-    letterSpacing: "0.4px",
-    color: "#FFFFFF",
-  };
-
-  const liStyle = {
-    display: "flex",
-    alignItems: "center",
-    gap: "18.92px",
-  };
-
-  const rightIconsStyle = {
-    width: "29.17px",
-    height: "29.17px",
+  const notificationPageHandler = () => {
+    navigate("/notification");
   };
 
   return (
@@ -139,7 +144,7 @@ const Header = () => {
           component="ul"
           sx={{ display: "flex", alignItems: "center", gap: "59.33px" }}
         >
-          <li>
+          <li onClick={notificationPageHandler}>
             <Box sx={rightIconsStyle}>
               <Box
                 component="img"

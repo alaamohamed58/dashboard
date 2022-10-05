@@ -17,12 +17,13 @@ const DUMMY_DATA = [
   },
 ];
 
-const Model = () => {
+const Model = ({ activeStepHandler }) => {
   return (
     <Box component="ul">
       {DUMMY_DATA.map((data) => {
         return (
           <ModelData
+            activeStepHandler={activeStepHandler}
             key={data.id}
             id={data.id}
             title={data.title}

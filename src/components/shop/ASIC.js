@@ -4,6 +4,8 @@ import StepperShop from "./StepperShop";
 import Farm from "./farm/Farm";
 import { Box } from "@mui/material";
 import Model from "./Model";
+import ElectricityPlan from "./electricity plan/ElectricityPlan";
+import Confirmation from "./Confirmation";
 const DUMMY_DATA = [
   {
     id: "d1",
@@ -38,12 +40,12 @@ const DUMMY_DATA = [
 ];
 
 const ASIC = () => {
-  const [activeStep, setAciveStep] = useState(1);
+  const [activeStep, setAciveStep] = useState(0);
 
   const activeStepHandler = () => {
-    if (activeStep !== -1) {
-      setAciveStep((currentStep) => currentStep - 1);
-    }
+    // if (activeStep !== -1) {
+    //   setAciveStep((currentStep) => currentStep - 1);
+    // }
 
     if (activeStep < 3) {
       setAciveStep((currentStep) => currentStep + 1);
@@ -57,12 +59,25 @@ const ASIC = () => {
       {activeStep === 0 && (
         <Box>
           {DUMMY_DATA.map((data) => {
-            return <Farm key={data.id} data={data} />;
+            return (
+              <Farm
+                activeStepHandler={activeStepHandler}
+                key={data.id}
+                data={data}
+              />
+            );
           })}
         </Box>
       )}
 
-      {activeStep === 1 && <Model />}
+      {activeStep === 1 && <Model activeStepHandler={activeStepHandler} />}
+      {activeStep === 2 && (
+        <ElectricityPlan activeStepHandler={activeStepHandler} />
+      )}
+
+      {activeStep === 3 && (
+        <Confirmation activeStepHandler={activeStepHandler} />
+      )}
     </MuiLayout>
   );
 };

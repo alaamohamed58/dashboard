@@ -4,7 +4,6 @@ import {
   Stack,
   Box,
   FormControl,
-  InputLabel,
   Select,
   MenuItem,
 } from "@mui/material";
@@ -198,7 +197,8 @@ const ModelData = (props) => {
               </Select>
             </FormControl>
             <Button
-              type="submit"
+              onClick={props.activeStepHandler}
+              type="button"
               variant="contained"
               sx={{
                 display: "flex",

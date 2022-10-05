@@ -28,7 +28,7 @@ const ConvertModel = ({ hideModelHandler }) => {
       sx={{
         width: "647px",
         height: "532px",
-        position: "absolute",
+        position: "fixed",
         top: "336px",
         left: "637px",
         padding: "54px 25px 0px",
