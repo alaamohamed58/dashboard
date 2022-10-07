@@ -1,40 +1,52 @@
 import { Typography, Box, Stack, Button } from "@mui/material";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import CheckoutData from "./CheckoutData";
 import MuiLayout from "./layout/MuiLayout";
 
-const DUMMY_DATA = [
-  {
-    id: "m1",
-    title: "power Model 001",
-    model: "AntiMiner S19 pro",
-    quantity: 2,
-    electricityPlan: "Monthly $0.099",
-    location: "texas 2 US",
-    electricityDeposit: "60",
-    setupCharges: "60",
-    price: "2000",
-    img: "/images/icons/model.svg",
-    total: "65464",
-  },
-  {
-    id: "m2",
-    title: "power Model 001",
-    model: "AntiMiner S19 pro",
-    quantity: 2,
-    electricityPlan: "Monthly $0.099",
-    location: "texas 2 US",
-    electricityDeposit: "60",
-    setupCharges: "60",
-    price: "2000",
-    img: "/images/icons/model.svg",
-    total: "65464",
-  },
-];
+// const DUMMY_DATA = [
+//   {
+//     id: "m1",
+//     title: "power Model 001",
+//     model: "AntiMiner S19 pro",
+//     quantity: 2,
+//     electricityPlan: "Monthly $0.099",
+//     location: "texas 2 US",
+//     electricityDeposit: "60",
+//     setupCharges: "60",
+//     price: "2000",
+//     img: "/images/icons/model.svg",
+//     total: "65464",
+//   },
+//   {
+//     id: "m2",
+//     title: "power Model 001",
+//     model: "AntiMiner S19 pro",
+//     quantity: 2,
+//     electricityPlan: "Monthly $0.099",
+//     location: "texas 2 US",
+//     electricityDeposit: "60",
+//     setupCharges: "60",
+//     price: "2000",
+//     img: "/images/icons/model.svg",
+//     total: "65464",
+//   },
+// ];
 const summaryStyle = { color: "#A2BCDC", fontSize: "22px", fontWeight: 500 };
 
 const Checkout = () => {
   const navigate = useNavigate();
+
+  const cartItems = useSelector((state) => state.cartReducer.cartItems);
+
+  const itemsLength = cartItems.length;
+
+  const total = cartItems.reduce(
+    (acc, item) => (+item.setupFee + +item.price) * item.quantity,
+    0
+  );
+
+  const subTotal = itemsLength * total;
 
   const paymentPageHandler = () => {
     navigate("/shop/payment");
@@ -42,9 +54,15 @@ const Checkout = () => {
 
   return (
     <MuiLayout>
-      <Stack sx={{ flexDirection: "row", justifyContent: "space-between" }}>
+      <Stack
+        sx={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          position: "relative",
+        }}
+      >
         <Box component="ul">
-          {DUMMY_DATA.map((data) => {
+          {cartItems.map((data, i) => {
             return (
               <CheckoutData
                 key={data.id}
@@ -52,14 +70,13 @@ const Checkout = () => {
                 title={data.title}
                 quantity={data.quantity}
                 model={data.model}
-                electricityPlan={data.electricityPlan}
+                electricityPlan={data.plan}
                 location={data.location}
-                electricityDeposit={data.electricityDeposit}
-                setupCharges={data.setupCharges}
-                warrenty={data.warrenty}
+                setupCharges={data.setupFee}
+                warrently={data.warrently}
                 price={data.price}
-                img={data.img}
-                total={data.price}
+                img={data.image}
+                total={total}
               />
             );
           })}
@@ -102,14 +119,14 @@ const Checkout = () => {
                   }}
                 >
                   <Typography component="h3" sx={summaryStyle}>
-                    Sub Total--------------------------x2
+                    Sub Total--------------------------x{itemsLength}
                   </Typography>
                 </Box>
                 <Typography
                   component="span"
                   sx={{ color: "#0A194E", fontSize: "25px", fontWeight: 600 }}
                 >
-                  $123134
+                  ${subTotal}
                 </Typography>
               </Box>
 
@@ -128,7 +145,7 @@ const Checkout = () => {
                   }}
                 >
                   <Typography component="h3" sx={summaryStyle}>
-                    Sub Tax--------------------------x2
+                    Sub Tax--------------------------x{itemsLength}
                   </Typography>
                 </Box>
                 <Typography

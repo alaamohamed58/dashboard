@@ -1,37 +1,52 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
 import { Stack, Accordion } from "@mui/material";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
+import { useDispatch } from "react-redux";
+import { uiActions } from "../../store/ui-slice";
+
+const iconStyle = {
+  display: "inline-block",
+  width: "20.7px",
+  height: "20px",
+  marginRight: "34.3px",
+  marginLeft: "25px",
+};
+
+const typographyStyle = {
+  color: "#9FBADB",
+  fontStyle: "normal",
+  fontWeight: 700,
+  letterSpacing: "0.17px",
+  fontSize: "20px",
+  lineHeight: "150%",
+  cursor: "pointer",
+  marginBottom: "12px",
+  display: "inline-block",
+};
+
+const subAccordion = {
+  ...typographyStyle,
+  padding: "4px 40px",
+  "&:hover": {
+    backgroundColor: "#1B2B65",
+  },
+};
 
 const MainNavigation = () => {
-  const iconStyle = {
-    display: "inline-block",
-    width: "20.7px",
-    height: "20px",
-    marginRight: "34.3px",
-    marginLeft: "25px",
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const fiatWalletHandler = () => {
+    dispatch(uiActions.fiatWallet());
+    navigate("/wallet");
   };
 
-  const typographyStyle = {
-    color: "#9FBADB",
-    fontStyle: "normal",
-    fontWeight: 700,
-    letterSpacing: "0.17px",
-    fontSize: "20px",
-    lineHeight: "150%",
-    cursor: "pointer",
-    marginBottom: "12px",
-    display: "inline-block",
-  };
-
-  const subAccordion = {
-    ...typographyStyle,
-    padding: "4px 60px",
-    "&:hover": {
-      backgroundColor: "#1B2B65",
-    },
+  const btcWalletHandler = () => {
+    dispatch(uiActions.btcWallet());
+    navigate("/wallet");
   };
 
   return (
@@ -82,19 +97,16 @@ const MainNavigation = () => {
                   className={({ isActive }) => (isActive ? "active" : "")}
                   to="/shop"
                 >
-                  {" "}
                   Shop{" "}
                 </NavLink>
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Stack>
-                <item>
-                  <Box sx={subAccordion}>ASIC Miners</Box>{" "}
-                </item>
-                <item>
-                  <Box sx={subAccordion}>Shared Miners</Box>
-                </item>
+                <Link to="/shop/asic">
+                  <Box sx={subAccordion}>ASIC Miners</Box>
+                </Link>
+                <Box sx={subAccordion}>Shared Miners (soon) </Box>
               </Stack>
             </AccordionDetails>
           </Accordion>
@@ -156,12 +168,12 @@ const MainNavigation = () => {
           </AccordionSummary>
           <AccordionDetails>
             <Stack>
-              <item>
-                <Box sx={subAccordion}>BTC Wallet</Box>{" "}
-              </item>
-              <item>
-                <Box sx={subAccordion}>Fiat Wallet</Box>
-              </item>
+              <Box onClick={btcWalletHandler} sx={subAccordion}>
+                BTC Wallet
+              </Box>{" "}
+              <Box onClick={fiatWalletHandler} sx={subAccordion}>
+                Fiat Wallet
+              </Box>
             </Stack>
           </AccordionDetails>
         </Accordion>

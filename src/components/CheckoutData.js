@@ -1,8 +1,18 @@
+import { useDispatch } from "react-redux";
 import { Typography, Stack, Box } from "@mui/material";
+import { cartActions } from "../store/cart-slice";
 
 let h3Style = { color: "#0A194E", fontSize: "22px", fontWeight: 700 };
 
 const CheckoutData = (props) => {
+  const dispatch = useDispatch();
+
+  const deleteItemHandler = () => {
+    dispatch(cartActions.removeItem(props.id));
+  };
+
+  //console.log(props.price);
+
   return (
     <Box
       component="li"
@@ -15,8 +25,22 @@ const CheckoutData = (props) => {
         background: "#fff",
         marginBottom: "51px",
         width: "995px",
+        position: "relative",
       }}
     >
+      <Box
+        component="span"
+        sx={{
+          position: "absolute",
+          top: "30px",
+          right: "30px",
+          cursor: "pointer",
+        }}
+        onClick={deleteItemHandler}
+      >
+        {" "}
+        <Box component="img" src="/images/icons/close.svg" />
+      </Box>
       <Box
         component="img"
         src={props.img}
@@ -33,7 +57,7 @@ const CheckoutData = (props) => {
             marginBottom: "12px",
           }}
         >
-          {props.title}{" "}
+          {props.model}{" "}
         </Typography>
 
         <Box
@@ -48,17 +72,21 @@ const CheckoutData = (props) => {
             padding: "20px 0",
           }}
         >
-          <div>
+          <Box sx={{ width: "122PX" }}>
             <Typography
               component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px", fontWeight: 700 }}
+              sx={{
+                color: "#A2BCDC",
+                fontSize: "15px",
+                fontWeight: 700,
+              }}
             >
               quantity
             </Typography>
             <Typography component="h3" sx={h3Style}>
               {props.quantity}
             </Typography>
-          </div>
+          </Box>
 
           <div>
             <Typography
@@ -95,14 +123,18 @@ const CheckoutData = (props) => {
             </Typography>
             <Typography component="h3" sx={h3Style}>
               {" "}
-              ${props.electricityDeposit}{" "}
+              $60
             </Typography>
           </div>
 
-          <div>
+          <Box sx={{ width: "159px" }}>
             <Typography
               component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px", fontWeight: 700 }}
+              sx={{
+                color: "#A2BCDC",
+                fontSize: "15px",
+                fontWeight: 700,
+              }}
             >
               Setup Charges
             </Typography>
@@ -110,7 +142,7 @@ const CheckoutData = (props) => {
               {" "}
               ${props.setupCharges}{" "}
             </Typography>
-          </div>
+          </Box>
 
           <div>
             <Typography
@@ -121,7 +153,7 @@ const CheckoutData = (props) => {
             </Typography>
             <Typography component="h3" sx={h3Style}>
               {" "}
-              {props.price}{" "}
+              ${props.price}{" "}
             </Typography>
           </div>
         </Box>

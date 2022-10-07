@@ -20,7 +20,7 @@ const DUMMY_DATA = [
   },
   {
     id: "d3",
-    title: "Year Plan",
+    title: "Yearly Plan",
     detail:
       "he electricity cost will be deducted every 6 months from your balance. No deposit required.",
     power: "$0.09/kW",

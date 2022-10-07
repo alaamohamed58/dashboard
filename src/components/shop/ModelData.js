@@ -1,22 +1,45 @@
 import { useState } from "react";
-import {
-  Typography,
-  Stack,
-  Box,
-  FormControl,
-  Select,
-  MenuItem,
-} from "@mui/material";
-import { Button } from "@mui/material";
+import { useDispatch } from "react-redux";
 
-let h3Style = { color: "#0A194E", fontSize: "22px", fontWeight: 700 };
+import { Typography, Stack, Box } from "@mui/material";
+import { Button } from "@mui/material";
+import { MainTitle } from "../../customThemes";
+import { cartActions } from "../../store/cart-slice";
+
+const h3Style = { color: "#0A194E", fontSize: "22px", fontWeight: 700 },
+  counter = {
+    height: "30px",
+    width: "30px",
+    borderRadius: "50%",
+    textAlign: "center",
+    backgroundColor: "custom.main",
+    color: "#Fff",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "25px",
+    fontWeight: 700,
+    cursor: "pointer",
+    "user-select": "none",
+  };
 
 const ModelData = (props) => {
   const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
 
-  const quantityChangeHandler = (e) => {
-    setQuantity(e.target.value);
+  const addModelFarmHandler = () => {
+    dispatch(
+      cartActions.addModel({
+        model: props.model,
+        price: props.price,
+        image: props.img,
+        warrently: props.warrently,
+        quantity: quantity,
+      })
+    );
+    props.activeStepHandler();
   };
+
   return (
     <Box
       component="li"
@@ -37,17 +60,16 @@ const ModelData = (props) => {
       />
 
       <Stack>
-        <Typography
+        <MainTitle
           component="h2"
           sx={{
-            color: "#0A194E",
-            fontSize: "35px",
-            fontWeight: 700,
-            marginBottom: "12px",
+            m: 0,
+            textAlign: "left",
+            borderBottom: "1px solid #CEDDF2",
           }}
         >
           {props.title}{" "}
-        </Typography>
+        </MainTitle>
 
         <Box
           sx={{
@@ -64,7 +86,11 @@ const ModelData = (props) => {
           <div>
             <Typography
               component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px", fontWeight: 700 }}
+              sx={{
+                color: "custom.secondary",
+                fontSize: "15px",
+                fontWeight: 700,
+              }}
             >
               Model
             </Typography>
@@ -76,7 +102,11 @@ const ModelData = (props) => {
           <div>
             <Typography
               component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px", fontWeight: 700 }}
+              sx={{
+                color: "custom.secondary",
+                fontSize: "15px",
+                fontWeight: 700,
+              }}
             >
               Hash Rate
             </Typography>
@@ -89,7 +119,11 @@ const ModelData = (props) => {
           <div>
             <Typography
               component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px", fontWeight: 700 }}
+              sx={{
+                color: "custom.secondary",
+                fontSize: "15px",
+                fontWeight: 700,
+              }}
             >
               Power
             </Typography>
@@ -102,7 +136,11 @@ const ModelData = (props) => {
           <div>
             <Typography
               component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px", fontWeight: 700 }}
+              sx={{
+                color: "custom.secondary",
+                fontSize: "15px",
+                fontWeight: 700,
+              }}
             >
               Algorithm
             </Typography>
@@ -115,7 +153,11 @@ const ModelData = (props) => {
           <div>
             <Typography
               component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px", fontWeight: 700 }}
+              sx={{
+                color: "custom.secondary",
+                fontSize: "15px",
+                fontWeight: 700,
+              }}
             >
               Estimated Online Date
             </Typography>
@@ -128,7 +170,11 @@ const ModelData = (props) => {
           <div>
             <Typography
               component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px", fontWeight: 700 }}
+              sx={{
+                color: "custom.secondary",
+                fontSize: "15px",
+                fontWeight: 700,
+              }}
             >
               Warrenty
             </Typography>
@@ -141,7 +187,11 @@ const ModelData = (props) => {
           <div>
             <Typography
               component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px", fontWeight: 700 }}
+              sx={{
+                color: "custom.secondary",
+                fontSize: "15px",
+                fontWeight: 700,
+              }}
             >
               Conditions
             </Typography>
@@ -169,35 +219,33 @@ const ModelData = (props) => {
               gap: "20px",
             }}
           >
-            <FormControl sx={{ m: 1 }} variant="standard">
-              <Select
-                sx={{
-                  height: 40,
-                  width: "50px",
-                  textAlign: "center",
-                  border: "1px solid #2776EA",
-                  color: "#2776EA",
-                  fontSize: "18px",
-                  "& .MuiSvgIcon-root": {
-                    color: "#2776EA",
-                  },
-                }}
-                labelId="demo-simple-select-autowidth-label"
-                id="demo-simple-select-autowidth"
-                value={quantity}
-                onChange={quantityChangeHandler}
-                autoWidth
-                label="quantity"
+            <Box sx={{ display: "flex", alignItems: "center", gap: "20px" }}>
+              <Box
+                sx={counter}
+                onClick={() =>
+                  quantity === 1
+                    ? quantity === 1
+                    : setQuantity((currQ) => currQ - 1)
+                }
               >
-                <MenuItem value={1}>1</MenuItem>
-                <MenuItem value={2}>2</MenuItem>
-                <MenuItem value={3}>4</MenuItem>
-                <MenuItem value={4}>5</MenuItem>
-                <MenuItem value={5}>6</MenuItem>
-              </Select>
-            </FormControl>
+                -
+              </Box>
+              <Typography
+                componenet="span"
+                sx={{ fontSize: "25px", fontWeight: 500, color: "custom.main" }}
+              >
+                {quantity}
+              </Typography>
+              <Box
+                sx={counter}
+                onClick={() => setQuantity((currQ) => currQ + 1)}
+              >
+                +
+              </Box>
+            </Box>
+
             <Button
-              onClick={props.activeStepHandler}
+              onClick={addModelFarmHandler}
               type="button"
               variant="contained"
               sx={{

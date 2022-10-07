@@ -5,6 +5,7 @@ import { Stack } from "@mui/material";
 import { Box } from "@mui/material";
 import ActiveBillInform from "./ActiveBillInform";
 import InstallingStepper from "./InstallingStepper";
+import { MainTitle } from "../../customThemes";
 const BillDetail = (props) => {
   const {
     id,
@@ -67,15 +68,16 @@ const BillDetail = (props) => {
           }}
         >
           <div>
-            <Typography
-              component="h3"
-              sx={{ fontSize: "35px", fontWeight: 700, color: "#0A194E" }}
-            >
+            <MainTitle component="h2" sx={{ textAlign: "left", m: 0 }}>
               {title}{" "}
-            </Typography>
+            </MainTitle>
             <Typography
               component="span"
-              sx={{ fontSize: "22px", fontWeight: 700, color: "#A2BCDC" }}
+              sx={{
+                fontSize: "22px",
+                fontWeight: 700,
+                color: "custom.secondary",
+              }}
             >
               {location}
             </Typography>
@@ -102,12 +104,12 @@ const BillDetail = (props) => {
             }}
           >
             <Typography
-              sx={{ fontSize: "22px", fontWeight: 700, color: "#0A194E" }}
+              sx={{ fontSize: "22px", fontWeight: 700, color: "custom.main" }}
             >
               {remainingDays} Days
             </Typography>
             <Typography
-              sx={{ fontSize: "22px", fontWeight: 700, color: "#0A194E" }}
+              sx={{ fontSize: "22px", fontWeight: 700, color: "custom.main" }}
             >
               {days} Day Active
             </Typography>
@@ -154,12 +156,20 @@ const BillDetail = (props) => {
               }}
             >
               <Typography
-                sx={{ fontSize: "22px", color: "#A2BCDC", fontWeight: 500 }}
+                sx={{
+                  fontSize: "22px",
+                  color: "custom.secondary",
+                  fontWeight: 500,
+                }}
               >
                 0%
               </Typography>
               <Typography
-                sx={{ fontSize: "22px", color: "#A2BCDC", fontWeight: 500 }}
+                sx={{
+                  fontSize: "22px",
+                  color: "custom.secondary",
+                  fontWeight: 500,
+                }}
               >
                 100%
               </Typography>
@@ -176,13 +186,13 @@ const BillDetail = (props) => {
           <Box>
             <Typography
               component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px" }}
+              sx={{ color: "custom.secondary", fontSize: "15px" }}
             >
               Renovation Date
             </Typography>
             <Typography
               component="h3"
-              sx={{ color: "#0A194E", fontSize: "22px", fontWeight: 700 }}
+              sx={{ color: "custom.main", fontSize: "22px", fontWeight: 700 }}
             >
               {renovation}
             </Typography>
@@ -190,13 +200,13 @@ const BillDetail = (props) => {
           <Box>
             <Typography
               component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px" }}
+              sx={{ color: "custom.secondary", fontSize: "15px" }}
             >
               Model
             </Typography>
             <Typography
               component="h3"
-              sx={{ color: "#0A194E", fontSize: "22px", fontWeight: 700 }}
+              sx={{ color: "custom.main", fontSize: "22px", fontWeight: 700 }}
             >
               {model}
             </Typography>
@@ -204,13 +214,13 @@ const BillDetail = (props) => {
           <Box>
             <Typography
               component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px" }}
+              sx={{ color: "custom.secondary", fontSize: "15px" }}
             >
               Hash Rate
             </Typography>
             <Typography
               component="h3"
-              sx={{ color: "#0A194E", fontSize: "22px", fontWeight: 700 }}
+              sx={{ color: "custom.main", fontSize: "22px", fontWeight: 700 }}
             >
               {hashRate}
             </Typography>
@@ -218,13 +228,13 @@ const BillDetail = (props) => {
           <Box>
             <Typography
               component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px" }}
+              sx={{ color: "custom.secondary", fontSize: "15px" }}
             >
               Consumption
             </Typography>
             <Typography
               component="h3"
-              sx={{ color: "#0A194E", fontSize: "22px", fontWeight: 700 }}
+              sx={{ color: "custom.main", fontSize: "22px", fontWeight: 700 }}
             >
               {consumption}
             </Typography>
@@ -233,13 +243,13 @@ const BillDetail = (props) => {
             <Box>
               <Typography
                 component="span"
-                sx={{ color: "#A2BCDC", fontSize: "15px" }}
+                sx={{ color: "custom.secondary", fontSize: "15px" }}
               >
                 Serial Number
               </Typography>
               <Typography
                 component="h3"
-                sx={{ color: "#0A194E", fontSize: "22px", fontWeight: 700 }}
+                sx={{ color: "custom.main", fontSize: "22px", fontWeight: 700 }}
               >
                 {serialNum}
               </Typography>
@@ -250,7 +260,7 @@ const BillDetail = (props) => {
           <Typography
             component="p"
             sx={{
-              color: "#0A194E",
+              color: "custom.main",
               fontSize: "22px",
               fontWeight: 500,
               borderTop: "1px solid #CEDDF2",

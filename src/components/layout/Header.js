@@ -1,5 +1,5 @@
 import { Typography, Box } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const imgStyle = {
   width: "32.8px",
   height: "24.79px",
@@ -26,6 +26,7 @@ const liStyle = {
 const rightIconsStyle = {
   width: "29.17px",
   height: "29.17px",
+  cursor: "pointer",
 };
 
 const Header = () => {
@@ -43,27 +44,28 @@ const Header = () => {
         top: "0",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
-        gap: "213.92px",
+        justifyContent: "flex-start",
+        gap: "130px",
         backgroundColor: "#011B41",
         padding: "0 27px",
         "z-index": 10,
       }}
     >
-      <nav>
-        <Box
-          component="ul"
-          sx={{ display: "flex", gap: "119.29px", alignItems: "center" }}
-        >
-          <Box component="li" sx={{ width: "246px", height: "93px" }}>
+      <Box component="nav" sx={{ display: "flex" }}>
+        <Box sx={{ width: "264px", height: "93px", marginRight: "110px" }}>
+          <Link to="/dashboard">
             <Box
               component="img"
-              sx={{ width: 1 }}
+              sx={{ width: 1, display: "block" }}
               src="/images/logo.png"
               alt="logo"
             />
-          </Box>
-
+          </Link>
+        </Box>
+        <Box
+          component="ul"
+          sx={{ display: "flex", gap: "50px", alignItems: "center" }}
+        >
           <Box component="li" sx={liStyle}>
             <Box
               component="img"
@@ -136,7 +138,7 @@ const Header = () => {
             </Box>
           </Box>
         </Box>
-      </nav>
+      </Box>
 
       {/* second NAV */}
       <nav>

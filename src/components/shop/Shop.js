@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { Stack, Button } from "@mui/material";
+import { Stack } from "@mui/material";
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
 import MuiLayout from "../layout/MuiLayout";
+import { CustomButton, MainTitle, PageTitle } from "../../customThemes";
 
 const DUMMY_DATA = [
   {
@@ -24,12 +25,6 @@ const DUMMY_DATA = [
 ];
 
 //style
-const typographyStyle = {
-  fontWeight: 700,
-  fontSize: "35px",
-  lineHeight: "133.4%",
-  color: "#0A194E",
-};
 
 const Shop = () => {
   const navigate = useNavigate();
@@ -41,9 +36,7 @@ const Shop = () => {
 
   return (
     <MuiLayout>
-      <Typography component="h1" sx={typographyStyle}>
-        Market Place
-      </Typography>
+      <PageTitle component="h1">Market Place</PageTitle>
 
       <Box
         sx={{ display: "flex", gap: "55px", marginTop: "36px", width: "692px" }}
@@ -58,25 +51,14 @@ const Shop = () => {
                 sx={{ width: "688px", height: "205px" }}
               />
               <Box sx={{ background: "#fff", textAlign: "center" }}>
-                <Typography
-                  component="h3"
-                  sx={{
-                    fontWeight: 700,
-                    fontSize: "35px",
-                    textAlign: "center",
-                    color: " #0A194E",
-                    margin: "31px 0 21px",
-                  }}
-                >
-                  {data.title}{" "}
-                </Typography>
+                <MainTitle component="h3">{data.title}</MainTitle>
                 <Typography
                   component="p"
                   sx={{
                     fontSize: "24px",
                     fontWeight: 500,
                     lineHeight: "133.4%",
-                    color: "#0A194E",
+                    color: "custom.main",
                     marginBottom: "31px",
                   }}
                 >
@@ -88,7 +70,7 @@ const Shop = () => {
                   sx={{
                     fontSize: 60,
                     fontWeight: 400,
-                    color: "#0A194E",
+                    color: "custom.main",
                     lineHeight: 1,
                   }}
                 >
@@ -96,33 +78,21 @@ const Shop = () => {
                 </Typography>
                 <Typography
                   component="span"
-                  sx={{ fontWeight: 500, color: "#0A194E" }}
+                  sx={{ fontWeight: 500, color: "custom.main" }}
                 >
                   Miners
                 </Typography>
-                <Button
-                  onClick={routeHandler}
+                <CustomButton
+                  onClick={data.title === "ASIC" ? routeHandler : ""}
                   type="submit"
                   variant="contained"
                   sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    margin: "56px auto 42px",
-                    padding: "0px",
                     width: 602,
-                    height: "55px",
-                    background: "#2776EA",
-                    fontSize: "20px",
-                    fontWeight: "600",
-                    lineHeight: "26px",
-                    letterSpacing: "0.46px",
-                    textTransform: "uppercase",
+                    m: "54px 45px 42px",
                   }}
                 >
                   Continue
-                </Button>
+                </CustomButton>
               </Box>
             </Stack>
           );

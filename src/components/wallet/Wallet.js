@@ -1,29 +1,25 @@
 import { useState } from "react";
-import { Box, Tab, Typography } from "@mui/material";
+import { Box, Tab } from "@mui/material";
 import { TabPanel, TabContext, TabList } from "@mui/lab";
 
 import MuiLayout from "../layout/MuiLayout";
 import BTCWallet from "./BTC wallet/BTCWallet";
 import FIATWallet from "./FIAT wallet/FIATWallet";
-const typographyStyle = {
-  fontWeight: 700,
-  fontSize: "35px",
-  lineHeight: "133.4%",
-  color: "#0A194E",
-};
+import { PageTitle } from "../../customThemes";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../store/ui-slice";
 
 const Wallet = () => {
-  const [tabValue, setTabValue] = useState("1");
+  const tabValue = useSelector((state) => state.uiReducer.tabValue);
+  const dispatch = useDispatch();
 
   const handleChange = (event, newValue) => {
-    setTabValue(newValue);
+    dispatch(uiActions.changeTab(newValue));
   };
 
   return (
     <MuiLayout>
-      <Typography component="h1" sx={typographyStyle}>
-        Wallet
-      </Typography>
+      <PageTitle component="h1">Wallet</PageTitle>
 
       <TabContext value={tabValue}>
         <Box sx={{ borderBottom: "2px solid #CEDDF2" }}>

@@ -1,17 +1,39 @@
 import { Box, Typography, Button, Stack } from "@mui/material";
+import { MainTitle } from "../../../customThemes";
+
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../../store/cart-slice";
+
+/*start style*/
 const titleStyle = {
   fontSize: "16px",
-  color: "#A2BCDC",
+  color: "custom.secondary",
   fontWeight: 600,
 };
 
 const detailStyle = {
   letterSpacing: "0.17px",
-  color: "#0A194E",
+  color: "custom.main",
   fontSize: "22px",
   fontWeight: 600,
 };
+
+/*end style*/
+
 const Farm = ({ data, activeStepHandler }) => {
+  const dispatch = useDispatch();
+
+  const addSelectedFarmHandler = () => {
+    dispatch(
+      cartActions.addFarm({
+        title: data.title,
+        fee: data["setup-fee"],
+        location: data.location,
+      })
+    );
+    activeStepHandler();
+  };
+
   return (
     <Box
       sx={{
@@ -70,17 +92,16 @@ const Farm = ({ data, activeStepHandler }) => {
       </Stack>
 
       <Box sx={{ background: "#fff", width: 1058, marginTop: "20px" }}>
-        <Typography
+        <MainTitle
           component="h2"
           sx={{
-            fontSize: 35,
-            fontWeight: 700,
-            color: "#0A194E",
+            m: 0,
+            textAlign: "left",
             borderBottom: "1px solid #CEDDF2",
           }}
         >
           {data.title}{" "}
-        </Typography>
+        </MainTitle>
 
         <Box>
           <Stack
@@ -193,7 +214,7 @@ const Farm = ({ data, activeStepHandler }) => {
             <Button
               variant="contained"
               sx={{ width: "203px", height: "42px" }}
-              onClick={activeStepHandler}
+              onClick={addSelectedFarmHandler}
             >
               SELECT FARM
             </Button>

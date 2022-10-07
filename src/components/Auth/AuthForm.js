@@ -1,5 +1,6 @@
 import { Box, Typography, TextField, Button, Link } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { CustomButton } from "../../customThemes";
 
 import CancleIcon from "../icons/CancleIcon";
 
@@ -8,7 +9,7 @@ const AuthForm = () => {
 
   //main page route
   const routeHandler = () => {
-    navigate("/shop");
+    navigate("/dashboard");
   };
 
   const containerCss = {
@@ -34,7 +35,6 @@ const AuthForm = () => {
     width: "647px",
     height: "614px",
     margin: "150px auto",
-
     background: "#FFFFFF",
     border: " 2px solid #2776EA",
   };
@@ -56,7 +56,7 @@ const AuthForm = () => {
         variant="h5"
         component="h1"
         sx={{
-          color: "#0A194E",
+          color: "custom.main",
           fontSize: "30px",
           fontWeight: 700,
           textAlign: "center",
@@ -104,26 +104,16 @@ const AuthForm = () => {
           />
         </Box>
         <Box sx={containerCss}>
-          <Button
+          <CustomButton
             type="submit"
             variant="contained"
             sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
               width: 1,
               height: "55px",
-              background: "#2776EA",
-              fontSize: "20px",
-              fontWeight: "600",
-              lineHeight: "26px",
-              letterSpacing: "0.46px",
-              textTransform: "uppercase",
             }}
           >
             SIGN UP
-          </Button>
+          </CustomButton>
         </Box>
         <Box
           sx={{
@@ -139,7 +129,7 @@ const AuthForm = () => {
             sx={{
               textAlign: "center",
               letterSpacing: "0.46px",
-              color: "#0A194E",
+              color: "custom.main",
               fontSize: "20px",
               fontWeight: 600,
               lineHeight: "26px",

@@ -1,8 +1,6 @@
-import { Typography, Button, Box, Stack, Tab } from "@mui/material";
-import Deposits from "./deposit/Deposits";
-
+import { Typography, Button, Box, Stack } from "@mui/material";
+import { SubTitle, BoxContent, CustomSpan } from "../../../customThemes";
 import Table from "./Table";
-import Withdrawal from "./withdrawal/Withdrawal";
 
 const DUMMY_DATA = [
   {
@@ -11,29 +9,7 @@ const DUMMY_DATA = [
     value: "$300",
     recommended: "Recommended amount in balance $400",
   },
-  {
-    id: "d2",
-    title: "Advertisement",
-    value: "$150",
-  },
 ];
-const boxStyle = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  flexDirection: "column",
-  border: "2px solid #CEDDF2",
-  width: "322px",
-  height: "149px",
-  background: "#fff",
-};
-const h3Style = {
-  fontSize: "22px",
-  color: "#A2BCDC",
-  fontWeight: 700,
-  lineHeight: "33px",
-  marginBottom: "10px",
-};
 
 const btnStyle = {
   background: "#fff",
@@ -55,27 +31,15 @@ const FIATWallet = () => {
         sx={{
           display: "flex",
           alignItems: "center",
-
-          justifyContent: "space-between",
+          gap: "36px",
         }}
       >
         <Box sx={{ display: "flex", alignItems: "flex-end", gap: "50px" }}>
           {DUMMY_DATA.map((data) => {
             return (
-              <Box sx={boxStyle} key={data.id}>
-                <Typography component="h3" sx={h3Style}>
-                  {data.title}
-                </Typography>
-                <Typography
-                  component="span"
-                  sx={{
-                    fontSize: "35px",
-                    color: "#0A194E",
-                    fontWeight: 700,
-                  }}
-                >
-                  {data.value}
-                </Typography>
+              <BoxContent key={data.id}>
+                <SubTitle component="h3">{data.title}</SubTitle>
+                <CustomSpan component="span">{data.value}</CustomSpan>
                 {data.recommended && (
                   <Typography
                     sx={{
@@ -84,11 +48,10 @@ const FIATWallet = () => {
                       fontWeight: "600",
                     }}
                   >
-                    {" "}
                     {data.recommended}{" "}
                   </Typography>
                 )}
-              </Box>
+              </BoxContent>
             );
           })}
         </Box>

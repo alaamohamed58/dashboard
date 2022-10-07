@@ -1,15 +1,31 @@
+import { useSelector, useDispatch } from "react-redux";
+
 import { Typography, Box, Stack, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { cartActions } from "../../store/cart-slice";
 
-const summaryStyle = { fontWeight: 700, fontSize: "30px", color: "#0A194E" };
+const summaryStyle = {
+  fontWeight: 700,
+  fontSize: "30px",
+  color: "custom.main",
+};
 
 const Confirmation = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  let model = useSelector((state) => state.cartReducer.model);
+  let plan = useSelector((state) => state.cartReducer.plan);
+  let farm = useSelector((state) => state.cartReducer.farm);
+
+  let powerPrice = plan.power.replace(/[^0-9 .]/g, "");
+
+  let total = +farm.setupFee + +model.price + +powerPrice;
   const checkoutPageHandler = () => {
+    dispatch(cartActions.addCartItems());
+
     navigate("/shop/checkout");
   };
-
   return (
     <Stack
       sx={{
@@ -38,7 +54,7 @@ const Confirmation = () => {
             sx={{
               fontSize: "35px",
               fontWeight: 700,
-              color: "#0A194E",
+              color: "custom.main",
               margin: "26px 47px 0",
               borderBottom: "1px solid #CEDDF2",
               paddingBottom: "21px",
@@ -63,15 +79,19 @@ const Confirmation = () => {
                 }}
               >
                 <Typography component="h3" sx={summaryStyle}>
-                  Power Model 001
+                  {model.model}
                 </Typography>
                 <Typography component="span" sx={summaryStyle}>
-                  $2000
+                  ${model.price}
                 </Typography>
               </Box>
               <Typography
                 component="span"
-                sx={{ color: "#A2BCDC", fontSize: "22px", fontWeight: 500 }}
+                sx={{
+                  color: "custom.secondary",
+                  fontSize: "22px",
+                  fontWeight: 500,
+                }}
               >
                 Model
               </Typography>
@@ -92,15 +112,19 @@ const Confirmation = () => {
                 }}
               >
                 <Typography component="h3" sx={summaryStyle}>
-                  Half Year Plan
+                  {plan.plan}
                 </Typography>
                 <Typography component="span" sx={summaryStyle}>
-                  $0.095/Kw
+                  {plan.power}
                 </Typography>
               </Box>
               <Typography
                 component="span"
-                sx={{ color: "#A2BCDC", fontSize: "22px", fontWeight: 500 }}
+                sx={{
+                  color: "custom.secondary",
+                  fontSize: "22px",
+                  fontWeight: 500,
+                }}
               >
                 Electricity Plan
               </Typography>
@@ -123,12 +147,16 @@ const Confirmation = () => {
                   Installement Charges
                 </Typography>
                 <Typography component="span" sx={summaryStyle}>
-                  $1200
+                  ${farm.setupFee}
                 </Typography>
               </Box>
               <Typography
                 component="span"
-                sx={{ color: "#A2BCDC", fontSize: "22px", fontWeight: 500 }}
+                sx={{
+                  color: "custom.secondary",
+                  fontSize: "22px",
+                  fontWeight: 500,
+                }}
               >
                 Setup Fee
               </Typography>
@@ -146,7 +174,7 @@ const Confirmation = () => {
                   Total
                 </Typography>
                 <Typography component="span" sx={summaryStyle}>
-                  $3200.095
+                  ${total}
                 </Typography>
               </Box>
             </Box>
@@ -155,7 +183,7 @@ const Confirmation = () => {
         <Button
           variant="contained"
           sx={{
-            background: "#2776EA",
+            background: "custom.main",
             width: 1,
             height: "55px",
             margin: "17px 0",
@@ -171,10 +199,9 @@ const Confirmation = () => {
             background: "#fff",
             width: 1,
             height: "55px",
-
             fontSize: "24px",
-            color: "#2776EA",
-            border: "2px solid #2776EA",
+            color: "custom.main",
+            border: "2px solid custom.main",
           }}
         >
           Proceed to checkout{" "}

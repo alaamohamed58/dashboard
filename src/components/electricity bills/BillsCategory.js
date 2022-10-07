@@ -1,23 +1,6 @@
-import { Stack, Box, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
+import { BoxContent, SubTitle } from "../../customThemes";
 
-const contentStyle = {
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  background: "#FFFFFF",
-  border: "2px solid #CEDDF2",
-  width: "322px",
-  height: "149px",
-};
-
-const h3Style = {
-  fontSize: "22px",
-  color: "#A2BCDC",
-  fontWeight: 700,
-  lineHeight: "33px",
-  marginBottom: "10px",
-};
 const BillsCategory = () => {
   return (
     <Stack
@@ -28,10 +11,8 @@ const BillsCategory = () => {
         marginTop: "40px",
       }}
     >
-      <Box sx={contentStyle}>
-        <Typography component="h3" sx={h3Style}>
-          Expected Bill
-        </Typography>
+      <BoxContent>
+        <SubTitle component="h3">Expected Bill</SubTitle>
 
         <Typography
           component="span"
@@ -43,11 +24,9 @@ const BillsCategory = () => {
         >
           ₿17.000
         </Typography>
-      </Box>
-      <Box sx={contentStyle}>
-        <Typography component="h3" sx={h3Style}>
-          Next Payment
-        </Typography>
+      </BoxContent>
+      <BoxContent>
+        <SubTitle component="h3">Next Payment</SubTitle>
 
         <Typography
           component="span"
@@ -59,11 +38,9 @@ const BillsCategory = () => {
         >
           05/07/2022
         </Typography>
-      </Box>
-      <Box sx={contentStyle}>
-        <Typography component="h3" sx={h3Style}>
-          Last Bill
-        </Typography>
+      </BoxContent>
+      <BoxContent>
+        <SubTitle component="h3">Last Bill</SubTitle>
 
         <Typography
           component="span"
@@ -75,11 +52,9 @@ const BillsCategory = () => {
         >
           $15783
         </Typography>
-      </Box>
-      <Box sx={contentStyle}>
-        <Typography component="h3" sx={h3Style}>
-          Unpaid Bill
-        </Typography>
+      </BoxContent>
+      <BoxContent>
+        <SubTitle component="h3">Unpaid Bill</SubTitle>
 
         <Typography
           component="span"
@@ -97,7 +72,7 @@ const BillsCategory = () => {
         >
           Due to Date 05/05/2023
         </Typography>
-      </Box>
+      </BoxContent>
     </Stack>
   );
 };

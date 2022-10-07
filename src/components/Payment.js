@@ -1,6 +1,7 @@
 import { Stack, Box, Typography, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { CustomButton, PageTitle } from "../customThemes";
 import MuiLayout from "./layout/MuiLayout";
 
 const BoxStyle = {
@@ -16,19 +17,8 @@ const BoxStyle = {
   border: "2px solid #CEDDF2",
 };
 
-const btnStyle = {
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "flex-end",
-  alignItems: "center",
-
-  width: "271px",
-  height: "42px",
-
-  background: "#2776EA",
-};
 const titleStyle = {
-  color: "#0A194E",
+  color: "custom.main",
   fontSize: "22px",
   fontWeight: 500,
 };
@@ -41,17 +31,9 @@ const Payment = () => {
 
   return (
     <MuiLayout>
-      <Typography
-        component="h2"
-        sx={{
-          color: "#0A194E",
-          fontSize: "35px",
-          marginBottom: "40px",
-          fontWeight: 700,
-        }}
-      >
+      <PageTitle sx={{ mb: "36px" }} component="h2">
         Select Payment Method
-      </Typography>
+      </PageTitle>
       <Stack sx={{ flexDirection: "row", gap: "40px" }}>
         <Box sx={BoxStyle}>
           <Box
@@ -62,13 +44,13 @@ const Payment = () => {
           <Typography component="h3" sx={titleStyle}>
             Wire Transfer
           </Typography>
-          <Button
+          <CustomButton
             variant="contained"
-            sx={btnStyle}
+            sx={{ width: "271px", height: "42px" }}
             onClick={notificationPageHandler}
           >
             wire transfer
-          </Button>
+          </CustomButton>
         </Box>
 
         <Box sx={BoxStyle}>
@@ -76,13 +58,13 @@ const Payment = () => {
           <Typography component="h3" sx={titleStyle}>
             Credit/Debit Card
           </Typography>
-          <Button
+          <CustomButton
             variant="contained"
-            sx={btnStyle}
+            sx={{ width: "271px", height: "42px" }}
             onClick={notificationPageHandler}
           >
             Card
-          </Button>
+          </CustomButton>
         </Box>
 
         <Box sx={BoxStyle}>
@@ -94,13 +76,13 @@ const Payment = () => {
           <Typography component="h3" sx={titleStyle}>
             Bitcoin
           </Typography>
-          <Button
+          <CustomButton
             variant="contained"
-            sx={btnStyle}
+            sx={{ width: "271px", height: "42px" }}
             onClick={notificationPageHandler}
           >
             BTC
-          </Button>
+          </CustomButton>
         </Box>
 
         <Box sx={BoxStyle}>
@@ -108,13 +90,13 @@ const Payment = () => {
           <Typography component="h3" sx={titleStyle}>
             tether
           </Typography>
-          <Button
+          <CustomButton
             variant="contained"
-            sx={btnStyle}
+            sx={{ width: "271px", height: "42px" }}
             onClick={notificationPageHandler}
           >
             USDT
-          </Button>
+          </CustomButton>
         </Box>
       </Stack>
     </MuiLayout>
