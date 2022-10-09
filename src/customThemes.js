@@ -6,6 +6,7 @@ export const PageTitle = styled(Typography)({
   fontSize: "35px",
   lineHeight: "133.4%",
   color: "#0A194E",
+  textAlign: { xs: "center" },
 });
 
 export const SubTitle = styled(Typography)({
@@ -41,9 +42,9 @@ export const CustomButton = styled(Button)({
   //   margin: "56px auto 42px",
   padding: "0px",
   width: 602,
-  height: "55px",
+  height: { xs: "42px", lg: "55px" },
   background: "#2776EA",
-  fontSize: "20px",
+  fontSize: { xs: "13px", lg: "20px" },
   fontWeight: "600",
   lineHeight: "26px",
   letterSpacing: "0.46px",
@@ -52,7 +53,7 @@ export const CustomButton = styled(Button)({
 
 export const MainTitle = styled(Typography)({
   fontWeight: 700,
-  fontSize: "35px",
+  fontSize: { xs: "20px", lg: "35px" },
   textAlign: "center",
   color: "#0A194E",
   margin: "31px 0 21px",

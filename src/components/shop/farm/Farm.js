@@ -6,7 +6,7 @@ import { cartActions } from "../../../store/cart-slice";
 
 /*start style*/
 const titleStyle = {
-  fontSize: "16px",
+  fontSize: { xs: "12px", lg: "16px" },
   color: "custom.secondary",
   fontWeight: 600,
 };
@@ -14,7 +14,7 @@ const titleStyle = {
 const detailStyle = {
   letterSpacing: "0.17px",
   color: "custom.main",
-  fontSize: "22px",
+  fontSize: { xs: "12px", lg: "16px", xl: "22px" },
   fontWeight: 600,
 };
 
@@ -38,6 +38,8 @@ const Farm = ({ data, activeStepHandler }) => {
     <Box
       sx={{
         display: "flex",
+        padding: { xs: "12px", lg: "0" },
+        flexDirection: { xs: "column", lg: "row" },
         gap: "23px",
         marginTop: "61px",
         background: "#fff",
@@ -91,7 +93,13 @@ const Farm = ({ data, activeStepHandler }) => {
         </Typography>
       </Stack>
 
-      <Box sx={{ background: "#fff", width: 1058, marginTop: "20px" }}>
+      <Box
+        sx={{
+          background: "#fff",
+          width: { xs: "100%", xl: 1058 },
+          marginTop: "20px",
+        }}
+      >
         <MainTitle
           component="h2"
           sx={{
@@ -106,9 +114,10 @@ const Farm = ({ data, activeStepHandler }) => {
         <Box>
           <Stack
             sx={{
-              flexDirection: "row",
+              flexDirection: { xs: "column", xl: "row" },
               flexWrap: "wrap",
-              gap: "50px",
+
+              gap: { xs: "15px", xl: "50px" },
               marginTop: "10px",
             }}
           >

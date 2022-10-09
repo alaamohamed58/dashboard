@@ -6,7 +6,11 @@ import { Button } from "@mui/material";
 import { MainTitle } from "../../customThemes";
 import { cartActions } from "../../store/cart-slice";
 
-const h3Style = { color: "#0A194E", fontSize: "22px", fontWeight: 700 },
+const h3Style = {
+    color: "#0A194E",
+    fontSize: { xs: "14px", xl: "22px" },
+    fontWeight: 700,
+  },
   counter = {
     height: "30px",
     width: "30px",
@@ -21,6 +25,11 @@ const h3Style = { color: "#0A194E", fontSize: "22px", fontWeight: 700 },
     fontWeight: 700,
     cursor: "pointer",
     "user-select": "none",
+  },
+  spanStyle = {
+    color: "custom.secondary",
+    fontSize: { xs: "12px", xl: "15px" },
+    fontWeight: 700,
   };
 
 const ModelData = (props) => {
@@ -47,6 +56,7 @@ const ModelData = (props) => {
         padding: "30px",
         display: "flex",
         alignItems: "center",
+        flexDirection: { xs: "column", xl: "row" },
         gap: "30px",
         border: "2px solid #CEDDF2",
         background: "#fff",
@@ -59,7 +69,7 @@ const ModelData = (props) => {
         sx={{ display: "inline-block", width: "263.18px" }}
       />
 
-      <Stack>
+      <Stack sx={{ width: 1 }}>
         <MainTitle
           component="h2"
           sx={{
@@ -76,7 +86,8 @@ const ModelData = (props) => {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "flex-start",
-            gap: "30px 112px",
+            flexDirection: { xs: "column", xl: "row" },
+            gap: { xs: "10px 50px", xl: "30px 112px" },
             border: "1px solid #CEDDF2",
             borderLeft: "none",
             borderRight: "none",
@@ -134,14 +145,7 @@ const ModelData = (props) => {
           </div>
 
           <div>
-            <Typography
-              component="span"
-              sx={{
-                color: "custom.secondary",
-                fontSize: "15px",
-                fontWeight: 700,
-              }}
-            >
+            <Typography component="span" sx={spanStyle}>
               Algorithm
             </Typography>
             <Typography component="h3" sx={h3Style}>
@@ -151,14 +155,7 @@ const ModelData = (props) => {
           </div>
 
           <div>
-            <Typography
-              component="span"
-              sx={{
-                color: "custom.secondary",
-                fontSize: "15px",
-                fontWeight: 700,
-              }}
-            >
+            <Typography component="span" sx={spanStyle}>
               Estimated Online Date
             </Typography>
             <Typography component="h3" sx={h3Style}>
@@ -168,14 +165,7 @@ const ModelData = (props) => {
           </div>
 
           <div>
-            <Typography
-              component="span"
-              sx={{
-                color: "custom.secondary",
-                fontSize: "15px",
-                fontWeight: 700,
-              }}
-            >
+            <Typography component="span" sx={spanStyle}>
               Warrenty
             </Typography>
             <Typography component="h3" sx={h3Style}>
@@ -185,14 +175,7 @@ const ModelData = (props) => {
           </div>
 
           <div>
-            <Typography
-              component="span"
-              sx={{
-                color: "custom.secondary",
-                fontSize: "15px",
-                fontWeight: 700,
-              }}
-            >
+            <Typography component="span" sx={spanStyle}>
               Conditions
             </Typography>
             <Typography component="h3" sx={h3Style}>
@@ -214,8 +197,10 @@ const ModelData = (props) => {
           <Box
             sx={{
               display: "flex",
+              flexWrap: "wrap",
+
               alignItems: "center",
-              justifyContent: "space-between",
+              justifyContent: { xs: "center", xl: "space-between" },
               gap: "20px",
             }}
           >

@@ -1,50 +1,46 @@
 import { Link } from "react-router-dom";
 import { Box } from "@mui/material";
+
+const tdStyle = {
+  marginRight: { xs: 0, xl: "90px" },
+  width: "auto",
+  color: "#000",
+};
 const HistoryProfitData = ({ data }) => {
   return (
     <Box
       component="tr"
       sx={{
         display: "flex",
+        gap: {
+          xs: "47px",
+          md: "70px",
+          lg: "63px",
+        },
         color: "#0A194E",
-        fontSize: "22px",
+        fontSize: { sm: "12px", lg: "15px" },
         fontWeight: 400,
         paddingTop: "23px",
         paddingBottom: "10px",
         borderBottom: "2px solid #CEDDF2",
       }}
     >
-      <Box component="td" sx={{ marginRight: "147px", width: "91px" }}>
+      <Box component="td" sx={tdStyle}>
         {data.BTC}
       </Box>
-      <Box component="td" sx={{ marginRight: "90px", width: "193px" }}>
+      <Box component="td" sx={tdStyle}>
         {data["data & time"]}
       </Box>
-      <Box component="td" sx={{ marginRight: "128px", width: "110px" }}>
+      <Box component="td" sx={tdStyle}>
         {data.ASIC}
       </Box>
-      <Box component="td" sx={{ marginRight: "180px", width: "65px" }}>
+      <Box component="td" sx={tdStyle}>
         {data["shared miners"]}
       </Box>
-      <Box
-        component="td"
-        sx={{
-          marginRight: "90px",
-          width: "65px",
-          color: "#2776EA",
-          textDecoration: "underline",
-        }}
-      >
+      <Box component="td" sx={tdStyle}>
         <Link to="wallet"> Detail </Link>
       </Box>
-      <Box
-        component="td"
-        sx={{
-          width: "65px",
-          color: "#2776EA",
-          textDecoration: "underline",
-        }}
-      >
+      <Box component="td" sx={tdStyle}>
         <Link to="wallet"> Download </Link>
       </Box>
     </Box>

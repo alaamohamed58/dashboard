@@ -18,7 +18,12 @@ const ElectricityData = ({ data, activeStepHandler }) => {
   return (
     <Box
       component="li"
-      sx={{ display: "flex", marginBottom: "51px", background: "#fff" }}
+      sx={{
+        display: "flex",
+        flexDirection: { xs: "column", xl: "row" },
+        marginBottom: "51px",
+        background: "#fff",
+      }}
     >
       <Box
         component="img"
@@ -27,10 +32,19 @@ const ElectricityData = ({ data, activeStepHandler }) => {
         sx={{ display: "inline-block", width: "354px", marginRight: "22px" }}
       />
 
-      <Stack sx={{ padding: "20px 0", width: "1058px" }}>
+      <Stack
+        sx={{
+          padding: { xs: "20px 10px", xl: "20px 0" },
+          width: { xs: "auto", xl: "1058px" },
+        }}
+      >
         <Typography
           component="h2"
-          sx={{ fontSize: "35px", fontWeight: 700, color: "custom.main" }}
+          sx={{
+            fontSize: { xs: "22px", lg: "26px", xl: "35px" },
+            fontWeight: 700,
+            color: "custom.main",
+          }}
         >
           {data.title}
         </Typography>

@@ -14,10 +14,10 @@ const DUMMY_DATA = [
 const btnStyle = {
   background: "#fff",
   border: "2px solid #2776EA",
-  width: "195.43px",
-  height: "71px",
+  width: { xs: "auto", xl: "195.43px" },
+  height: { xs: "auto", xl: "71px" },
   color: "#2776EA",
-  fontSize: "24px",
+  fontSize: { xs: "15px", xl: "24px" },
   fontWeight: 600,
   "&:hover": {
     background: "unset",
@@ -30,7 +30,8 @@ const FIATWallet = () => {
       <Box
         sx={{
           display: "flex",
-          alignItems: "center",
+          flexDirection: { xs: "column", xl: "row" },
+          alignItems: { xs: "flex-start", xl: "center" },
           gap: "36px",
         }}
       >

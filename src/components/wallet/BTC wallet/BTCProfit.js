@@ -21,13 +21,23 @@ const BTCProfit = () => {
     <Box
       sx={{
         background: "#fff",
-        marginTop: "51px",
-        width: "1437px",
+        margin: "51px auto",
+        width: {
+          sm: "525px",
+          md: "700px",
+          xl: "900px",
+        },
         border: " 2px solid #CEDDF2",
-        padding: "40px 49px",
+        padding: { xs: "40px 10px", xl: "40px 49px" },
       }}
     >
-      <Typography sx={{ fontSize: "35px", fontWeight: 700, color: "#0A194E" }}>
+      <Typography
+        sx={{
+          fontSize: { xs: "22px", xl: "35px" },
+          fontWeight: 700,
+          color: "#0A194E",
+        }}
+      >
         BTC Profit
       </Typography>
       <VictoryChart domain={{ x: [0, 12] }}>

@@ -45,10 +45,10 @@ const BillDetail = (props) => {
           display: "inline-block",
           width: "142.08px",
           height: "143px",
-          margin: "69px 36px",
+          margin: { xs: "29px 10px", xl: "69px 36px" },
         }}
       ></Box>
-      <Stack sx={{ width: 1, padding: "39px 56px" }}>
+      <Stack sx={{ width: 1, padding: { xs: "29px 10px", xl: "69px 36px" } }}>
         <Box
           sx={{
             display: "flex",
@@ -59,13 +59,21 @@ const BillDetail = (props) => {
           <div>
             <Typography
               component="h3"
-              sx={{ fontSize: "35px", fontWeight: 700, color: "#0A194E" }}
+              sx={{
+                fontSize: { xs: "22px", xl: "35px" },
+                fontWeight: 700,
+                color: "#0A194E",
+              }}
             >
-              {title}{" "}
+              {title}
             </Typography>
             <Typography
               component="span"
-              sx={{ fontSize: "22px", fontWeight: 700, color: "#A2BCDC" }}
+              sx={{
+                fontSize: { xs: "12px", xl: "22px" },
+                fontWeight: 700,
+                color: "#A2BCDC",
+              }}
             >
               {location}
             </Typography>
@@ -100,12 +108,20 @@ const BillDetail = (props) => {
             }}
           >
             <Typography
-              sx={{ fontSize: "22px", fontWeight: 700, color: "#0A194E" }}
+              sx={{
+                fontSize: { xs: "16px", xl: "22px" },
+                fontWeight: 700,
+                color: "#0A194E",
+              }}
             >
               {remainingDays} Days
             </Typography>
             <Typography
-              sx={{ fontSize: "22px", fontWeight: 700, color: "#0A194E" }}
+              sx={{
+                fontSize: { xs: "16px", xl: "22px" },
+                fontWeight: 700,
+                color: "#0A194E",
+              }}
             >
               {days} Day Active
             </Typography>

@@ -68,50 +68,20 @@ const Deposits = () => {
   return (
     <Fragment>
       <Box component="table" sx={{ width: 1 }}>
-        <Box
-          component="thead"
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            color: "#0A194E",
-            fontSize: "22px",
-            fontWeight: 600,
-            borderBottom: "2px solid #CEDDF2",
-            paddingBottom: "10px",
-          }}
-        >
-          <Box
-            component="tr"
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "1",
-            }}
-          >
-            <Box component="th" sx={{ width: "143px" }}>
-              Date & Time
-            </Box>
-            <Box component="th" sx={{ width: "157px" }}>
-              Amount
-            </Box>
-            <Box component="th" sx={{ width: "174px" }}>
-              Via
-            </Box>
+        <Box component="tr" sx={{ display: "flex", gap: "45px" }}>
+          <Box component="th">Date & Time</Box>
+          <Box component="th">Amount</Box>
+          <Box component="th">Via</Box>
 
-            <Box component="th" sx={{ width: "65px" }}>
-              Details
-            </Box>
-            <Box component="th" sx={{ width: "65px" }}>
-              Download
-            </Box>
-          </Box>
+          <Box component="th">Details</Box>
+          <Box component="th">Download</Box>
         </Box>
+      </Box>
 
-        <Box component="tbody">
-          {currentItems.map((data) => {
-            return <DepositsData data={data} key={data.id} />;
-          })}
-        </Box>
+      <Box component="tbody">
+        {currentItems.map((data) => {
+          return <DepositsData data={data} key={data.id} />;
+        })}
       </Box>
 
       <ReactPaginate

@@ -44,13 +44,14 @@ const Dashboard = () => {
       </Typography>
       <Categories />
 
-      <Stack sx={{ flexDirection: "row", gap: "50px" }}>
+      <Stack sx={{ flexDirection: { xl: "row" }, gap: "50px" }}>
         <Box
           sx={{
-            width: "1066px",
+            width: { xs: "400px", sm: "auto", lg: "100%", xl: "1066px" },
             height: "645px",
             border: "2px solid #CEDDF2",
             background: "#Fff",
+            margin: "auto",
           }}
         >
           <TabContext value={tabValue}>

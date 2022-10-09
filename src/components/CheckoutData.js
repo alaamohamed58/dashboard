@@ -11,7 +11,7 @@ const CheckoutData = (props) => {
     dispatch(cartActions.removeItem(props.id));
   };
 
-  //console.log(props.price);
+
 
   return (
     <Box

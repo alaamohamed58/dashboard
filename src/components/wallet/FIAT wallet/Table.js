@@ -17,16 +17,16 @@ const Table = () => {
     <Box
       sx={{
         background: "#fff",
-        marginTop: "51px",
-        width: "1437px",
+        margin: "51px auto",
+        width: { xs: "auto", xl: "1437px" },
         border: " 2px solid #CEDDF2",
-        padding: "40px 49px",
+        padding: { xs: "40px 10px", xl: "40px 49px" },
       }}
     >
       <Typography
         component="h2"
         sx={{
-          fontSize: "35px",
+          fontSize: { xs: "22px", xl: "35px" },
           fontWeight: 700,
           color: "#0A194E",
           marginBottom: "65px",

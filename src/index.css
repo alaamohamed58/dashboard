@@ -86,3 +86,14 @@ tspan {
   color: rgba(0, 0, 0, 0.87);
   cursor: pointer;
 }
+
+@media (max-width: 767px) {
+  .MuiStepLabel-labelContainer span {
+    font-size: 9px;
+  }
+}
+@media (min-width: 768px) {
+  .MuiStepLabel-labelContainer span {
+    font-size: 12px;
+  }
+}

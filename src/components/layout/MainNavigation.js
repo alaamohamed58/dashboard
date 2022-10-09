@@ -1,11 +1,16 @@
+import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { Box } from "@mui/material";
-import { Typography } from "@mui/material";
-import { Stack, Accordion } from "@mui/material";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
+import {
+  Typography,
+  Box,
+  Stack,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from "@mui/material";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
+import RightArrow from "../icons/RightArrow";
 
 const iconStyle = {
   display: "inline-block",
@@ -35,7 +40,28 @@ const subAccordion = {
   },
 };
 
+const toggleBtn = {
+  height: "75px",
+  width: "30px",
+  display: {
+    xs: "flex",
+    lg: "none",
+  },
+  "border-end-end-radius": "50px",
+  "border-start-end-radius": "50px",
+  color: "#fff",
+  position: "absolute",
+  "z-index": 11,
+  right: "-20px",
+  top: "50%",
+  background: "#00255B",
+  cursor: "pointer",
+  transform: "translateY(-50%)",
+};
+
 const MainNavigation = () => {
+  const [toggleNav, setToggleNav] = useState(true);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -48,6 +74,9 @@ const MainNavigation = () => {
     dispatch(uiActions.btcWallet());
     navigate("/wallet");
   };
+  const toggleNavHandler = () => {
+    setToggleNav((currPos) => !currPos);
+  };
 
   return (
     <Stack
@@ -58,10 +87,20 @@ const MainNavigation = () => {
         minHeight: "calc(100vh - 93px)",
         paddingTop: "50px",
         position: "fixed",
+        transition: "0.3s",
+        left: {
+          xs: toggleNav ? "-317px" : "0",
+
+          lg: "0",
+        },
         top: "93px",
         "z-index": 10,
       }}
     >
+      <Box sx={toggleBtn} onClick={toggleNavHandler}>
+        <RightArrow />{" "}
+      </Box>
+
       <Box>
         <item>
           <Accordion

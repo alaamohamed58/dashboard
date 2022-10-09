@@ -39,7 +39,13 @@ const Shop = () => {
       <PageTitle component="h1">Market Place</PageTitle>
 
       <Box
-        sx={{ display: "flex", gap: "55px", marginTop: "36px", width: "692px" }}
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", xl: "row" },
+          gap: "55px",
+          margin: "36px auto 0 auto",
+          width: { xs: "auto", md: "auto" },
+        }}
       >
         {DUMMY_DATA.map((data) => {
           return (
@@ -48,14 +54,17 @@ const Shop = () => {
                 component="img"
                 src={data.image}
                 alt={data.title}
-                sx={{ width: "688px", height: "205px" }}
+                sx={{
+                  width: { xs: "auto", xl: "688px" },
+                  height: { xs: "auto", lg: "205px" },
+                }}
               />
               <Box sx={{ background: "#fff", textAlign: "center" }}>
                 <MainTitle component="h3">{data.title}</MainTitle>
                 <Typography
                   component="p"
                   sx={{
-                    fontSize: "24px",
+                    fontSize: { xs: "16px", lg: "24px" },
                     fontWeight: 500,
                     lineHeight: "133.4%",
                     color: "custom.main",
@@ -68,7 +77,7 @@ const Shop = () => {
                 <Typography
                   component="h5"
                   sx={{
-                    fontSize: 60,
+                    fontSize: { xs: "28px", lg: 60 },
                     fontWeight: 400,
                     color: "custom.main",
                     lineHeight: 1,
@@ -87,8 +96,9 @@ const Shop = () => {
                   type="submit"
                   variant="contained"
                   sx={{
-                    width: 602,
-                    m: "54px 45px 42px",
+                    width: { xs: "202px", sm: "500px", lg: 602 },
+                    height: { xs: "42px", lg: "55px" },
+                    m: "54px auto 42px",
                   }}
                 >
                   Continue

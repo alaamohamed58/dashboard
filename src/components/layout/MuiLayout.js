@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Box } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 import Header from "./Header";
 import MainNavigation from "./MainNavigation";
@@ -12,14 +12,16 @@ const MuiLayout = ({ children }) => {
       <Box sx={{ display: "flex" }}>
         <MainNavigation />
 
-        <Box
+        <Container
           component="main"
-          sx={{ marginLeft: "317px", width: "calc(100% - 317px)" }}
+          sx={{
+            marginLeft: { lg: "317px", sm: 0 },
+          }}
         >
-          <Box component="section" sx={{ padding: "50px 60px" }}>
+          <Box component="section" sx={{ padding: "50px 0px" }}>
             {children}
           </Box>
-        </Box>
+        </Container>
       </Box>
     </Fragment>
   );

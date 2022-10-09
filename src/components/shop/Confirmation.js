@@ -6,7 +6,7 @@ import { cartActions } from "../../store/cart-slice";
 
 const summaryStyle = {
   fontWeight: 700,
-  fontSize: "30px",
+  fontSize: { xs: "20px", xl: "30px" },
   color: "custom.main",
 };
 
@@ -29,30 +29,30 @@ const Confirmation = () => {
   return (
     <Stack
       sx={{
-        flexDirection: "row",
         alignItems: "center",
-        justifyContent: "space-between",
+        flexDirection: { xs: "column", lg: "row" },
+        gap: { xs: 0, xl: "30px" },
       }}
     >
       <Box
         component="img"
         src="/images/as.svg"
         alt="ac"
-        sx={{ width: "664px" }}
+        sx={{ width: { xs: "325px", xl: "664px" } }}
       />
 
-      <Stack sx={{ width: "662px" }}>
+      <Stack sx={{ width: { xs: "400px", xl: "662px" } }}>
         <Box
           sx={{
             background: "white",
-            height: "636px",
+            height: "643",
             border: "2px solid #CEDDF2",
           }}
         >
           <Typography
             component="h2"
             sx={{
-              fontSize: "35px",
+              fontSize: { xs: "25px", xl: "35px" },
               fontWeight: 700,
               color: "custom.main",
               margin: "26px 47px 0",
@@ -187,7 +187,7 @@ const Confirmation = () => {
             width: 1,
             height: "55px",
             margin: "17px 0",
-            fontSize: "24px",
+            fontSize: { xs: "14px", xl: "23px" },
           }}
         >
           Add to cart and continue buying{" "}
@@ -199,7 +199,7 @@ const Confirmation = () => {
             background: "#fff",
             width: 1,
             height: "55px",
-            fontSize: "24px",
+            fontSize: { xs: "14px", xl: "23px" },
             color: "custom.main",
             border: "2px solid custom.main",
           }}

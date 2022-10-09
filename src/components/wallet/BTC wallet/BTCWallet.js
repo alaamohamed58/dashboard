@@ -11,25 +11,46 @@ const boxStyle = {
   justifyContent: "center",
   flexDirection: "column",
   border: "2px solid #CEDDF2",
-  width: "322px",
-  height: "149px",
+  width: {
+    sm: "140px",
+    xl: "322px",
+  },
+  height: {
+    sm: "95px",
+    xl: "149px",
+  },
   background: "#fff",
 };
 const h3Style = {
-  fontSize: "22px",
+  fontSize: {
+    sm: "14px",
+    xl: "22px",
+  },
   color: "#A2BCDC",
   fontWeight: 700,
   lineHeight: "33px",
-  marginBottom: "10px",
+  marginBottom: {
+    sm: "0",
+    lg: "10px",
+  },
 };
 
 const btnStyle = {
   background: "#fff",
   border: "2px solid #2776EA",
-  minWidth: "265px",
-  height: "71px",
+  minWidth: {
+    sm: "150px",
+    xl: "200px",
+  },
+  height: {
+    sm: "50px",
+    xl: "71px",
+  },
   color: "#2776EA",
-  fontSize: "24px",
+  fontSize: {
+    sm: "12px",
+    xl: "24px",
+  },
   fontWeight: 600,
   "&:hover": {
     background: "unset",
@@ -61,16 +82,37 @@ const BTCWallet = () => {
   return (
     <Fragment>
       {toggleModel && <Model hideModelHandler={hideModelHandler} />}
-      <Stack sx={{ width: "1437px" }}>
+      <Stack
+        sx={{
+          width: {
+            sm: "auto",
+            xl: "1437px",
+          },
+        }}
+      >
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
+            flexDirection: { xs: "column", md: "row" },
 
-            justifyContent: "space-between",
+            gap: {
+              sm: "10px",
+              xl: "35px",
+            },
+            justifyContent: {
+              sm: "flex-start",
+            },
           }}
         >
-          <Box sx={{ display: "flex", alignItems: "flex-end", gap: "50px" }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "flex-end",
+
+              gap: { sm: "10px", xl: "50px" },
+            }}
+          >
             {DUMMY_DATA.map((data) => {
               return (
                 <Box sx={boxStyle} key={data.id}>
@@ -80,7 +122,10 @@ const BTCWallet = () => {
                   <Typography
                     component="span"
                     sx={{
-                      fontSize: "35px",
+                      fontSize: {
+                        sm: "24px",
+                        xl: "35px",
+                      },
                       color: "#0A194E",
                       fontWeight: 700,
                     }}
@@ -91,7 +136,7 @@ const BTCWallet = () => {
               );
             })}
           </Box>
-          <Box sx={{ display: "flex", gap: "36px" }}>
+          <Box sx={{ display: "flex", gap: { sm: "10px", lg: "20px" } }}>
             <Button sx={btnStyle} variant="contained">
               WITHDRAW
             </Button>

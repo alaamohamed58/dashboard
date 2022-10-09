@@ -75,10 +75,14 @@ const HistoryProfit = () => {
     <Box
       sx={{
         background: "#fff",
-        marginTop: "51px",
-        width: "1437px",
+        margin: "51px auto",
+        width: {
+          sm: "auto",
+          md: "700px",
+          xl: "900px",
+        },
         border: " 2px solid #CEDDF2",
-        padding: "40px 49px",
+        padding: { xs: "40px 10px", xl: "40px 49px" },
       }}
     >
       <Typography
@@ -92,38 +96,14 @@ const HistoryProfit = () => {
         Mining History Profits
       </Typography>
 
-      <Box component="table">
-        <Box
-          component="thead"
-          sx={{
-            display: "flex",
-            color: "#0A194E",
-            fontSize: "22px",
-            fontWeight: 600,
-            borderBottom: "2px solid #CEDDF2",
-            paddingBottom: "10px",
-          }}
-        >
-          <tr>
-            <Box component="th" sx={{ width: "42px", marginRight: "196px" }}>
-              BTC
-            </Box>
-            <Box component="th" sx={{ width: "122px", marginRight: "115px" }}>
-              Date & Time
-            </Box>
-            <Box component="th" sx={{ width: "135px", marginRight: "100px" }}>
-              ASIC
-            </Box>
-            <Box component="th" sx={{ width: "185px", marginRight: "50px" }}>
-              Shared Miners
-            </Box>
-            <Box component="th" sx={{ width: "171px", marginRight: "50px" }}>
-              Details
-            </Box>
-            <Box component="th" sx={{ width: "99px" }}>
-              Download
-            </Box>
-          </tr>
+      <Box component="table" sx={{ width: 1 }}>
+        <Box component="tr" sx={{ display: "flex", gap: "45px" }}>
+          <Box component="th">BTC</Box>
+          <Box component="th">Date & Time</Box>
+          <Box component="th">ASIC</Box>
+          <Box component="th">Shared Miners</Box>
+          <Box component="th">Details</Box>
+          <Box component="th">Download</Box>
         </Box>
 
         <Box component="tbody">

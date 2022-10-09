@@ -1,36 +1,68 @@
+import { useState } from "react";
 import { Typography, Box } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
+import BarsIcon from "../icons/BarsIcon";
 const imgStyle = {
-  width: "32.8px",
-  height: "24.79px",
+  width: { sm: "27px", md: "30px", xl: "32.8px" },
+  height: { sm: "15px", xl: "24.79px" },
   display: "inline-block",
 };
 
 const dataStyle = {
-  width: "110px",
-  height: "58px",
+  width: { md: "150px", sm: "50px", xl: "110px" },
+  justifyContent: {
+    xs: "flex-start",
+    sm: "unset",
+  },
+  height: {
+    xs: "auto",
+    lg: "auto",
+  },
   fontStyle: "normal",
   fontWeight: 700,
   fontSize: "28px",
   lineHeight: "24px",
   letterSpacing: "0.4px",
   color: "#FFFFFF",
+  display: { md: "flex", lg: "unset" },
 };
 
 const liStyle = {
   display: "flex",
   alignItems: "center",
-  gap: "18.92px",
+  padding: { xs: "10px" },
+  gap: { sm: "4px", xl: "18.92px" },
+  width: 1,
+  justifyContent: { xs: "space-around", lg: "none" },
 };
 
 const rightIconsStyle = {
-  width: "29.17px",
-  height: "29.17px",
+  width: { xs: "15px", xl: "29.17px" },
+  height: { xs: "15px", xl: "29.17px" },
   cursor: "pointer",
+};
+const h6Style = {
+  color: "#9FBADB",
+  marginTop: { sm: 0, xl: "10px" },
+  fontSize: { xs: "12px", sm: "11px", md: "15px" },
+  marginLeft: { xs: "25px", sm: "0" },
+};
+
+const spanStyle = {
+  fontSize: {
+    xs: "14px",
+    sm: "13px",
+    md: "18px",
+  },
 };
 
 const Header = () => {
+  const [showIcons, setShowIcons] = useState(false);
   const navigate = useNavigate();
+
+  const toggleNavHandler = () => {
+    setShowIcons((currPos) => !currPos);
+  };
 
   const notificationPageHandler = () => {
     navigate("/notification");
@@ -44,15 +76,23 @@ const Header = () => {
         top: "0",
         display: "flex",
         alignItems: "center",
-        justifyContent: "flex-start",
-        gap: "130px",
+        justifyContent: { xs: "space-between", lg: "flex-start" },
+        height: "95px",
+        gap: { sm: "25px", xl: "130px" },
         backgroundColor: "#011B41",
         padding: "0 27px",
         "z-index": 10,
       }}
     >
       <Box component="nav" sx={{ display: "flex" }}>
-        <Box sx={{ width: "264px", height: "93px", marginRight: "110px" }}>
+        <Box
+          sx={{
+            width: { xs: "138px", md: "200px", xl: "264px" },
+            marginRight: { xl: "110px" },
+            marginTop: "auto",
+            marginBottom: "auto",
+          }}
+        >
           <Link to="/dashboard">
             <Box
               component="img"
@@ -62,9 +102,21 @@ const Header = () => {
             />
           </Link>
         </Box>
+
         <Box
           component="ul"
-          sx={{ display: "flex", gap: "50px", alignItems: "center" }}
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", lg: "row" },
+            width: 1,
+            gap: { sm: 0, xl: "50px" },
+            alignItems: "center",
+            position: { xs: "absolute", lg: "unset" },
+            top: showIcons ? "100%" : "-600%",
+            left: 0,
+            backgroundColor: { xs: "custom.main", lg: "unset" },
+            transition: "0.2s",
+          }}
         >
           <Box component="li" sx={liStyle}>
             <Box
@@ -74,11 +126,10 @@ const Header = () => {
               alt="icon"
             />
             <Box component="div" sx={dataStyle}>
-              <Box component="span">0</Box>
-              <Typography
-                component="h6"
-                sx={{ color: "#9FBADB", marginTop: "10px" }}
-              >
+              <Box component="span" sx={spanStyle}>
+                0
+              </Box>
+              <Typography component="h6" sx={h6Style}>
                 Shared Miners
               </Typography>
             </Box>
@@ -92,11 +143,10 @@ const Header = () => {
               alt="icon"
             />
             <Box component="div" sx={dataStyle}>
-              <Box component="span">1</Box>
-              <Typography
-                component="h6"
-                sx={{ color: "#9FBADB", marginTop: "10px" }}
-              >
+              <Box component="span" sx={spanStyle}>
+                1
+              </Box>
+              <Typography component="h6" sx={h6Style}>
                 ASIC
               </Typography>
             </Box>
@@ -110,11 +160,10 @@ const Header = () => {
               alt="icon"
             />
             <Box component="div" sx={dataStyle}>
-              <Box component="span">₿0.45</Box>
-              <Typography
-                component="h6"
-                sx={{ color: "#9FBADB", marginTop: "10px" }}
-              >
+              <Box component="span" sx={spanStyle}>
+                ₿0.45
+              </Box>
+              <Typography component="h6" sx={h6Style}>
                 mined BTC
               </Typography>
             </Box>
@@ -128,11 +177,10 @@ const Header = () => {
               alt="icon"
             />
             <Box component="div" sx={dataStyle}>
-              <Box component="span">$300</Box>
-              <Typography
-                component="h6"
-                sx={{ color: "#9FBADB", marginTop: "10px" }}
-              >
+              <Box component="span" sx={spanStyle}>
+                $300
+              </Box>
+              <Typography component="h6" sx={h6Style}>
                 Fiat Balance
               </Typography>
             </Box>
@@ -144,7 +192,11 @@ const Header = () => {
       <nav>
         <Box
           component="ul"
-          sx={{ display: "flex", alignItems: "center", gap: "59.33px" }}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: { xs: "15px", xl: "59.33px" },
+          }}
         >
           <li onClick={notificationPageHandler}>
             <Box sx={rightIconsStyle}>
@@ -190,6 +242,17 @@ const Header = () => {
           </li>
         </Box>
       </nav>
+      <Box
+        onClick={toggleNavHandler}
+        sx={{
+          color: "#fff",
+          display: { xs: "block", lg: "none" },
+          width: "30px",
+        }}
+      >
+        {" "}
+        <BarsIcon />{" "}
+      </Box>
     </Box>
   );
 };
