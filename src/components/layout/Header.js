@@ -3,17 +3,19 @@ import { Typography, Box } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import BarsIcon from "../icons/BarsIcon";
 const imgStyle = {
-  width: { sm: "27px", md: "30px", xl: "32.8px" },
-  height: { sm: "15px", xl: "24.79px" },
+  width: { xs: "46px", md: "30px", xl: "32.8px" },
+  height: { xs: "23px", xl: "24.79px" },
   display: "inline-block",
 };
 
 const dataStyle = {
-  width: { md: "150px", sm: "50px", xl: "110px" },
+  width: { sm: "auto", md: "150px", xl: "110px" },
+  gap: { sm: "15px" },
   justifyContent: {
-    xs: "flex-start",
-    sm: "unset",
+    sm: "flex-start",
+    xl: "unset",
   },
+  alginItems: "center",
   height: {
     xs: "auto",
     lg: "auto",
@@ -24,7 +26,7 @@ const dataStyle = {
   lineHeight: "24px",
   letterSpacing: "0.4px",
   color: "#FFFFFF",
-  display: { md: "flex", lg: "unset" },
+  display: { xs: "flex", lg: "unset" },
 };
 
 const liStyle = {
@@ -33,7 +35,6 @@ const liStyle = {
   padding: { xs: "10px" },
   gap: { sm: "4px", xl: "18.92px" },
   width: 1,
-  justifyContent: { xs: "space-around", lg: "none" },
 };
 
 const rightIconsStyle = {
@@ -44,13 +45,15 @@ const rightIconsStyle = {
 const h6Style = {
   color: "#9FBADB",
   marginTop: { sm: 0, xl: "10px" },
-  fontSize: { xs: "12px", sm: "11px", md: "15px" },
-  marginLeft: { xs: "25px", sm: "0" },
+  fontSize: { sm: "18px", sm: "11px", md: "15px" },
+  marginLeft: { sm: "25px", sm: "0" },
 };
 
 const spanStyle = {
+  display: { sm: "inline-block", lg: "unset" },
+  width: { sm: "60px", xl: "unset" },
   fontSize: {
-    xs: "14px",
+    xs: "22px",
     sm: "13px",
     md: "18px",
   },
