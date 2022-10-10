@@ -23,8 +23,14 @@ export const BoxContent = styled(Typography)({
   justifyContent: "center",
   flexDirection: "column",
   border: "2px solid #CEDDF2",
-  width: "322px",
-  height: "149px",
+  width: {
+    xs: "100%",
+    xl: "322px",
+  },
+  height: {
+    sm: "95px",
+    xl: "149px",
+  },
   background: "#fff",
 });
 

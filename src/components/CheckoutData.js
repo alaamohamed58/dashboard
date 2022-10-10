@@ -2,7 +2,12 @@ import { useDispatch } from "react-redux";
 import { Typography, Stack, Box } from "@mui/material";
 import { cartActions } from "../store/cart-slice";
 
-let h3Style = { color: "#0A194E", fontSize: "22px", fontWeight: 700 };
+let h3Style = {
+  color: "#0A194E",
+  fontSize: { xs: "16px", xl: "22px" },
+  fontWeight: 700,
+};
+const spanStyle = { color: "#A2BCDC", fontSize: "15px", fontWeight: 700 };
 
 const CheckoutData = (props) => {
   const dispatch = useDispatch();
@@ -11,20 +16,19 @@ const CheckoutData = (props) => {
     dispatch(cartActions.removeItem(props.id));
   };
 
-
-
   return (
     <Box
       component="li"
       sx={{
         padding: "30px",
         display: "flex",
+        flexDirection: { xs: "column", xl: "row" },
         alignItems: "center",
         gap: "30px",
         border: "2px solid #CEDDF2",
         background: "#fff",
-        marginBottom: "51px",
-        width: "995px",
+        margin: { xs: "51px auto 0 auto" },
+        width: { xs: "auto", xl: "995px" },
         position: "relative",
       }}
     >
@@ -65,7 +69,8 @@ const CheckoutData = (props) => {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "flex-start",
-            gap: "30px 112px",
+            flexDirection: { xs: "column", md: "row" },
+            gap: { xs: "10px 112px", xl: "30px 112px" },
             border: "1px solid #CEDDF2",
             borderLeft: "none",
             borderRight: "none",
@@ -102,10 +107,7 @@ const CheckoutData = (props) => {
           </div>
 
           <div>
-            <Typography
-              component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px", fontWeight: 700 }}
-            >
+            <Typography component="span" sx={spanStyle}>
               location
             </Typography>
             <Typography component="h3" sx={h3Style}>
@@ -115,10 +117,7 @@ const CheckoutData = (props) => {
           </div>
 
           <div>
-            <Typography
-              component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px", fontWeight: 700 }}
-            >
+            <Typography component="span" sx={spanStyle}>
               Electricity Deposit
             </Typography>
             <Typography component="h3" sx={h3Style}>
@@ -145,10 +144,7 @@ const CheckoutData = (props) => {
           </Box>
 
           <div>
-            <Typography
-              component="span"
-              sx={{ color: "#A2BCDC", fontSize: "15px", fontWeight: 700 }}
-            >
+            <Typography component="span" sx={spanStyle}>
               Price
             </Typography>
             <Typography component="h3" sx={h3Style}>
@@ -159,7 +155,7 @@ const CheckoutData = (props) => {
         </Box>
         <Box
           sx={{
-            fontSize: "30px",
+            fontSize: { xs: "22px", xl: "30px" },
             color: "#0A194E",
             fontWeight: 700,
             marginTop: "21px",

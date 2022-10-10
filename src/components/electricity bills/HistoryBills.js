@@ -75,17 +75,21 @@ const HistoryBills = () => {
     <Box
       sx={{
         background: "#fff",
-        marginTop: "51px",
-        width: "1437px",
+        margin: "51px auto",
+        width: {
+          sm: "auto",
+          md: "700px",
+          xl: "1437px",
+        },
         border: " 2px solid #CEDDF2",
-        padding: "40px 49px",
+        padding: { xs: "40px 10px", xl: "40px 49px" },
       }}
     >
       <Stack sx={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Typography
           component="h2"
           sx={{
-            fontSize: "35px",
+            fontSize: { xs: "22px", xl: "35px" },
             fontWeight: 700,
             color: "#0A194E",
             marginBottom: "65px",
@@ -112,46 +116,21 @@ const HistoryBills = () => {
 
       <Box component="table" sx={{ width: 1 }}>
         <Box
-          component="thead"
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            color: "#0A194E",
-            fontSize: "22px",
-            fontWeight: 600,
-            borderBottom: "2px solid #CEDDF2",
-            paddingBottom: "10px",
-          }}
+          component="tr"
+          sx={{ display: "flex", gap: { xs: "45px", xl: "143px" } }}
         >
-          <Box
-            component="tr"
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "1",
-            }}
-          >
-            <Box component="th" sx={{ width: "89px" }}>
-              Month
-            </Box>
-            <Box component="th" sx={{ width: "157px" }}>
-              Amount
-            </Box>
-            <Box component="th" sx={{ width: "174px" }}>
-              Invoice Number
-            </Box>
+          <Box component="th">Month</Box>
+          <Box component="th">Amount</Box>
+          <Box component="th">Invoice Number</Box>
 
-            <Box component="th" sx={{ width: "126px" }}>
-              Download
-            </Box>
-          </Box>
+          <Box component="th">Download</Box>
         </Box>
+      </Box>
 
-        <Box component="tbody">
-          {filteredItems.map((data) => {
-            return <HistoryBillsData data={data} key={data.id} />;
-          })}
-        </Box>
+      <Box component="tbody">
+        {filteredItems.map((data) => {
+          return <HistoryBillsData data={data} key={data.id} />;
+        })}
       </Box>
     </Box>
   );

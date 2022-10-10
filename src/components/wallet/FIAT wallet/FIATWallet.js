@@ -26,13 +26,14 @@ const btnStyle = {
 
 const FIATWallet = () => {
   return (
-    <Stack sx={{ width: "1437px" }}>
+    <Stack sx={{ width: { xs: "auto", xl: "1437px" } }}>
       <Box
         sx={{
           display: "flex",
           flexDirection: { xs: "column", xl: "row" },
-          alignItems: { xs: "flex-start", xl: "center" },
+          alignItems: { xs: "center", xl: "center" },
           gap: "36px",
+          padding: { xs: "20px", xl: 0 },
         }}
       >
         <Box sx={{ display: "flex", alignItems: "flex-end", gap: "50px" }}>

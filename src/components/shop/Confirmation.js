@@ -38,7 +38,7 @@ const Confirmation = () => {
         component="img"
         src="/images/as.svg"
         alt="ac"
-        sx={{ width: { xs: "325px", xl: "664px" } }}
+        sx={{ width: { xs: "150px", xl: "664px" } }}
       />
 
       <Stack sx={{ width: { xs: "400px", xl: "662px" } }}>
@@ -100,7 +100,7 @@ const Confirmation = () => {
             <Box
               sx={{
                 borderBottom: "1px dashed #CEDDF2",
-                padding: "47px",
+                padding: { xs: "10px", xl: "47px" },
                 marginBottom: "10px",
               }}
             >
@@ -132,7 +132,7 @@ const Confirmation = () => {
 
             <Box
               sx={{
-                padding: "47px 47px 47px",
+                padding: { xs: "10px", xl: "47px" },
                 marginBottom: "10px",
               }}
             >
@@ -185,8 +185,8 @@ const Confirmation = () => {
           sx={{
             background: "custom.main",
             width: 1,
-            height: "55px",
-            margin: "17px 0",
+            height: { xs: "auto", xl: "55px" },
+            margin: { xs: "5px auto", xl: "17px 0" },
             fontSize: { xs: "14px", xl: "23px" },
           }}
         >
@@ -198,7 +198,7 @@ const Confirmation = () => {
           sx={{
             background: "#fff",
             width: 1,
-            height: "55px",
+            height: { xs: "auto", xl: "55px" },
             fontSize: { xs: "14px", xl: "23px" },
             color: "custom.main",
             border: "2px solid custom.main",

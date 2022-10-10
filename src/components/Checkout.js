@@ -4,35 +4,11 @@ import { useNavigate } from "react-router-dom";
 import CheckoutData from "./CheckoutData";
 import MuiLayout from "./layout/MuiLayout";
 
-// const DUMMY_DATA = [
-//   {
-//     id: "m1",
-//     title: "power Model 001",
-//     model: "AntiMiner S19 pro",
-//     quantity: 2,
-//     electricityPlan: "Monthly $0.099",
-//     location: "texas 2 US",
-//     electricityDeposit: "60",
-//     setupCharges: "60",
-//     price: "2000",
-//     img: "/images/icons/model.svg",
-//     total: "65464",
-//   },
-//   {
-//     id: "m2",
-//     title: "power Model 001",
-//     model: "AntiMiner S19 pro",
-//     quantity: 2,
-//     electricityPlan: "Monthly $0.099",
-//     location: "texas 2 US",
-//     electricityDeposit: "60",
-//     setupCharges: "60",
-//     price: "2000",
-//     img: "/images/icons/model.svg",
-//     total: "65464",
-//   },
-// ];
-const summaryStyle = { color: "#A2BCDC", fontSize: "22px", fontWeight: 500 };
+const summaryStyle = {
+  color: "#A2BCDC",
+  fontSize: { xs: "16px", xl: "22px" },
+  fontWeight: 500,
+};
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -56,7 +32,7 @@ const Checkout = () => {
     <MuiLayout>
       <Stack
         sx={{
-          flexDirection: "row",
+          flexDirection: { xl: "row" },
           justifyContent: "space-between",
           position: "relative",
         }}
@@ -81,11 +57,11 @@ const Checkout = () => {
             );
           })}
         </Box>
-        <Stack>
+        <Stack sx={{ order: "-1" }}>
           <Box
             sx={{
               background: "white",
-              width: "409px",
+              width: { xs: "auto", xl: "409px" },
               border: "2px solid #CEDDF2",
             }}
           >
@@ -124,7 +100,11 @@ const Checkout = () => {
                 </Box>
                 <Typography
                   component="span"
-                  sx={{ color: "#0A194E", fontSize: "25px", fontWeight: 600 }}
+                  sx={{
+                    color: "#0A194E",
+                    fontSize: { xs: "22px", xl: "25px" },
+                    fontWeight: 600,
+                  }}
                 >
                   ${subTotal}
                 </Typography>
@@ -150,7 +130,11 @@ const Checkout = () => {
                 </Box>
                 <Typography
                   component="span"
-                  sx={{ color: "#0A194E", fontSize: "25px", fontWeight: 600 }}
+                  sx={{
+                    color: "#0A194E",
+                    fontSize: { xs: "22px", xl: "25px" },
+                    fontWeight: 600,
+                  }}
                 >
                   $400
                 </Typography>
@@ -160,15 +144,19 @@ const Checkout = () => {
                 sx={{
                   background: "#CEDDF2",
                   padding: "6px 47px",
-                  height: "125px",
+                  height: { xs: "74px", xl: "125px" },
                   justifyContent: "center",
                   alignItems: "center",
                 }}
               >
-                <Stack sx={{}}>
+                <Stack>
                   <Typography
                     component="h3"
-                    sx={{ color: "0A194E", fontSize: "22px", fontWeight: 700 }}
+                    sx={{
+                      color: "0A194E",
+                      fontSize: { xs: "22px", xl: "22px" },
+                      fontWeight: 700,
+                    }}
                   >
                     Grand Total
                   </Typography>
@@ -187,7 +175,7 @@ const Checkout = () => {
             variant="contained"
             sx={{
               background: "#2776EA",
-              width: "409px",
+              width: { xs: "auto", xl: "409px" },
               height: "55px",
               margin: "17px 0",
               fontSize: "24px",

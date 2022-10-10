@@ -19,7 +19,7 @@ const Consumption = () => {
   return (
     <Box
       sx={{
-        width: "1437px",
+        width: { xs: "auto", xl: "1437px" },
         height: "869px",
         border: "2px solid #CEDDF2",
         background: "#Fff",

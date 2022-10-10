@@ -68,7 +68,10 @@ const Deposits = () => {
   return (
     <Fragment>
       <Box component="table" sx={{ width: 1 }}>
-        <Box component="tr" sx={{ display: "flex", gap: "45px" }}>
+        <Box
+          component="tr"
+          sx={{ display: "flex", gap: { xs: "45px", lg: "73px", xl: "170px" } }}
+        >
           <Box component="th">Date & Time</Box>
           <Box component="th">Amount</Box>
           <Box component="th">Via</Box>

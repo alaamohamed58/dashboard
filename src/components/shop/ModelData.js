@@ -86,7 +86,7 @@ const ModelData = (props) => {
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "flex-start",
-            flexDirection: { xs: "column", xl: "row" },
+            flexDirection: { xs: "column", md: "row" },
             gap: { xs: "10px 50px", xl: "30px 112px" },
             border: "1px solid #CEDDF2",
             borderLeft: "none",

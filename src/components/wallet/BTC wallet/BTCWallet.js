@@ -103,6 +103,7 @@ const BTCWallet = () => {
             justifyContent: {
               sm: "flex-start",
             },
+            margin: "auto",
           }}
         >
           <Box

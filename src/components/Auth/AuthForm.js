@@ -14,7 +14,7 @@ const AuthForm = () => {
 
   const containerCss = {
     padding: "16px 20px",
-    width: "597px",
+    width: { xs: "auto%", xl: "597px" },
     height: "88px",
   };
 
@@ -32,7 +32,7 @@ const AuthForm = () => {
   const container = {
     padding: "20px 25px 0px",
     position: "relative",
-    width: "647px",
+    width: { xs: "80%", xl: "647px" },
     height: "614px",
     margin: "150px auto",
     background: "#FFFFFF",
@@ -119,7 +119,7 @@ const AuthForm = () => {
           sx={{
             display: "flex",
             padding: "0px 20px",
-            width: "597px",
+            width: { xs: "auto", xl: "597px" },
             height: "55px",
           }}
         >

@@ -1,49 +1,45 @@
 import { Link } from "react-router-dom";
 import { Box } from "@mui/material";
+
+const tdStyle = {
+  marginRight: { xs: 0, xl: "90px" },
+  width: "auto",
+  color: "#000",
+};
+
 const Withdrawaldata = ({ data }) => {
   return (
     <Box
       component="tr"
       sx={{
         display: "flex",
-        justifyContent: "space-between",
+        gap: {
+          xs: "47px",
+          md: "70px",
+          lg: "63px",
+        },
         color: "#0A194E",
-        fontSize: "22px",
+        fontSize: { sm: "12px", lg: "15px" },
         fontWeight: 400,
         paddingTop: "23px",
         paddingBottom: "10px",
         borderBottom: "2px solid #CEDDF2",
       }}
     >
-      <Box component="td" sx={{ width: "300px" }}>
+      <Box component="td" sx={tdStyle}>
         {data["date & time"]}
       </Box>
-      <Box component="td" sx={{ width: "157px" }}>
+      <Box component="td" sx={tdStyle}>
         ${data.amount}
       </Box>
-      <Box component="td" sx={{ width: "273px" }}>
+      <Box component="td" sx={tdStyle}>
         {data.via}
       </Box>
 
-      <Box
-        component="td"
-        sx={{
-          marginRight: "90px",
-          width: "65px",
-          color: "#2776EA",
-          textDecoration: "underline",
-        }}
-      >
+      <Box component="td" sx={tdStyle}>
         <Link to="wallet"> Detail </Link>
       </Box>
-      <Box
-        component="td"
-        sx={{
-          width: "65px",
-          color: "#2776EA",
-          textDecoration: "underline",
-        }}
-      >
+      <Box component="td" sx={tdStyle}>
         <Link to="wallet"> Download </Link>
       </Box>
     </Box>

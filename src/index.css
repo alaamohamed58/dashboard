@@ -97,3 +97,9 @@ tspan {
     font-size: 12px;
   }
 }
+@media (min-width: 1200px){
+
+.css-f87grb-MuiContainer-root {
+    max-width: auto !important;
+}
+}

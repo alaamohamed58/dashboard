@@ -33,7 +33,7 @@ const BillDetail = (props) => {
       sx={{
         display: "flex",
 
-        height: "281px",
+        height: "auto",
         background: "#fff",
         marginTop: "55px",
       }}

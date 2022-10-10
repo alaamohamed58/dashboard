@@ -1,6 +1,5 @@
-import { Stack, Box, Typography, Button } from "@mui/material";
+import { Stack, Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { CustomButton, PageTitle } from "../customThemes";
 import MuiLayout from "./layout/MuiLayout";
 
@@ -9,6 +8,7 @@ const BoxStyle = {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
+  flexWrap: "wrap",
   padding: "13px 28px 0px",
   gap: "22px",
   width: "327px",
@@ -34,7 +34,15 @@ const Payment = () => {
       <PageTitle sx={{ mb: "36px" }} component="h2">
         Select Payment Method
       </PageTitle>
-      <Stack sx={{ flexDirection: "row", gap: "40px" }}>
+      <Stack
+        sx={{
+          flexDirection: "row",
+          gap: "40px",
+          flexWrap: "wrap",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Box sx={BoxStyle}>
           <Box
             component="img"

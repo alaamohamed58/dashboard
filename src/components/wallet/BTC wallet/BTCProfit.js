@@ -25,7 +25,7 @@ const BTCProfit = () => {
         width: {
           sm: "525px",
           md: "700px",
-          xl: "900px",
+          xl: "1437px",
         },
         border: " 2px solid #CEDDF2",
         padding: { xs: "40px 10px", xl: "40px 49px" },

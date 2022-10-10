@@ -79,7 +79,7 @@ const HistoryProfit = () => {
         width: {
           sm: "auto",
           md: "700px",
-          xl: "900px",
+          xl: "1437px",
         },
         border: " 2px solid #CEDDF2",
         padding: { xs: "40px 10px", xl: "40px 49px" },
@@ -97,7 +97,10 @@ const HistoryProfit = () => {
       </Typography>
 
       <Box component="table" sx={{ width: 1 }}>
-        <Box component="tr" sx={{ display: "flex", gap: "45px" }}>
+        <Box
+          component="tr"
+          sx={{ display: "flex", gap: { xs: "20px", md: "43px", xl: "140px" } }}
+        >
           <Box component="th">BTC</Box>
           <Box component="th">Date & Time</Box>
           <Box component="th">ASIC</Box>

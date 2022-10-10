@@ -12,7 +12,7 @@ const ActiveBillInform = ({
   return (
     <Stack
       sx={{
-        flexDirection: "row",
+        flexDirection: { xl: "row" },
         gap: "21px",
         borderTop: "1px solid #CEDDF2",
         paddingTop: "34px",

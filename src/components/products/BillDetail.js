@@ -178,9 +178,9 @@ const BillDetail = (props) => {
         </Stack>
         <Stack
           sx={{
-            flexDirection: "row",
+            flexDirection: { lg: "row" },
             marginTop: "60px",
-            gap: "150px",
+            gap: { xs: "10px", xl: "150px" },
           }}
         >
           <Box>
