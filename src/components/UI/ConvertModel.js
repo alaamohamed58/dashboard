@@ -6,7 +6,7 @@ const contentStyle = {
   padding: "10px",
   border: "2px solid #7A8185",
   margin: "0 auto 30px",
-  width: "557px",
+  width: { xs: "auto", xl: "557px" },
 };
 const fieldStyle = {
   borderRight: "2px solid #7A8185",
@@ -26,11 +26,12 @@ const ConvertModel = ({ hideModelHandler }) => {
   return (
     <Stack
       sx={{
-        width: "647px",
-        height: "532px",
+        width: { xs: "90%", xl: "647px" },
+        height: { xs: "auto", xl: "532px" },
         position: "fixed",
-        top: "336px",
-        left: "637px",
+        top: { xs: "10%", xl: "336px" },
+        left: { xs: "50%", xl: "637px" },
+        transform: { xs: "translateX(-50%)", xl: "unset" },
         padding: "54px 25px 0px",
         background: "#fff",
         color: "#0A194E",
@@ -82,8 +83,8 @@ const ConvertModel = ({ hideModelHandler }) => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-          width: "557px",
-          height: "55px",
+          width: { xs: "auto", xl: "557px" },
+          height: { xs: "auto", xl: "55px" },
           margin: "10px auto",
           background: "#2776EA",
           fontSize: "20px",
