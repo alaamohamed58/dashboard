@@ -44,10 +44,12 @@ const Dashboard = () => {
       </Typography>
       <Categories />
 
-      <Stack sx={{ flexDirection: { xl: "row" }, gap: "50px" }}>
+      <Stack
+        sx={{ flexDirection: { xl: "row" }, flexWrap: "wrap", gap: "50px" }}
+      >
         <Box
           sx={{
-            width: { xs: "auto", sm: "auto", lg: "100%", xl: "1066px" },
+            width: { xs: "100%", xl: "70%" },
             height: "645px",
             border: "2px solid #CEDDF2",
             background: "#Fff",

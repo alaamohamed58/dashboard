@@ -30,18 +30,21 @@ const Confirmation = () => {
     <Stack
       sx={{
         alignItems: "center",
-        flexDirection: { xs: "column", lg: "row" },
+        flexDirection: { xs: "column", xl: "row" },
         gap: { xs: 0, xl: "30px" },
+        flexWrap: "wrap",
       }}
     >
-      <Box
-        component="img"
-        src="/images/as.svg"
-        alt="ac"
-        sx={{ width: { xs: "150px", xl: "664px" } }}
-      />
+      <Box sx={{ width: "calc(50% - 30px)" }}>
+        <Box
+          component="img"
+          src="/images/as.svg"
+          alt="ac"
+          sx={{ width: "100%" }}
+        />
+      </Box>
 
-      <Stack sx={{ width: { xs: "400px", xl: "662px" } }}>
+      <Stack sx={{ width: { xs: "100%", xl: "50%" } }}>
         <Box
           sx={{
             background: "white",

@@ -6,10 +6,7 @@ const contentStyle = {
   justifyContent: "center",
   flexDirection: "column",
   border: "2px solid #CEDDF2",
-  width: {
-    xs: "100%",
-    xl: "322px",
-  },
+  width: "100%",
   height: {
     sm: "95px",
     xl: "149px",

@@ -15,7 +15,7 @@ const dataStyle = {
     sm: "flex-start",
     xl: "unset",
   },
-  alginItems: "center",
+  alignItems: "center",
   height: {
     xs: "auto",
     lg: "auto",
@@ -38,8 +38,8 @@ const liStyle = {
 };
 
 const rightIconsStyle = {
-  width: { xs: "15px", xl: "29.17px" },
-  height: { xs: "15px", xl: "29.17px" },
+  width: { xs: "30px", xl: "29.17px" },
+  height: { xs: "30px", xl: "29.17px" },
   cursor: "pointer",
 };
 const h6Style = {
@@ -83,168 +83,187 @@ const Header = () => {
         height: "95px",
         gap: { sm: "25px", xl: "130px" },
         backgroundColor: "#011B41",
-        padding: "0 27px",
+        padding: "0 35px",
         "z-index": 10,
       }}
     >
-      <Box component="nav" sx={{ display: "flex" }}>
-        <Box
-          sx={{
-            width: { xs: "138px", md: "200px", xl: "264px" },
-            marginRight: { xl: "110px" },
-            marginTop: "auto",
-            marginBottom: "auto",
-          }}
-        >
-          <Link to="/dashboard">
-            <Box
-              component="img"
-              sx={{ width: 1, display: "block" }}
-              src="/images/logo.png"
-              alt="logo"
-            />
-          </Link>
+      <Box
+        sx={{
+          width: { xs: "250px", md: "264px" },
+          marginRight: { xl: "110px" },
+          marginTop: "auto",
+          marginBottom: "auto",
+        }}
+      >
+        <Link to="/dashboard">
+          <Box
+            component="img"
+            sx={{ width: 1 }}
+            src="/images/logo.png"
+            alt="logo"
+          />
+        </Link>
+      </Box>
+      <Box
+        component="nav"
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", lg: "row" },
+          width: 1,
+          gap: { sm: 0, xl: "50px" },
+          alignItems: "center",
+          position: { xs: "absolute", lg: "unset" },
+          top: showIcons ? "100%" : "-600%",
+          left: 0,
+          backgroundColor: { xs: "custom.main", lg: "unset" },
+          transition: "0.2s",
+        }}
+      >
+        <Box component="nav" sx={{ display: "flex" }}>
+          <Box
+            component="ul"
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", lg: "row" },
+              width: 1,
+              gap: { sm: 0, xl: "50px" },
+              alignItems: "center",
+              position: { xs: "absolute", lg: "unset" },
+              top: showIcons ? "100%" : "-600%",
+              left: 0,
+              backgroundColor: { xs: "custom.main", lg: "unset" },
+              transition: "0.2s",
+            }}
+          >
+            <Box component="li" sx={liStyle}>
+              <Box
+                component="img"
+                sx={imgStyle}
+                src="/images/icons/icon1.svg"
+                alt="icon"
+              />
+              <Box component="div" sx={dataStyle}>
+                <Box component="span" sx={spanStyle}>
+                  0
+                </Box>
+                <Typography component="h6" sx={h6Style}>
+                  Shared Miners
+                </Typography>
+              </Box>
+            </Box>
+
+            <Box component="li" sx={liStyle}>
+              <Box
+                component="img"
+                sx={imgStyle}
+                src="/images/icons/icon2.svg"
+                alt="icon"
+              />
+              <Box component="div" sx={dataStyle}>
+                <Box component="span" sx={spanStyle}>
+                  1
+                </Box>
+                <Typography component="h6" sx={h6Style}>
+                  ASIC
+                </Typography>
+              </Box>
+            </Box>
+
+            <Box component="li" sx={liStyle}>
+              <Box
+                component="img"
+                sx={imgStyle}
+                src="/images/icons/icon3.svg"
+                alt="icon"
+              />
+              <Box component="div" sx={dataStyle}>
+                <Box component="span" sx={spanStyle}>
+                  ₿0.45
+                </Box>
+                <Typography component="h6" sx={h6Style}>
+                  mined BTC
+                </Typography>
+              </Box>
+            </Box>
+
+            <Box component="li" sx={liStyle}>
+              <Box
+                component="img"
+                sx={imgStyle}
+                src="/images/icons/icon4.svg"
+                alt="icon"
+              />
+              <Box component="div" sx={dataStyle}>
+                <Box component="span" sx={spanStyle}>
+                  $300
+                </Box>
+                <Typography component="h6" sx={h6Style}>
+                  Fiat Balance
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
         </Box>
 
-        <Box
-          component="ul"
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", lg: "row" },
-            width: 1,
-            gap: { sm: 0, xl: "50px" },
-            alignItems: "center",
-            position: { xs: "absolute", lg: "unset" },
-            top: showIcons ? "100%" : "-600%",
-            left: 0,
-            backgroundColor: { xs: "custom.main", lg: "unset" },
-            transition: "0.2s",
-          }}
-        >
-          <Box component="li" sx={liStyle}>
-            <Box
-              component="img"
-              sx={imgStyle}
-              src="/images/icons/icon1.svg"
-              alt="icon"
-            />
-            <Box component="div" sx={dataStyle}>
-              <Box component="span" sx={spanStyle}>
-                0
+        {/* second NAV */}
+        <Box component="nav" sx={{ width: 1 }}>
+          <Box
+            component="ul"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: { xs: "35px", xl: "59.33px" },
+              backgroundColor: { xs: "#2776EA", lg: "unset" },
+              padding: { xs: "10px", lg: "0" },
+              width: "100%",
+            }}
+          >
+            <li>
+              <Box sx={rightIconsStyle}>
+                <Box
+                  component="img"
+                  src="/images/icons/icon7.svg"
+                  alt="icon"
+                  sx={{ width: 1 }}
+                />
               </Box>
-              <Typography component="h6" sx={h6Style}>
-                Shared Miners
-              </Typography>
-            </Box>
-          </Box>
+            </li>
 
-          <Box component="li" sx={liStyle}>
-            <Box
-              component="img"
-              sx={imgStyle}
-              src="/images/icons/icon2.svg"
-              alt="icon"
-            />
-            <Box component="div" sx={dataStyle}>
-              <Box component="span" sx={spanStyle}>
-                1
+            <li>
+              <Box sx={rightIconsStyle}>
+                <Box
+                  component="img"
+                  src="/images/icons/icon6.svg"
+                  alt="icon"
+                  sx={{ width: 1 }}
+                />
               </Box>
-              <Typography component="h6" sx={h6Style}>
-                ASIC
-              </Typography>
-            </Box>
-          </Box>
+            </li>
 
-          <Box component="li" sx={liStyle}>
-            <Box
-              component="img"
-              sx={imgStyle}
-              src="/images/icons/icon3.svg"
-              alt="icon"
-            />
-            <Box component="div" sx={dataStyle}>
-              <Box component="span" sx={spanStyle}>
-                ₿0.45
+            <li onClick={notificationPageHandler}>
+              <Box sx={rightIconsStyle}>
+                <Box
+                  component="img"
+                  src="/images/icons/icon5.svg"
+                  alt="icon"
+                  sx={{ width: 1 }}
+                />
               </Box>
-              <Typography component="h6" sx={h6Style}>
-                mined BTC
-              </Typography>
-            </Box>
-          </Box>
-
-          <Box component="li" sx={liStyle}>
-            <Box
-              component="img"
-              sx={imgStyle}
-              src="/images/icons/icon4.svg"
-              alt="icon"
-            />
-            <Box component="div" sx={dataStyle}>
-              <Box component="span" sx={spanStyle}>
-                $300
+            </li>
+            <li>
+              <Box sx={rightIconsStyle}>
+                <Box
+                  component="img"
+                  src="/images/icons/user.svg"
+                  alt="icon"
+                  sx={{ width: 1 }}
+                />
               </Box>
-              <Typography component="h6" sx={h6Style}>
-                Fiat Balance
-              </Typography>
-            </Box>
+            </li>
           </Box>
         </Box>
       </Box>
-
-      {/* second NAV */}
-      <nav>
-        <Box
-          component="ul"
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            gap: { xs: "15px", xl: "59.33px" },
-          }}
-        >
-          <li onClick={notificationPageHandler}>
-            <Box sx={rightIconsStyle}>
-              <Box
-                component="img"
-                src="/images/icons/icon5.svg"
-                alt="icon"
-                sx={{ width: 1 }}
-              />
-            </Box>
-          </li>
-
-          <li>
-            <Box sx={rightIconsStyle}>
-              <Box
-                component="img"
-                src="/images/icons/icon6.svg"
-                alt="icon"
-                sx={{ width: 1 }}
-              />
-            </Box>
-          </li>
-
-          <li>
-            <Box sx={rightIconsStyle}>
-              <Box
-                component="img"
-                src="/images/icons/icon7.svg"
-                alt="icon"
-                sx={{ width: 1 }}
-              />
-            </Box>
-          </li>
-          <li>
-            <Box sx={rightIconsStyle}>
-              <Box
-                component="img"
-                src="/images/icons/avatar.svg"
-                alt="icon"
-                sx={{ width: 1 }}
-              />
-            </Box>
-          </li>
-        </Box>
-      </nav>
       <Box
         onClick={toggleNavHandler}
         sx={{

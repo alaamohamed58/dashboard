@@ -27,8 +27,8 @@ const CheckoutData = (props) => {
         gap: "30px",
         border: "2px solid #CEDDF2",
         background: "#fff",
-        margin: { xs: "51px auto 0 auto" },
-        width: { xs: "auto", xl: "995px" },
+        marginBottom: "51px",
+        width: "100%",
         position: "relative",
       }}
     >

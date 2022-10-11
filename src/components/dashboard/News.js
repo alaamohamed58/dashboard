@@ -29,7 +29,7 @@ const News = () => {
   return (
     <Stack
       sx={{
-        width: { xs: "100%", sm: "100%", lg: "100%", xl: "1066px" },
+        width: { xs: "100%", xl: "23%" },
         margin: "auto",
         background: "#fff",
       }}

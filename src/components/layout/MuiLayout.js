@@ -16,8 +16,9 @@ const MuiLayout = ({ children }) => {
           component="main"
           maxWidth={false}
           sx={{
-            marginLeft: { lg: "350px", sm: 0 },
-            maxWidth: { lg: "1437px  !important" },
+            marginLeft: { lg: "calc(317px + 80px)", xs: "auto" },
+            marginRight: { lg: "80px", xs: "auto" },
+            padding: { xs: "0 16px", xl: "0 0" },
           }}
         >
           <Box component="section" sx={{ padding: "50px 0px" }}>

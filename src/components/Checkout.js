@@ -35,9 +35,10 @@ const Checkout = () => {
           flexDirection: { xl: "row" },
           justifyContent: "space-between",
           position: "relative",
+          flexWrap: "wrap",
         }}
       >
-        <Box component="ul">
+        <Box component="ul" sx={{ width: { xs: "100%", xl: "65%" } }}>
           {cartItems.map((data, i) => {
             return (
               <CheckoutData
@@ -57,11 +58,11 @@ const Checkout = () => {
             );
           })}
         </Box>
-        <Stack sx={{ order: "-1" }}>
+        <Stack sx={{ order: "-1", width: { xs: "100%", xl: "30%" } }}>
           <Box
             sx={{
               background: "white",
-              width: { xs: "auto", xl: "409px" },
+
               border: "2px solid #CEDDF2",
             }}
           >
@@ -175,9 +176,9 @@ const Checkout = () => {
             variant="contained"
             sx={{
               background: "#2776EA",
-              width: { xs: "auto", xl: "409px" },
+              width: { xs: "100%", xl: "100%" },
               height: "55px",
-              margin: "17px 0",
+              margin: "17px auto",
               fontSize: "24px",
             }}
           >

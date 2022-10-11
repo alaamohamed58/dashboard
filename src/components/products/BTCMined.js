@@ -14,14 +14,14 @@ const BTCMined = ({ lastMining, totalMined, nextMining }) => {
       >
         BTC Mined
       </Typography>
-      <Stack sx={{ flexDirection: "row" }}>
+      <Stack sx={{ flexDirection: { xs: "column", xl: "row" } }}>
         <Box
           sx={{
             display: "flex",
             alignItems: "center",
             fontSize: "18px",
             border: "2px solid #0A194E",
-            borderRight: "none",
+            borderRight: { xl: "none" },
           }}
         >
           <Box sx={{ display: "flex", padding: "14px 23px" }}>
@@ -45,7 +45,7 @@ const BTCMined = ({ lastMining, totalMined, nextMining }) => {
             alignItems: "center",
             fontSize: "18px",
             border: "2px solid #0A194E",
-            borderRight: "none",
+            borderRight: { xl: "none" },
           }}
         >
           <Box sx={{ display: "flex", padding: "14px 23px" }}>

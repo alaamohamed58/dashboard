@@ -96,7 +96,7 @@ const Farm = ({ data, activeStepHandler }) => {
       <Box
         sx={{
           background: "#fff",
-          width: { xs: "100%", xl: 1058 },
+          width: { xs: "100%", xl: "auto" },
           marginTop: "20px",
         }}
       >

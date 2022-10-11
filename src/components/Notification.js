@@ -5,7 +5,7 @@ const boxStyle = {
   display: "flex",
   alignItems: "center",
   gap: "44px",
-  width: "1435px",
+  width: "auto",
   height: "148px",
   border: "2px solid #CEDDF2",
   marginBottom: "20px",
@@ -13,13 +13,14 @@ const boxStyle = {
 };
 const titleStyle = {
   color: "#0A194E",
-  fontSize: "30px",
+  fontSize: { xs: "15px", lg: "20px", xl: "30px" },
   fontWeight: 600,
 };
 
 const dateStyle = {
   color: "#9FBADB",
   fontWeight: 700,
+  fontSize: { xs: "12px", xl: "20px" },
 };
 
 const Notification = () => {

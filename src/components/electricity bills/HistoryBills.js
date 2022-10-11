@@ -76,11 +76,7 @@ const HistoryBills = () => {
       sx={{
         background: "#fff",
         margin: "51px auto",
-        width: {
-          sm: "auto",
-          md: "700px",
-          xl: "1437px",
-        },
+        width: "auto",
         border: " 2px solid #CEDDF2",
         padding: { xs: "40px 10px", xl: "40px 49px" },
       }}
@@ -117,7 +113,11 @@ const HistoryBills = () => {
       <Box component="table" sx={{ width: 1 }}>
         <Box
           component="tr"
-          sx={{ display: "flex", gap: { xs: "45px", xl: "143px" } }}
+          sx={{
+            display: "flex",
+            gap: { xs: "35px", xl: "143px" },
+            justifyContent: "center",
+          }}
         >
           <Box component="th">Month</Box>
           <Box component="th">Amount</Box>
@@ -125,12 +125,12 @@ const HistoryBills = () => {
 
           <Box component="th">Download</Box>
         </Box>
-      </Box>
 
-      <Box component="tbody">
-        {filteredItems.map((data) => {
-          return <HistoryBillsData data={data} key={data.id} />;
-        })}
+        <Box component="tbody">
+          {filteredItems.map((data) => {
+            return <HistoryBillsData data={data} key={data.id} />;
+          })}
+        </Box>
       </Box>
     </Box>
   );

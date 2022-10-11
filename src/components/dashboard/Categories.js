@@ -8,7 +8,6 @@ const contentStyle = {
   border: "2px solid #CEDDF2",
   width: {
     xs: "100%",
-    xl: "322px",
   },
   height: {
     sm: "95px",

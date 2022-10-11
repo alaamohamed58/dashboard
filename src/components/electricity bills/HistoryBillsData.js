@@ -13,10 +13,12 @@ const HistoryBillsData = ({ data }) => {
       sx={{
         display: "flex",
         gap: {
-          xs: "79px",
+          xs: "40px",
+          sm: "70px",
           md: "70px",
           lg: "63px",
         },
+        justifyContent: "center",
         color: "#0A194E",
         fontSize: { sm: "12px", lg: "15px" },
         fontWeight: 400,

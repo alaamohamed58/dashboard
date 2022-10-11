@@ -42,6 +42,8 @@ const Shop = () => {
         sx={{
           display: "flex",
           flexDirection: { xs: "column", xl: "row" },
+          flexWrap: "wrap",
+          justifyContent: "center",
           gap: "55px",
           margin: "36px auto 0 auto",
           width: { xs: "auto", md: "auto" },
@@ -49,16 +51,21 @@ const Shop = () => {
       >
         {DUMMY_DATA.map((data) => {
           return (
-            <Stack key={data.id}>
-              <Box
-                component="img"
-                src={data.image}
-                alt={data.title}
-                sx={{
-                  width: { xs: "auto", xl: "688px" },
-                  height: { xs: "auto", lg: "205px" },
-                }}
-              />
+            <Stack
+              key={data.id}
+              sx={{ width: { xs: "100%", xl: "calc(50% - 55px)" } }}
+            >
+              <Box>
+                <Box
+                  component="img"
+                  src={data.image}
+                  alt={data.title}
+                  sx={{
+                    width: "100%",
+                  }}
+                />
+              </Box>
+
               <Box sx={{ background: "#fff", textAlign: "center" }}>
                 <MainTitle component="h3">{data.title}</MainTitle>
                 <Typography
@@ -96,7 +103,7 @@ const Shop = () => {
                   type="submit"
                   variant="contained"
                   sx={{
-                    width: { xs: "202px", sm: "500px", lg: 602 },
+                    width: { xs: "202px", sm: "80%" },
                     height: { xs: "42px", lg: "55px" },
                     m: "54px auto 42px",
                   }}

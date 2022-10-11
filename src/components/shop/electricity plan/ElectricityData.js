@@ -35,7 +35,7 @@ const ElectricityData = ({ data, activeStepHandler }) => {
       <Stack
         sx={{
           padding: { xs: "20px 10px", xl: "20px 0" },
-          width: { xs: "auto", xl: "1058px" },
+          width: "auto",
         }}
       >
         <Typography
@@ -75,7 +75,7 @@ const ElectricityData = ({ data, activeStepHandler }) => {
               background: "#2776EA",
               width: "203px",
               height: "42px",
-              margin: "25px 0 32px",
+              margin: { xs: "0", lg: "25px 0 32px" },
             }}
           >
             SELECT PACKAGE

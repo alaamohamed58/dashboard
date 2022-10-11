@@ -19,8 +19,8 @@ const Consumption = () => {
   return (
     <Box
       sx={{
-        width: { xs: "auto", xl: "1437px" },
-        height: "869px",
+        width: "100%",
+        height: { xs: "auto", xl: "869px" },
         border: "2px solid #CEDDF2",
         background: "#Fff",
         padding: "40px 48px",
@@ -30,7 +30,7 @@ const Consumption = () => {
         component="h2"
         sx={{
           fontWeight: 700,
-          fontSize: "35px",
+          fontSize: { xs: "22px", xl: "35px" },
           lineHeight: "136.9%",
           color: "#0A194E",
         }}

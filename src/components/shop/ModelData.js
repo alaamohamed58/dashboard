@@ -190,6 +190,7 @@ const ModelData = (props) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            flexDirection: { xs: "column", xl: "row" },
             gap: "20px",
             marginTop: "20px",
           }}
@@ -198,13 +199,20 @@ const ModelData = (props) => {
             sx={{
               display: "flex",
               flexWrap: "wrap",
-
               alignItems: "center",
               justifyContent: { xs: "center", xl: "space-between" },
               gap: "20px",
+              borderBottom: { xs: "1px solid #ddd", xl: "none" },
+              paddingBottom: { xs: "10px", xl: "0" },
             }}
           >
-            <Box sx={{ display: "flex", alignItems: "center", gap: "20px" }}>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: "20px",
+              }}
+            >
               <Box
                 sx={counter}
                 onClick={() =>

@@ -32,7 +32,8 @@ const BillDetail = (props) => {
       component="li"
       sx={{
         display: "flex",
-
+        flexDirection: { xs: "column", lg: "row" },
+        alignItems: { xs: "center", lg: "unset" },
         height: "auto",
         background: "#fff",
         marginTop: "55px",
@@ -164,6 +165,7 @@ const BillDetail = (props) => {
                 flexDirection: "row",
                 justifyContent: "space-between",
                 marginTop: "14px",
+                background: "#fff",
               }}
             >
               <Typography
