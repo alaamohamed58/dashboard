@@ -4,7 +4,7 @@ import BillDetail from "./BillDetail";
 
 const DUMMY_BILLS = [
   {
-    if: "b1",
+    id: "b2",
     title: "ASIC",
     location: "location Texis-2",
     remainingDays: 45,
@@ -13,7 +13,7 @@ const DUMMY_BILLS = [
     loading: 42,
   },
   {
-    if: "b1",
+    id: "b3",
     title: "ASIC",
     location: "location Texis-2",
     remainingDays: 45,
@@ -22,7 +22,7 @@ const DUMMY_BILLS = [
     loading: 80,
   },
   {
-    if: "b1",
+    id: "b4",
     title: "ASIC",
     location: "location Texis-2",
     remainingDays: 45,

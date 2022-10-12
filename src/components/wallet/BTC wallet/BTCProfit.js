@@ -22,11 +22,7 @@ const BTCProfit = () => {
       sx={{
         background: "#fff",
         margin: "51px auto",
-        width: {
-          sm: "525px",
-          md: "700px",
-          xl: "1437px",
-        },
+        width: "100%",
         border: " 2px solid #CEDDF2",
         padding: { xs: "40px 10px", xl: "40px 49px" },
       }}

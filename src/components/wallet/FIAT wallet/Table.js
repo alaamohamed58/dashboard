@@ -18,7 +18,7 @@ const Table = () => {
       sx={{
         background: "#fff",
         margin: "51px auto",
-        width: { xs: "auto", xl: "1437px" },
+        width: "100%",
         border: " 2px solid #CEDDF2",
         padding: { xs: "40px 10px", xl: "40px 49px" },
       }}

@@ -23,13 +23,12 @@ const NewsItem = ({ id, title }) => {
         {title}
       </Typography>
       <Link to="/dashboard">
-        {" "}
         <Box
-          component="a"
+          component="span"
           sx={{ color: "#2776EA", textDecoration: "underline" }}
         >
           Reverse Now
-        </Box>{" "}
+        </Box>
       </Link>
     </Box>
   );

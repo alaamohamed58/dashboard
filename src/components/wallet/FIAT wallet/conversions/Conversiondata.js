@@ -14,12 +14,12 @@ const Conversiondata = ({ data }) => {
       sx={{
         display: "flex",
         gap: {
-          xs: "47px",
+          xs: "11px",
           md: "70px",
           lg: "63px",
         },
+        fontSize: { xs: "12px", lg: "15px" },
         color: "#0A194E",
-        fontSize: { sm: "12px", lg: "15px" },
         fontWeight: 400,
         paddingTop: "23px",
         paddingBottom: "10px",

@@ -11,10 +11,10 @@ const BoxStyle = {
   flexWrap: "wrap",
   padding: "13px 28px 0px",
   gap: "22px",
-  width: "327px",
   height: "261px",
   background: "#FFFFFF",
   border: "2px solid #CEDDF2",
+  width: { xs: "100%", lg: "calc(50% - 40px)", xl: "calc(25% - 40px)" },
 };
 
 const titleStyle = {
@@ -44,17 +44,21 @@ const Payment = () => {
         }}
       >
         <Box sx={BoxStyle}>
-          <Box
-            component="img"
-            src="/images/payment/wireTransfer.svg"
-            alt="payment"
-          />
+          <Box>
+            {" "}
+            <Box
+              component="img"
+              src="/images/payment/wireTransfer.svg"
+              alt="payment"
+              sx={{ width: 1 }}
+            />
+          </Box>
           <Typography component="h3" sx={titleStyle}>
             Wire Transfer
           </Typography>
           <CustomButton
             variant="contained"
-            sx={{ width: "271px", height: "42px" }}
+            sx={{ width: { xs: "100%" }, height: "42px" }}
             onClick={notificationPageHandler}
           >
             wire transfer
@@ -62,13 +66,20 @@ const Payment = () => {
         </Box>
 
         <Box sx={BoxStyle}>
-          <Box component="img" src="/images/payment/visa.svg" alt="payment" />
+          <Box>
+            <Box
+              component="img"
+              src="/images/payment/visa.svg"
+              alt="payment"
+              sx={{ width: 1 }}
+            />
+          </Box>
           <Typography component="h3" sx={titleStyle}>
             Credit/Debit Card
           </Typography>
           <CustomButton
             variant="contained"
-            sx={{ width: "271px", height: "42px" }}
+            sx={{ width: { xs: "100%" }, height: "42px" }}
             onClick={notificationPageHandler}
           >
             Card
@@ -76,17 +87,21 @@ const Payment = () => {
         </Box>
 
         <Box sx={BoxStyle}>
-          <Box
-            component="img"
-            src="/images/payment/bitcoin.svg"
-            alt="payment"
-          />
+          <Box>
+            {" "}
+            <Box
+              component="img"
+              src="/images/payment/bitcoin.svg"
+              alt="payment"
+              sx={{ width: 1 }}
+            />
+          </Box>
           <Typography component="h3" sx={titleStyle}>
             Bitcoin
           </Typography>
           <CustomButton
             variant="contained"
-            sx={{ width: "271px", height: "42px" }}
+            sx={{ width: { xs: "100%" }, height: "42px" }}
             onClick={notificationPageHandler}
           >
             BTC
@@ -94,13 +109,21 @@ const Payment = () => {
         </Box>
 
         <Box sx={BoxStyle}>
-          <Box component="img" src="/images/payment/tether.svg" alt="payment" />
+          <Box>
+            {" "}
+            <Box
+              component="img"
+              src="/images/payment/tether.svg"
+              alt="payment"
+              sx={{ width: 1 }}
+            />
+          </Box>
           <Typography component="h3" sx={titleStyle}>
             tether
           </Typography>
           <CustomButton
             variant="contained"
-            sx={{ width: "271px", height: "42px" }}
+            sx={{ width: { xs: "100%" }, height: "42px" }}
             onClick={notificationPageHandler}
           >
             USDT

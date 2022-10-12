@@ -26,7 +26,7 @@ const btnStyle = {
 
 const FIATWallet = () => {
   return (
-    <Stack sx={{ width: { xs: "auto", xl: "1437px" } }}>
+    <Stack sx={{ width: "100%" }}>
       <Box
         sx={{
           display: "flex",
@@ -36,7 +36,14 @@ const FIATWallet = () => {
           padding: { xs: "20px", xl: 0 },
         }}
       >
-        <Box sx={{ display: "flex", alignItems: "flex-end", gap: "50px" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "flex-end",
+            gap: "50px",
+            width: "100%",
+          }}
+        >
           {DUMMY_DATA.map((data) => {
             return (
               <BoxContent key={data.id}>
@@ -57,7 +64,7 @@ const FIATWallet = () => {
             );
           })}
         </Box>
-        <Box sx={{ display: "flex", gap: "36px" }}>
+        <Box sx={{ display: "flex", gap: { xs: "15px", xl: "20px" } }}>
           <Button sx={btnStyle} variant="contained">
             DEPOSIT
           </Button>

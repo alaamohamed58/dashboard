@@ -102,74 +102,67 @@ const MainNavigation = () => {
       </Box>
 
       <Box>
-        <item>
-          <Accordion
-            elevation={0}
-            sx={{
-              backgroundColor: "#00255B",
-              color: "#9FBADB",
-              fontSize: "20px",
-              fontWeight: 700,
-              paddingLeft: 0,
-            }}
+        <Accordion
+          elevation={0}
+          sx={{
+            backgroundColor: "#00255B",
+            color: "#9FBADB",
+            fontSize: "20px",
+            fontWeight: 700,
+            paddingLeft: 0,
+          }}
+        >
+          <AccordionSummary
+            expandIcon={<img src="/images/icons/expandIcon.svg" alt="expand" />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+            sx={{ paddingLeft: 0 }}
           >
-            <AccordionSummary
-              expandIcon={
-                <img src="/images/icons/expandIcon.svg" alt="expand" />
-              }
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-              sx={{ paddingLeft: 0 }}
-            >
-              <Box
-                component="img"
-                src="/images/icons/cart.svg"
-                alt="cart"
-                sx={iconStyle}
-              />
-
-              <Typography
-                sx={{ fontWeight: 700, fontSize: "20px" }}
-                component="h5"
-              >
-                <NavLink
-                  className={({ isActive }) => (isActive ? "active" : "")}
-                  to="/shop"
-                >
-                  Shop{" "}
-                </NavLink>
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Stack>
-                <Link to="/shop/asic">
-                  <Box sx={subAccordion}>ASIC Miners</Box>
-                </Link>
-                <Box sx={subAccordion}>Shared Miners (soon) </Box>
-              </Stack>
-            </AccordionDetails>
-          </Accordion>
-        </item>
-
-        <item>
-          <Box sx={{ marginTop: "34px" }}>
             <Box
               component="img"
-              src="/images/icons/dashboard.svg"
+              src="/images/icons/cart.svg"
               alt="cart"
               sx={iconStyle}
             />
 
-            <Typography sx={typographyStyle} component="h5">
+            <Typography
+              sx={{ fontWeight: 700, fontSize: "20px" }}
+              component="h5"
+            >
               <NavLink
                 className={({ isActive }) => (isActive ? "active" : "")}
-                to="/dashboard"
+                to="/shop"
               >
-                Dashboard
+                Shop{" "}
               </NavLink>
             </Typography>
-          </Box>{" "}
-        </item>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Stack>
+              <Link to="/shop/asic">
+                <Box sx={subAccordion}>ASIC Miners</Box>
+              </Link>
+              <Box sx={subAccordion}>Shared Miners (soon) </Box>
+            </Stack>
+          </AccordionDetails>
+        </Accordion>
+        <Box sx={{ marginTop: "34px" }}>
+          <Box
+            component="img"
+            src="/images/icons/dashboard.svg"
+            alt="cart"
+            sx={iconStyle}
+          />
+
+          <Typography sx={typographyStyle} component="h5">
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : "")}
+              to="/dashboard"
+            >
+              Dashboard
+            </NavLink>
+          </Typography>
+        </Box>{" "}
         <Accordion
           elevation={0}
           sx={{
@@ -216,74 +209,67 @@ const MainNavigation = () => {
             </Stack>
           </AccordionDetails>
         </Accordion>
-        <item>
-          <Box sx={{ marginTop: "34px" }}>
-            <Box
-              component="img"
-              src="/images/icons/products.svg"
-              alt="cart"
-              sx={iconStyle}
-            />
-            <Typography sx={typographyStyle} component="h5">
-              <NavLink
-                className={({ isActive }) => (isActive ? "active" : "")}
-                to="/products"
-              >
-                My Products
-              </NavLink>
-            </Typography>
-          </Box>
-        </item>
-        <item>
-          <Box sx={{ marginTop: "34px" }}>
-            <Box
-              component="img"
-              src="/images/icons/products.svg"
-              alt="cart"
-              sx={iconStyle}
-            />
+        <Box sx={{ marginTop: "34px" }}>
+          <Box
+            component="img"
+            src="/images/icons/products.svg"
+            alt="cart"
+            sx={iconStyle}
+          />
+          <Typography sx={typographyStyle} component="h5">
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : "")}
+              to="/products"
+            >
+              My Products
+            </NavLink>
+          </Typography>
+        </Box>
+        <Box sx={{ marginTop: "34px" }}>
+          <Box
+            component="img"
+            src="/images/icons/products.svg"
+            alt="cart"
+            sx={iconStyle}
+          />
 
-            <Typography sx={typographyStyle} component="h5">
-              <NavLink
-                className={({ isActive }) => (isActive ? "active" : "")}
-                to="/bills"
-              >
-                Electricity Bills
-              </NavLink>
-            </Typography>
-          </Box>
-        </item>
+          <Typography sx={typographyStyle} component="h5">
+            <NavLink
+              className={({ isActive }) => (isActive ? "active" : "")}
+              to="/bills"
+            >
+              Electricity Bills
+            </NavLink>
+          </Typography>
+        </Box>
       </Box>
 
       <Box sx={{ paddingBottom: "50px" }}>
-        <item>
-          <Box>
-            <Box
-              component="img"
-              src="/images/icons/support.svg"
-              alt="cart"
-              sx={iconStyle}
-            />
+        <Box>
+          <Box
+            component="img"
+            src="/images/icons/support.svg"
+            alt="cart"
+            sx={iconStyle}
+          />
 
-            <Typography sx={typographyStyle} component="h5">
-              Support
-            </Typography>
-          </Box>
-        </item>
-        <item>
-          <Box sx={{ marginTop: "34px" }}>
-            <Box
-              component="img"
-              src="/images/icons/logout.svg"
-              alt="cart"
-              sx={iconStyle}
-            />
+          <Typography sx={typographyStyle} component="h5">
+            Support
+          </Typography>
+        </Box>
 
-            <Typography sx={typographyStyle} component="h5">
-              Logout
-            </Typography>
-          </Box>
-        </item>
+        <Box sx={{ marginTop: "34px" }}>
+          <Box
+            component="img"
+            src="/images/icons/logout.svg"
+            alt="cart"
+            sx={iconStyle}
+          />
+
+          <Typography sx={typographyStyle} component="h5">
+            Logout
+          </Typography>
+        </Box>
       </Box>
     </Stack>
   );

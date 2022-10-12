@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Typography, Box } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import BarsIcon from "../icons/BarsIcon";
+import ToggleLanguage from "./ToggleLanguage";
 const imgStyle = {
   width: { xs: "46px", md: "30px", xl: "32.8px" },
   height: { xs: "23px", xl: "24.79px" },
@@ -27,6 +28,7 @@ const dataStyle = {
   letterSpacing: "0.4px",
   color: "#FFFFFF",
   display: { xs: "flex", lg: "unset" },
+  gap: { xs: "15px", lg: "0" },
 };
 
 const liStyle = {
@@ -126,7 +128,8 @@ const Header = () => {
               display: "flex",
               flexDirection: { xs: "column", lg: "row" },
               width: 1,
-              gap: { sm: 0, xl: "50px" },
+              gap: { sm: "25px", xl: "50px" },
+              padding: { xs: "10px", lg: "0" },
               alignItems: "center",
               position: { xs: "absolute", lg: "unset" },
               top: showIcons ? "100%" : "-600%",
@@ -272,9 +275,9 @@ const Header = () => {
           width: "30px",
         }}
       >
-        {" "}
-        <BarsIcon />{" "}
+        <BarsIcon />
       </Box>
+      <ToggleLanguage />
     </Box>
   );
 };

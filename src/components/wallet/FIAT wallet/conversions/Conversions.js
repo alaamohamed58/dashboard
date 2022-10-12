@@ -70,7 +70,11 @@ const Conversions = () => {
       <Box component="table" sx={{ width: 1 }}>
         <Box
           component="tr"
-          sx={{ display: "flex", gap: { xs: "45px", lg: "73px", xl: "170px" } }}
+          sx={{
+            display: "flex",
+            gap: { xs: "20px", lg: "86px", xl: "170px" },
+            fontSize: { xs: "12px", lg: "15px" },
+          }}
         >
           <Box component="th">Date & Time</Box>
           <Box component="th">Amount</Box>

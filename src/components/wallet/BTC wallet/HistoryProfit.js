@@ -76,18 +76,14 @@ const HistoryProfit = () => {
       sx={{
         background: "#fff",
         margin: "51px auto",
-        width: {
-          sm: "auto",
-          md: "700px",
-          xl: "1437px",
-        },
+        width: "100%",
         border: " 2px solid #CEDDF2",
         padding: { xs: "40px 10px", xl: "40px 49px" },
       }}
     >
       <Typography
         sx={{
-          fontSize: "35px",
+          fontSize: { xs: "22px", xl: "35px" },
           fontWeight: 700,
           color: "#0A194E",
           marginBottom: "65px",
@@ -99,7 +95,11 @@ const HistoryProfit = () => {
       <Box component="table" sx={{ width: 1 }}>
         <Box
           component="tr"
-          sx={{ display: "flex", gap: { xs: "20px", md: "43px", xl: "140px" } }}
+          sx={{
+            display: "flex",
+            gap: { xs: "15px", md: "43px", xl: "140px" },
+            fontSize: { xs: "12px", lg: "15px" },
+          }}
         >
           <Box component="th">BTC</Box>
           <Box component="th">Date & Time</Box>

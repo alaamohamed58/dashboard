@@ -11,10 +11,7 @@ const boxStyle = {
   justifyContent: "center",
   flexDirection: "column",
   border: "2px solid #CEDDF2",
-  width: {
-    sm: "140px",
-    xl: "322px",
-  },
+  width: "100%",
   height: {
     sm: "95px",
     xl: "149px",
@@ -39,9 +36,10 @@ const btnStyle = {
   background: "#fff",
   border: "2px solid #2776EA",
   minWidth: {
-    sm: "150px",
+    xs: "150px",
     xl: "200px",
   },
+  width: "100%",
   height: {
     sm: "50px",
     xl: "71px",
@@ -84,10 +82,7 @@ const BTCWallet = () => {
       {toggleModel && <Model hideModelHandler={hideModelHandler} />}
       <Stack
         sx={{
-          width: {
-            sm: "auto",
-            xl: "1437px",
-          },
+          width: "100%",
         }}
       >
         <Box
@@ -95,9 +90,9 @@ const BTCWallet = () => {
             display: "flex",
             alignItems: "center",
             flexDirection: { xs: "column", md: "row" },
-
+            width: "100%",
             gap: {
-              sm: "10px",
+              xs: "10px",
               xl: "35px",
             },
             justifyContent: {
@@ -110,8 +105,8 @@ const BTCWallet = () => {
             sx={{
               display: "flex",
               alignItems: "flex-end",
-
-              gap: { sm: "10px", xl: "50px" },
+              width: "100%",
+              gap: { xs: "10px", xl: "50px" },
             }}
           >
             {DUMMY_DATA.map((data) => {
@@ -137,7 +132,13 @@ const BTCWallet = () => {
               );
             })}
           </Box>
-          <Box sx={{ display: "flex", gap: { sm: "10px", lg: "20px" } }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: { xs: "10px", lg: "20px" },
+              width: "100%",
+            }}
+          >
             <Button sx={btnStyle} variant="contained">
               WITHDRAW
             </Button>
