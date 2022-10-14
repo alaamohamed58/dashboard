@@ -110,13 +110,14 @@ const MainNavigation = () => {
             fontSize: "20px",
             fontWeight: 700,
             paddingLeft: 0,
+            margin: "0 !importnant",
           }}
         >
           <AccordionSummary
             expandIcon={<img src="/images/icons/expandIcon.svg" alt="expand" />}
             aria-controls="panel1a-content"
             id="panel1a-header"
-            sx={{ paddingLeft: 0 }}
+            sx={{ paddingLeft: 0, margin: "0 !importnant" }}
           >
             <Box
               component="img"

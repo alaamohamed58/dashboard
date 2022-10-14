@@ -44,7 +44,11 @@ const Notification = () => {
             component="img"
             src="/images/notification/success.svg"
             alt="payment"
-            sx={{ marginLeft: "50px", display: "inline-block" }}
+            sx={{
+              width: { xs: "46px", lg: "auto" },
+              marginLeft: "50px",
+              display: "inline-block",
+            }}
           />
           <Box>
             {" "}
@@ -63,7 +67,11 @@ const Notification = () => {
             component="img"
             src="/images/notification/error.svg"
             alt="payment"
-            sx={{ marginLeft: "50px", display: "inline-block" }}
+            sx={{
+              width: { xs: "46px", lg: "auto" },
+              marginLeft: "50px",
+              display: "inline-block",
+            }}
           />
           <Box>
             {" "}

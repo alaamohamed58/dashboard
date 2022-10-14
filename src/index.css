@@ -16,6 +16,9 @@ a {
   color: unset;
   text-decoration: none;
 }
+.css-o4b71y-MuiAccordionSummary-content {
+  margin: 0 !important;
+}
 .active {
   color: #fff;
 }
@@ -97,9 +100,8 @@ tspan {
     font-size: 12px;
   }
 }
-@media (min-width: 1200px){
-
-.css-f87grb-MuiContainer-root {
+@media (min-width: 1200px) {
+  .css-f87grb-MuiContainer-root {
     max-width: auto !important;
-}
+  }
 }
