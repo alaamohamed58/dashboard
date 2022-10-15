@@ -34,7 +34,7 @@ const typographyStyle = {
 
 const subAccordion = {
   ...typographyStyle,
-  padding: "4px 40px",
+  padding: "4px 0px",
   "&:hover": {
     backgroundColor: "#1B2B65",
   },
@@ -143,7 +143,7 @@ const MainNavigation = () => {
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Stack>
+            <Stack sx={{ paddingLeft: "60px" }}>
               <Link to="/shop/asic">
                 <Box sx={subAccordion}>ASIC Miners</Box>
               </Link>
@@ -208,7 +208,7 @@ const MainNavigation = () => {
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Stack>
+            <Stack sx={{ paddingLeft: "60px" }}>
               <Box onClick={btcWalletHandler} sx={subAccordion}>
                 BTC Wallet
               </Box>{" "}
@@ -237,7 +237,7 @@ const MainNavigation = () => {
         <Box sx={{ marginTop: "34px" }}>
           <Box
             component="img"
-            src="/images/icons/products.svg"
+            src="/images/icons/electricity.svg"
             alt="cart"
             sx={iconStyle}
           />

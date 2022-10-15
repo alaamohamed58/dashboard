@@ -10,6 +10,7 @@ const StepperShop = ({ activeStep, setAciveStep }) => {
   return (
     <Stepper activeStep={activeStep} sx={{ marginBottom: "61px" }}>
       <Step
+        sx={{ cursor: "pointer" }}
         onClick={() => {
           activeStep === 1 ? setAciveStep(0) : setAciveStep(activeStep);
         }}
@@ -19,6 +20,7 @@ const StepperShop = ({ activeStep, setAciveStep }) => {
         </StepLabel>
       </Step>
       <Step
+        sx={{ cursor: "pointer" }}
         onClick={() => {
           activeStep === 2 ? setAciveStep(1) : setAciveStep(activeStep);
         }}
@@ -36,6 +38,7 @@ const StepperShop = ({ activeStep, setAciveStep }) => {
         </Box>
       </Step>
       <Step
+        sx={{ cursor: "pointer" }}
         onClick={() => {
           activeStep === 3 ? setAciveStep(2) : setAciveStep(activeStep);
         }}
@@ -52,7 +55,7 @@ const StepperShop = ({ activeStep, setAciveStep }) => {
           </StepLabel>
         </Box>
       </Step>
-      <Step>
+      <Step sx={{ cursor: "pointer" }}>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           {activeStep === 3 && (
             <AiOutlineArrowLeft style={{ margin: "-1px 0" }} />

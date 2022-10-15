@@ -1,7 +1,7 @@
 import { Box, LinearProgress, Stack, Button, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 const BillDetail = (props) => {
-  const { id, title, loading, remainingDays, days, location, status } = props;
+  const { title, loading, remainingDays, days, location, status } = props;
 
   let billStaus = "";
   let statusText = "";
