@@ -11,7 +11,7 @@ const LeftArrow = () => {
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
+        d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
       />
     </svg>
   );

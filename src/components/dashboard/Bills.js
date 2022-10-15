@@ -10,7 +10,7 @@ const DUMMY_BILLS = [
     remainingDays: 45,
     days: 250,
     status: "installing",
-    loading: 42,
+    loading: 10,
   },
   {
     id: "b3",

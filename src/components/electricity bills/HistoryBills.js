@@ -1,11 +1,30 @@
 import { useState, useMemo, useCallback, useEffect } from "react";
-import FormControl from "@mui/material/FormControl";
-import NativeSelect from "@mui/material/NativeSelect";
-import { Box, Typography } from "@mui/material";
-import HistoryBillsData from "./HistoryBillsData";
-import { Stack } from "@mui/material";
+import {
+  Stack,
+  NativeSelect,
+  Box,
+  Typography,
+  FormControl,
+} from "@mui/material";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@material-ui/core";
 
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
 const HistoryBills = () => {
+  const classes = useStyles();
+
   const [year, setYear] = useState(2022);
   const [filteredItems, setFilteredItems] = useState([]);
 
@@ -110,28 +129,28 @@ const HistoryBills = () => {
         </FormControl>
       </Stack>
 
-      <Box component="table" sx={{ width: 1 }}>
-        <Box
-          component="tr"
-          sx={{
-            display: "flex",
-            gap: { xs: "35px", xl: "143px" },
-            justifyContent: "center",
-          }}
-        >
-          <Box component="th">Month</Box>
-          <Box component="th">Amount</Box>
-          <Box component="th">Invoice Number</Box>
-
-          <Box component="th">Download</Box>
-        </Box>
-
-        <Box component="tbody">
-          {filteredItems.map((data) => {
-            return <HistoryBillsData data={data} key={data.id} />;
-          })}
-        </Box>
-      </Box>
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">Month</TableCell>
+              <TableCell align="center">Amount</TableCell>
+              <TableCell align="center">Invoice Number</TableCell>
+              <TableCell align="center">Download</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {filteredItems.map((row) => (
+              <TableRow key={row.name}>
+                <TableCell align="center">{row.month}</TableCell>
+                <TableCell align="center">{row.amount}</TableCell>
+                <TableCell align="center">{row.invoiceNum}</TableCell>
+                <TableCell align="center">Download</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Box>
   );
 };

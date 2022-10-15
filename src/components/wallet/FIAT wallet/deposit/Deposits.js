@@ -1,10 +1,31 @@
 import { useEffect, useState, useMemo, Fragment } from "react";
 import ReactPaginate from "react-paginate";
-
 import { Box } from "@mui/material";
-import DepositsData from "./DepositsData";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@material-ui/core";
+import { Link } from "react-router-dom";
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+  link: {
+    color: "#2776EA",
+    textDecoration: "underline",
+  },
+});
 
 const Deposits = () => {
+  const classes = useStyles();
+
   const DUMMY_DATA = useMemo(
     () => [
       {
@@ -67,29 +88,34 @@ const Deposits = () => {
 
   return (
     <Fragment>
-      <Box component="table" sx={{ width: 1 }}>
-        <Box
-          component="tr"
-          sx={{
-            display: "flex",
-            gap: { xs: "20px", lg: "86px", xl: "170px" },
-            fontSize: { xs: "12px", lg: "15px" },
-          }}
-        >
-          <Box component="th">Date & Time</Box>
-          <Box component="th">Amount</Box>
-          <Box component="th">Via</Box>
-
-          <Box component="th">Details</Box>
-          <Box component="th">Download</Box>
-        </Box>
-      </Box>
-
-      <Box component="tbody">
-        {currentItems.map((data) => {
-          return <DepositsData data={data} key={data.id} />;
-        })}
-      </Box>
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">Date & Time</TableCell>
+              <TableCell align="center">Amount</TableCell>
+              <TableCell align="center">Via</TableCell>
+              <TableCell align="center"> Details </TableCell>
+              <TableCell align="center">Download</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {currentItems.map((row) => (
+              <TableRow key={row.name}>
+                <TableCell align="center">{row["date & time"]}</TableCell>
+                <TableCell align="center">{row.amount}</TableCell>
+                <TableCell align="center">{row.via}</TableCell>
+                <TableCell align="center" className={classes.link}>
+                  <Link to="/wallet">Details</Link>{" "}
+                </TableCell>
+                <TableCell align="center" className={classes.link}>
+                  <Link to="/wallet">Download</Link>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
 
       <ReactPaginate
         breakLabel="..."

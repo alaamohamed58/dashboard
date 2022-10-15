@@ -22,12 +22,18 @@ a {
 .active {
   color: #fff;
 }
+
 tspan {
   font-style: normal !important;
   font-weight: 600 !important;
   font-size: 8px !important;
   fill: #a2bcdc !important;
 }
+
+.MuiPaper-root {
+  color: ;
+}
+
 .pending {
   background-color: #ea2727 !important;
 }

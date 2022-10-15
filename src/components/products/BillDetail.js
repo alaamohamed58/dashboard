@@ -1,8 +1,6 @@
-import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import { Button } from "@mui/material";
-import { Stack } from "@mui/material";
-import { Box } from "@mui/material";
+import { Box, LinearProgress, Stack, Button, Typography } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import ActiveBillInform from "./ActiveBillInform";
 import InstallingStepper from "./InstallingStepper";
 import { MainTitle } from "../../customThemes";
@@ -28,26 +26,31 @@ const BillDetail = (props) => {
   } = props;
 
   let billStaus = "";
-  let barStatus = "";
   let statusText = "";
-  let barShadow = "";
 
   if (status === "pending") {
     billStaus = "pending";
-    barStatus = "pending";
     statusText = "pendingText";
-    barShadow = "pendingBarShadow";
   } else if (status === "active") {
     billStaus = "activeBill";
-    barStatus = "activeBill";
     statusText = "activeText";
-    barShadow = "activeBarShadow";
   } else {
     billStaus = "installing";
-    barStatus = "installing";
     statusText = "installingText";
-    barShadow = "installingBarShadow";
   }
+
+  const Progress = styled(LinearProgress)({
+    ".css-5xe99f-MuiLinearProgress-bar1": {
+      backgroundColor:
+        status === "pending"
+          ? "#EA2727"
+          : status === "active"
+          ? "#2776EA"
+          : status === "installing"
+          ? "#EAB327"
+          : "blue",
+    },
+  });
 
   return (
     <Box
@@ -74,7 +77,7 @@ const BillDetail = (props) => {
             <Typography
               component="span"
               sx={{
-                fontSize: "22px",
+                fontSize: { xs: "15px", lg: "22px" },
                 fontWeight: 700,
                 color: "custom.secondary",
               }}
@@ -104,77 +107,84 @@ const BillDetail = (props) => {
             }}
           >
             <Typography
-              sx={{ fontSize: "22px", fontWeight: 700, color: "custom.main" }}
+              sx={{
+                fontSize: { xs: "16px", lg: "22px" },
+                fontWeight: 700,
+                color: "custom.main",
+              }}
             >
               {remainingDays} Days
             </Typography>
             <Typography
-              sx={{ fontSize: "22px", fontWeight: 700, color: "custom.main" }}
+              sx={{
+                fontSize: { xs: "16px", lg: "22px" },
+                fontWeight: 700,
+                color: "custom.main",
+              }}
             >
               {days} Day Active
             </Typography>
           </Box>
 
           <Box
-            className={barShadow}
             sx={{
+              width: "100%",
               height: "16px",
               borderRadius: "12px",
               background: "red",
               margin: "40px 0 0px",
+              position: "relative",
             }}
           >
-            <Box
-              className={barStatus}
+            <Progress
+              variant="determinate"
+              value={loading}
               sx={{
-                width: `${loading}%`,
                 height: 1,
                 borderRadius: "12px",
-                position: "relative",
               }}
-            >
-              <Typography
-                className={statusText}
-                sx={{
-                  position: "absolute",
-                  right: "-20px",
-                  top: "-34px",
-                  fontSize: "22px",
-                  fontWeight: 700,
-                }}
-              >
-                {loading}%
-              </Typography>
-            </Box>
-
-            <Stack
+            />
+            <Typography
+              className={statusText}
               sx={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                paddingTop: "14px",
-                background: "#F6FAFF",
+                position: "absolute",
+                top: "-34px",
+                left: `${loading}%`,
+                fontSize: "22px",
+                fontWeight: 700,
               }}
             >
-              <Typography
-                sx={{
-                  fontSize: "22px",
-                  color: "custom.secondary",
-                  fontWeight: 500,
-                }}
-              >
-                0%
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "22px",
-                  color: "custom.secondary",
-                  fontWeight: 500,
-                }}
-              >
-                100%
-              </Typography>
-            </Stack>
+              {loading}%
+            </Typography>
           </Box>
+
+          <Stack
+            sx={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              paddingTop: "14px",
+              background: "#F6FAFF",
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: "22px",
+                color: "custom.secondary",
+                fontWeight: 500,
+              }}
+            >
+              0%
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "22px",
+                color: "custom.secondary",
+                fontWeight: 500,
+              }}
+            >
+              100%
+            </Typography>
+          </Stack>
         </Stack>
         <Stack
           sx={{

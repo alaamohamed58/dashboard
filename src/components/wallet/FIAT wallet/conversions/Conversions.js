@@ -1,22 +1,43 @@
 import { useEffect, useState, useMemo, Fragment } from "react";
 import ReactPaginate from "react-paginate";
-
 import { Box } from "@mui/material";
-import Conversiondata from "./Conversiondata";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@material-ui/core";
+import { Link } from "react-router-dom";
 
-const Conversions = () => {
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+  link: {
+    color: "#2776EA",
+    textDecoration: "underline",
+  },
+});
+
+const Deposits = () => {
+  const classes = useStyles();
+
   const DUMMY_DATA = useMemo(
     () => [
       {
         id: "d1",
-        "date & time": "01/09/2022 - 9:00",
-        amount: 130,
+        "date & time": "05/07/2022 - 10:46",
+        amount: 430,
         via: "Wire Transfer",
       },
       {
         id: "d2",
-        "date & time": "06/10/2022 - 10:46",
-        amount: 790,
+        "date & time": "05/07/2022 - 10:46",
+        amount: 540,
         via: "Wire Transfer",
       },
       {
@@ -67,29 +88,35 @@ const Conversions = () => {
 
   return (
     <Fragment>
-      <Box component="table" sx={{ width: 1 }}>
-        <Box
-          component="tr"
-          sx={{
-            display: "flex",
-            gap: { xs: "20px", lg: "86px", xl: "170px" },
-            fontSize: { xs: "12px", lg: "15px" },
-          }}
-        >
-          <Box component="th">Date & Time</Box>
-          <Box component="th">Amount</Box>
-          <Box component="th">Via</Box>
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">Date & Time</TableCell>
+              <TableCell align="center">Amount</TableCell>
+              <TableCell align="center">Via</TableCell>
+              <TableCell align="center"> Details </TableCell>
+              <TableCell align="center">Download</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {currentItems.map((row) => (
+              <TableRow key={row.name}>
+                <TableCell align="center">{row["date & time"]}</TableCell>
+                <TableCell align="center">{row.amount}</TableCell>
+                <TableCell align="center">{row.via}</TableCell>
+                <TableCell align="center" className={classes.link}>
+                  <Link to="/wallet">Details</Link>{" "}
+                </TableCell>
+                <TableCell align="center" className={classes.link}>
+                  <Link to="/wallet">Download</Link>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
 
-          <Box component="th">Details</Box>
-          <Box component="th">Download</Box>
-        </Box>
-
-        <tbody>
-          {currentItems.map((data) => {
-            return <Conversiondata data={data} key={data.id} />;
-          })}
-        </tbody>
-      </Box>
       <ReactPaginate
         breakLabel="..."
         nextLabel=" >"
@@ -108,4 +135,4 @@ const Conversions = () => {
   );
 };
 
-export default Conversions;
+export default Deposits;

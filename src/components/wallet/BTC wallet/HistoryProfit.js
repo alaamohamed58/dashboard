@@ -1,10 +1,25 @@
 import React, { useEffect, useState, useMemo } from "react";
 import ReactPaginate from "react-paginate";
-
-import HistoryProfitData from "./HistoryProfitData";
+import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography } from "@mui/material";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@material-ui/core";
 
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
 const HistoryProfit = () => {
+  const classes = useStyles();
+
   const DUMMY_DATA = useMemo(
     () => [
       {
@@ -92,29 +107,32 @@ const HistoryProfit = () => {
         Mining History Profits
       </Typography>
 
-      <Box component="table" sx={{ width: 1 }}>
-        <Box
-          component="tr"
-          sx={{
-            display: "flex",
-            gap: { xs: "15px", md: "43px", xl: "140px" },
-            fontSize: { xs: "12px", lg: "15px" },
-          }}
-        >
-          <Box component="th">BTC</Box>
-          <Box component="th">Date & Time</Box>
-          <Box component="th">ASIC</Box>
-          <Box component="th">Shared Miners</Box>
-          <Box component="th">Details</Box>
-          <Box component="th">Download</Box>
-        </Box>
-
-        <Box component="tbody">
-          {currentItems.map((data) => {
-            return <HistoryProfitData data={data} key={data.id} />;
-          })}
-        </Box>
-      </Box>
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">BTC</TableCell>
+              <TableCell align="center">Date & Time</TableCell>
+              <TableCell align="center">ASIC</TableCell>
+              <TableCell align="center">Shared Miners</TableCell>
+              <TableCell align="center">Details</TableCell>
+              <TableCell align="center">Download</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {currentItems.map((row) => (
+              <TableRow key={row.name}>
+                <TableCell align="center">{row.BTC}</TableCell>
+                <TableCell align="center">{row["data & time"]}</TableCell>
+                <TableCell align="center">{row.ASIC}</TableCell>
+                <TableCell align="center">{row["shared miners"]}</TableCell>
+                <TableCell align="center">Details</TableCell>
+                <TableCell align="center">Download</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
       <ReactPaginate
         breakLabel="..."
         nextLabel=" >"

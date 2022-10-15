@@ -47,8 +47,8 @@ const toggleBtn = {
     xs: "flex",
     lg: "none",
   },
-  "border-end-end-radius": "50px",
-  "border-start-end-radius": "50px",
+  borderEndEndRadius: "50px",
+  borderStartEndRadius: "50px",
   color: "#fff",
   position: "absolute",
   "z-index": 11,
@@ -111,6 +111,10 @@ const MainNavigation = () => {
             fontWeight: 700,
             paddingLeft: 0,
             margin: "0 !importnant",
+            "&.MuiPaper-root": {
+              background: "unset",
+              color: "#9FBADB",
+            },
           }}
         >
           <AccordionSummary
@@ -172,6 +176,10 @@ const MainNavigation = () => {
             fontSize: "20px",
             fontWeight: 700,
             marginTop: "34px",
+            "&.MuiPaper-root": {
+              background: "unset",
+              color: "#9FBADB",
+            },
           }}
         >
           <AccordionSummary
