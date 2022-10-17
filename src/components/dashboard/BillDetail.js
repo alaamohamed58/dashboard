@@ -42,7 +42,7 @@ const BillDetail = (props) => {
         marginTop: "55px",
       }}
     >
-      <Box
+      {/* <Box
         component="img"
         src="/images/icons/bills.svg"
         sx={{
@@ -51,7 +51,7 @@ const BillDetail = (props) => {
           height: "143px",
           margin: { xs: "29px 10px", xl: "69px 36px" },
         }}
-      ></Box>
+      ></Box>*/}
       <Stack sx={{ width: 1, padding: { xs: "29px 10px", xl: "69px 36px" } }}>
         <Box
           sx={{

@@ -2,18 +2,18 @@ import { VictoryBar, VictoryChart, VictoryAxis } from "victory";
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
 const data = [
-  { quarter: 1, kw: 30000 },
-  { quarter: 2, kw: 20000 },
-  { quarter: 3, kw: 10000 },
-  { quarter: 4, kw: 40000 },
-  { quarter: 5, kw: 50000 },
-  { quarter: 6, kw: 60000 },
-  { quarter: 7, kw: 70000 },
-  { quarter: 8, kw: 80000 },
-  { quarter: 9, kw: 90000 },
-  { quarter: 10, kw: 10000 },
-  { quarter: 11, kw: 11000 },
-  { quarter: 12, kw: 150000 },
+  { quarter: 1, pr: 100 },
+  { quarter: 2, pr: 200 },
+  { quarter: 3, pr: 300 },
+  { quarter: 4, pr: 350 },
+  { quarter: 5, pr: 400 },
+  { quarter: 6, pr: 550 },
+  { quarter: 7, pr: 700 },
+  { quarter: 8, pr: 800 },
+  { quarter: 9, pr: 250 },
+  { quarter: 10, pr: 950 },
+  { quarter: 11, pr: 1000 },
+  { quarter: 12, pr: 900 },
 ];
 const Consumption = () => {
   return (
@@ -55,11 +55,11 @@ const Consumption = () => {
             "Dec",
           ]}
         />
-        <VictoryAxis dependentAxis tickFormat={(x) => `${x}KW - $100`} />
+        <VictoryAxis dependentAxis tickFormat={(x) => `$${x}`} />
         <VictoryBar
           data={data}
           x="quarter"
-          y="kw"
+          y="pr"
           style={{
             data: { fill: "#2776EA", width: 20, gap: "30px" },
           }}

@@ -6,7 +6,7 @@ const boxStyle = {
   alignItems: "center",
   gap: "44px",
   width: "auto",
-  height: "148px",
+  height: "100px",
   border: "2px solid #CEDDF2",
   marginBottom: "20px",
   background: "#fff",

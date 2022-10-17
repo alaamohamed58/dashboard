@@ -51,7 +51,7 @@ const BillsCategory = () => {
         <SubTitle component="h3">Expected Bill</SubTitle>
 
         <Typography component="span" sx={spanStyle}>
-          ₿17.000
+          $17.000
         </Typography>
       </Box>
       <Box sx={contentStyle}>

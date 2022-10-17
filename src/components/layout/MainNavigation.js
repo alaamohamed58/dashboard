@@ -151,7 +151,7 @@ const MainNavigation = () => {
             </Stack>
           </AccordionDetails>
         </Accordion>
-        <Box sx={{ marginTop: "34px" }}>
+        <Box sx={{ marginTop: { xs: "20px", lg: "34px" } }}>
           <Box
             component="img"
             src="/images/icons/dashboard.svg"
@@ -175,7 +175,7 @@ const MainNavigation = () => {
             color: "#9FBADB",
             fontSize: "20px",
             fontWeight: 700,
-            marginTop: "34px",
+            marginTop: { xs: "20px", lg: "34px" },
             "&.MuiPaper-root": {
               background: "unset",
               color: "#9FBADB",
@@ -218,7 +218,7 @@ const MainNavigation = () => {
             </Stack>
           </AccordionDetails>
         </Accordion>
-        <Box sx={{ marginTop: "34px" }}>
+        <Box sx={{ marginTop: { xs: "20px", lg: "34px" } }}>
           <Box
             component="img"
             src="/images/icons/products.svg"
@@ -234,7 +234,7 @@ const MainNavigation = () => {
             </NavLink>
           </Typography>
         </Box>
-        <Box sx={{ marginTop: "34px" }}>
+        <Box sx={{ marginTop: { xs: "20px", lg: "34px" } }}>
           <Box
             component="img"
             src="/images/icons/electricity.svg"
@@ -267,7 +267,7 @@ const MainNavigation = () => {
           </Typography>
         </Box>
 
-        <Box sx={{ marginTop: "34px" }}>
+        <Box sx={{ marginTop: { xs: "20px", lg: "34px" } }}>
           <Box
             component="img"
             src="/images/icons/logout.svg"

@@ -49,7 +49,7 @@ const Dashboard = () => {
       >
         <Box
           sx={{
-            width: { xs: "100%", xl: "70%" },
+            width: { xs: "100%" },
             height: "645px",
             border: "2px solid #CEDDF2",
             background: "#Fff",
@@ -97,7 +97,7 @@ const Dashboard = () => {
             <TabPanel value="2"> NOTHING TO SHOW</TabPanel>
           </TabContext>
         </Box>
-        <News />
+        {/* <News /> */}
       </Stack>
       <Bills />
     </MuiLayout>

@@ -1,6 +1,7 @@
 import { Typography, Box, Stack, Button } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { PageTitle } from "../customThemes";
 import CheckoutData from "./CheckoutData";
 import MuiLayout from "./layout/MuiLayout";
 
@@ -30,12 +31,15 @@ const Checkout = () => {
 
   return (
     <MuiLayout>
+      <PageTitle component="h1">Checkout</PageTitle>
+
       <Stack
         sx={{
           flexDirection: { xl: "row" },
           justifyContent: "space-between",
           position: "relative",
           flexWrap: "wrap",
+          marginTop: "38px",
         }}
       >
         <Box component="ul" sx={{ width: { xs: "100%", xl: "65%" } }}>
@@ -58,7 +62,12 @@ const Checkout = () => {
             );
           })}
         </Box>
-        <Stack sx={{ order: "-1", width: { xs: "100%", xl: "30%" } }}>
+        <Stack
+          sx={{
+            order: { xs: "-1", xl: "unset" },
+            width: { xs: "100%", xl: "30%" },
+          }}
+        >
           <Box
             sx={{
               background: "white",
@@ -126,7 +135,7 @@ const Checkout = () => {
                   }}
                 >
                   <Typography component="h3" sx={summaryStyle}>
-                    Sub Tax--------------------------x{itemsLength}
+                    Total Tax--------------------------x{itemsLength}
                   </Typography>
                 </Box>
                 <Typography
