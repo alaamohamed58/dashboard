@@ -4,8 +4,8 @@ const imgStyle = {
   width: { xs: "fit-content", md: "30px", xl: "32.8px" },
   height: { xs: "23px", xl: "24.79px" },
   display: "inline-block",
-  position: { xs: "absolute", lg: "unset" },
-  left: { xs: "41%", sm: "44%", md: "45%", lg: "46%" },
+  // position: { xs: "absolute", lg: "unset" },
+  // left: { xs: "41%", sm: "44%", md: "45%", lg: "46%" },
 };
 const dataStyle = {
   width: { sm: "auto", md: "90px", xl: "110px" },
@@ -33,8 +33,9 @@ const dataStyle = {
 
 const liStyle = {
   display: "flex",
-  alignItems: { xs: "flex-start", lg: "center" },
+  alignItems: { xs: "center", lg: "center" },
   justifyContent: "center",
+  gap: { xs: "10px", xl: 0 },
   padding: { xs: "10px" },
   width: 1,
   "&:first-of-type img": {
@@ -43,18 +44,19 @@ const liStyle = {
   "&:nth-child(2) img": {
     left: { xs: "43%", sm: "45%", md: "46%" },
   },
-  "&:first-child span": {
-    marginLeft: { xs: "41px", lg: "unset" },
-  },
-  "&:nth-child(2) span": {
-    marginLeft: { xs: "15px", lg: "unset" },
-  },
+  // "&:first-child span": {
+  //   marginLeft: { xs: "41px", lg: "unset" },
+  // },
+  // "&:nth-child(2) span": {
+  //   marginLeft: { xs: "15px", lg: "unset" },
+  // },
 };
 
 const h6Style = {
   color: "#9FBADB",
   marginTop: { sm: 0, xl: "10px" },
   fontSize: { xs: "18px", lg: "15px" },
+  display: { xs: "none", lg: "block" },
 };
 
 const spanStyle = {
@@ -65,7 +67,8 @@ const spanStyle = {
     xs: "22px",
     lg: "18px",
   },
-  marginLeft: { xs: "25px", lg: "0" },
+  "min-width": "60px",
+  // marginLeft: { xs: "25px", lg: "0" },
 };
 const ActionNav = ({ showIcons }) => {
   return (

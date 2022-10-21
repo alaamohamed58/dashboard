@@ -1,8 +1,11 @@
+import { useState, useEffect } from "react";
+
 import { Box, Typography, Button, Stack } from "@mui/material";
 import { MainTitle } from "../../../customThemes";
 
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/cart-slice";
+import FarmMobile from "./FarmMobile";
 
 /*start style*/
 const titleStyle = {
@@ -23,6 +26,17 @@ const detailStyle = {
 const Farm = ({ data, activeStepHandler }) => {
   const dispatch = useDispatch();
 
+  const [matches, setMatches] = useState(
+    window.matchMedia("(min-width: 300px)").matches
+  );
+
+  useEffect(() => {
+    const handler = (e) => setMatches(e.matches);
+    window
+      .matchMedia("(max-width: 1199px)")
+      .addEventListener("change", handler);
+  }, []);
+
   const addSelectedFarmHandler = () => {
     dispatch(
       cartActions.addFarm({
@@ -33,7 +47,16 @@ const Farm = ({ data, activeStepHandler }) => {
     );
     activeStepHandler();
   };
-
+  // if (matches) {
+  //   return (
+  //     <FarmMobile
+  //       data={data}
+  //       titleStyle={titleStyle}
+  //       detailStyle={detailStyle}
+  //       addSelectedFarmHandler={addSelectedFarmHandler}
+  //     />
+  //   );
+  // }
   return (
     <Box
       sx={{

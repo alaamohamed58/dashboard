@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { Typography, Stack, Box } from "@mui/material";
 import { Button } from "@mui/material";
-import { MainTitle } from "../../customThemes";
-import { cartActions } from "../../store/cart-slice";
+import { MainTitle } from "../../../customThemes";
+import { cartActions } from "../../../store/cart-slice";
+import ModelDataMobile from "./ModelDataMobile";
 
 const h3Style = {
     color: "#0A194E",
@@ -34,6 +35,17 @@ const h3Style = {
 
 const ModelData = (props) => {
   const [quantity, setQuantity] = useState(1);
+  const [matches, setMatches] = useState(
+    window.matchMedia("(min-width: 300px)").matches
+  );
+
+  useEffect(() => {
+    const handler = (e) => setMatches(e.matches);
+    window
+      .matchMedia("(max-width: 1199px)")
+      .addEventListener("change", handler);
+  }, []);
+
   const dispatch = useDispatch();
 
   const addModelFarmHandler = () => {
@@ -48,6 +60,20 @@ const ModelData = (props) => {
     );
     props.activeStepHandler();
   };
+
+  if (matches) {
+    return (
+      <ModelDataMobile
+        props={props}
+        h3Style={h3Style}
+        addModelFarmHandler={addModelFarmHandler}
+        counter={counter}
+        quantity={quantity}
+        setQuantity={setQuantity}
+        spanStyle={spanStyle}
+      />
+    );
+  }
 
   return (
     <Box

@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import MuiLayout from "../layout/MuiLayout";
 import StepperShop from "./StepperShop";
 import Farm from "./farm/Farm";
 import { Box } from "@mui/material";
-import Model from "./Model";
+import Model from "./model/Model";
 import ElectricityPlan from "./electricity plan/ElectricityPlan";
 import Confirmation from "./Confirmation";
 const DUMMY_DATA = [
@@ -40,17 +40,28 @@ const DUMMY_DATA = [
 ];
 
 const ASIC = () => {
-  const [activeStep, setAciveStep] = useState(0);
+  let storageStep;
 
-  const activeStepHandler = () => {
-    // if (activeStep !== -1) {
-    //   setAciveStep((currentStep) => currentStep - 1);
-    // }
+  if (localStorage.getItem("activeStep")) {
+    storageStep = parseInt(localStorage.getItem("activeStep"));
+    console.log(typeof storageStep);
+  } else {
+    storageStep = 0;
+  }
+  const [activeStep, setAciveStep] = useState(storageStep);
 
+  useEffect(() => {
+    if (activeStep) {
+      localStorage.setItem("activeStep", activeStep);
+    }
+  }, [activeStep, storageStep]);
+
+  const activeStepHandler = useCallback(() => {
     if (activeStep < 3) {
       setAciveStep((currentStep) => currentStep + 1);
+      localStorage.setItem("activeStep", activeStep);
     }
-  };
+  }, [activeStep]);
 
   return (
     <MuiLayout>

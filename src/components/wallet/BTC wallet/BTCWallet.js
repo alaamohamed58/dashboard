@@ -2,7 +2,6 @@ import { useState, Fragment } from "react";
 import { Typography, Button, Box, Stack } from "@mui/material";
 import BTCProfit from "./BTCProfit";
 import HistoryProfit from "./HistoryProfit";
-import ConvertModel from "../../UI/ConvertModel";
 import Model from "../../UI/Model";
 
 const boxStyle = {

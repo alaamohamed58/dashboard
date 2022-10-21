@@ -177,7 +177,7 @@ const Confirmation = () => {
                   Total
                 </Typography>
                 <Typography component="span" sx={summaryStyle}>
-                  ${total}
+                  ${total.toFixed(2)}
                 </Typography>
               </Box>
             </Box>

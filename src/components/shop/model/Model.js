@@ -45,7 +45,7 @@ const Model = ({ activeStepHandler }) => {
             power={data.power}
             algorithm={data.algorithm}
             estimatedDate={data.estimatedDate}
-            warrenty={data.warrenty}
+            warrenty={data.warrently}
             conditions={data.conditions}
             price={data.price}
             img={data.img}

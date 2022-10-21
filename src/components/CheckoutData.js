@@ -42,7 +42,6 @@ const CheckoutData = (props) => {
         }}
         onClick={deleteItemHandler}
       >
-        {" "}
         <Box component="img" src="/images/icons/close.svg" />
       </Box>
       <Box
@@ -161,7 +160,7 @@ const CheckoutData = (props) => {
             marginTop: "21px",
           }}
         >
-          Total - ${props.total}
+          Total - ${props.total.toFixed(2)}
         </Box>
       </Stack>
     </Box>
