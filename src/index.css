@@ -22,6 +22,9 @@ a {
 .active {
   color: #fff;
 }
+button:disabled {
+  opacity: 0.65;
+}
 
 tspan {
   font-style: normal !important;
@@ -32,6 +35,9 @@ tspan {
 
 .MuiPaper-root {
   color: ;
+}
+.input-error {
+  color: red !important;
 }
 
 .pending {

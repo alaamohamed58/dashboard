@@ -48,7 +48,7 @@ const ASIC = () => {
   } else {
     storageStep = 0;
   }
-  const [activeStep, setAciveStep] = useState(storageStep);
+  const [activeStep, setAciveStep] = useState(0);
 
   useEffect(() => {
     if (activeStep) {
