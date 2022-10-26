@@ -31,7 +31,7 @@ const ModelDataMobile = ({
         marginBottom: "51px",
       }}
     >
-      <Accordion elevation={0}>
+      <Accordion elevation={0} sx={{ width: "100%" }}>
         <AccordionSummary
           expandIcon={<img src="/images/icons/expandIcon.svg" alt="expand" />}
           aria-controls="panel1a-content"
@@ -41,8 +41,8 @@ const ModelDataMobile = ({
           <Stack sx={{ width: "100%" }}>
             <Box
               component="img"
-              src={props.img}
-              sx={{ display: "inline-block", width: "263.18px" }}
+              src={props.image}
+              sx={{ display: "inline-block", width: "300ox", margin: "0 auto" }}
             />
 
             <Stack sx={{ width: 1 }}>

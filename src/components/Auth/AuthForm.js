@@ -1,6 +1,6 @@
-import { useState, useReducer } from "react";
+import { useState, useReducer, useContext } from "react";
 import * as Yup from "yup";
-import { Box, Typography, Link, Button } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { CustomButton } from "../../customThemes";
 import CancleIcon from "../icons/CancleIcon";
@@ -8,7 +8,7 @@ import { useFormik } from "formik";
 import { TextField } from "@mui/material";
 import { useCookies } from "react-cookie";
 import MailVerification from "../UI/MailVerification";
-
+import AuthContext from "../../context/auth-context";
 const inputCss = {
   "& input::placeholder": {
     fontStyle: "normal",
@@ -45,6 +45,9 @@ const reducer = (state, action) => {
       return { isLoading: false, data: action.response };
     case "error":
       return { isLoading: false, data: action.response };
+    case "reset":
+      return { isLoading: false, data: action.response };
+
     default:
       return initialActions;
   }
@@ -54,6 +57,9 @@ const AuthForm = () => {
   const [actions, dispatchFN] = useReducer(reducer, initialActions);
 
   const [isLogin, setIsLogin] = useState(false);
+
+  //context
+  const login = useContext(AuthContext);
 
   const navigate = useNavigate();
   const [cookies] = useCookies();
@@ -83,7 +89,6 @@ const AuthForm = () => {
       url = `${window.domain}register/`;
     }
 
-    console.log(url);
     var myHeaders = new Headers();
     myHeaders.append("Cookie", `messages=${cookies.messages}`);
 
@@ -97,13 +102,11 @@ const AuthForm = () => {
       .then((response) => response.json())
       .then((result) => {
         dispatchFN({ type: "success", response: result });
-        if (isLogin) {
-          console.log("true");
+        if (isLogin && result.results.auth_token) {
+          login.login(result.results.auth_token);
         }
-        console.log(result);
       })
       .catch((error) => {
-        console.log("error", error);
         dispatchFN({ type: "error", response: error.message });
       });
   };
@@ -123,6 +126,7 @@ const AuthForm = () => {
   //main page route
   const routeHandler = () => {
     setIsLogin((prevState) => !prevState);
+    dispatchFN({ type: "reset", response: null });
   };
 
   if (
@@ -131,7 +135,6 @@ const AuthForm = () => {
     actions.data.status === 200 &&
     !isLogin
   ) {
-    console.log(actions.data);
     return <MailVerification message={actions.data.message} />;
   }
 
@@ -139,10 +142,12 @@ const AuthForm = () => {
     actions.data &&
     actions.data.message &&
     actions.data.status === 200 &&
-    isLogin
+    isLogin &&
+    localStorage.getItem("token") &&
+    localStorage.getItem("token") !== undefined
   ) {
-    //navigate("/dashboard");
-    console.log(actions.data);
+    navigate("/dashboard");
+    //console.log(actions.data);
   }
 
   return (

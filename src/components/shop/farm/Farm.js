@@ -27,42 +27,40 @@ const Farm = ({ data, activeStepHandler }) => {
   const dispatch = useDispatch();
 
   const [matches, setMatches] = useState(
-    window.matchMedia("(min-width: 300px)").matches
+    window.matchMedia("(max-width: 992px)").matches
   );
 
   useEffect(() => {
     const handler = (e) => setMatches(e.matches);
-    window
-      .matchMedia("(max-width: 1199px)")
-      .addEventListener("change", handler);
+    window.matchMedia("(max-width: 992px)").addEventListener("change", handler);
   }, []);
 
   const addSelectedFarmHandler = () => {
     dispatch(
       cartActions.addFarm({
         title: data.title,
-        fee: data["setup-fee"],
+        fee: data["setup_fee"],
         location: data.location,
       })
     );
     activeStepHandler();
   };
-  // if (matches) {
-  //   return (
-  //     <FarmMobile
-  //       data={data}
-  //       titleStyle={titleStyle}
-  //       detailStyle={detailStyle}
-  //       addSelectedFarmHandler={addSelectedFarmHandler}
-  //     />
-  //   );
-  // }
+  if (matches) {
+    return (
+      <FarmMobile
+        data={data}
+        titleStyle={titleStyle}
+        detailStyle={detailStyle}
+        addSelectedFarmHandler={addSelectedFarmHandler}
+      />
+    );
+  }
   return (
     <Box
       sx={{
         display: "flex",
         padding: { xs: "12px", lg: "0" },
-        flexDirection: { xs: "column", lg: "row" },
+        flexDirection: { xs: "column", xl: "row" },
         gap: "23px",
         marginTop: "61px",
         background: "#fff",
@@ -80,7 +78,7 @@ const Farm = ({ data, activeStepHandler }) => {
       >
         <Box
           component="img"
-          src={data.image}
+          src="/images/icons/group.svg"
           alt="data.title"
           sx={{
             width: "282.33px",
@@ -160,7 +158,7 @@ const Farm = ({ data, activeStepHandler }) => {
               </Typography>
               <Typography compenent="h4" sx={detailStyle}>
                 {" "}
-                {data["electricity-price"]}{" "}
+                ${data["electricity_prices"]}kWh
               </Typography>
             </div>
 
@@ -170,7 +168,7 @@ const Farm = ({ data, activeStepHandler }) => {
               </Typography>
               <Typography compenent="h4" sx={detailStyle}>
                 {" "}
-                {data["maintainance-fee"]}{" "}
+                ${data["maintenance_fee"]}{" "}
               </Typography>
             </div>
 
@@ -200,7 +198,7 @@ const Farm = ({ data, activeStepHandler }) => {
               </Typography>
               <Typography compenent="h4" sx={detailStyle}>
                 {" "}
-                {data["setup-period"]}{" "}
+                {data["setup_period"]}{" "}
               </Typography>
             </div>
 
@@ -210,7 +208,7 @@ const Farm = ({ data, activeStepHandler }) => {
               </Typography>
               <Typography compenent="h4" sx={detailStyle}>
                 {" "}
-                {data["guaranteed-uptime"]}{" "}
+                {data["guaranteed_uptime"]}%
               </Typography>
             </div>
 
@@ -220,7 +218,7 @@ const Farm = ({ data, activeStepHandler }) => {
               </Typography>
               <Typography compenent="h4" sx={detailStyle}>
                 {" "}
-                {data["mines-to-external-wallet"]}{" "}
+                {data["mines_to_external_wallet"] ? "Yes" : "No"}
               </Typography>
             </div>
 
@@ -230,7 +228,7 @@ const Farm = ({ data, activeStepHandler }) => {
               </Typography>
               <Typography compenent="h4" sx={detailStyle}>
                 {" "}
-                ${data["setup-fee"]}{" "}
+                ${data["setup_fee"]}
               </Typography>
             </div>
           </Stack>

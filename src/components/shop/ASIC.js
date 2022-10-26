@@ -6,55 +6,78 @@ import { Box } from "@mui/material";
 import Model from "./model/Model";
 import ElectricityPlan from "./electricity plan/ElectricityPlan";
 import Confirmation from "./Confirmation";
-const DUMMY_DATA = [
-  {
-    id: "d1",
-    title: "Farm 001 - ASIC",
-    location: "Texas 1: US",
-    "electricity-price": "$3/kWh",
-    "maintainance-fee": "Percentage BTC",
-    guarantee: "11 Months",
-    security: "Physical 24/4",
-    "setup-period": "3 Weeks",
-    "guaranteed-uptime": "95%",
-    "mines-to-external-wallet": "Yes",
-    "setup-fee": 300,
-    filled: 30,
-    image: "/images/icons/group.svg",
-  },
-  {
-    id: "d2",
-    title: "Farm 002 - ASIC",
-    location: "California 1: US",
-    "electricity-price": "$5/kWh",
-    "maintainance-fee": "Percentage BTC",
-    guarantee: "14 Months",
-    security: "Physical 24/4",
-    "setup-period": "2 Weeks",
-    "guaranteed-uptime": "95%",
-    "mines-to-external-wallet": "Yes",
-    "setup-fee": 300,
-    filled: 60,
-    image: "/images/icons/group.svg",
-  },
-];
+// const DUMMY_DATA = [
+//   {
+//     id: "d1",
+//     title: "Farm 001 - ASIC",
+//     location: "Texas 1: US",
+//     "electricity-price": "$3/kWh",
+//     "maintainance-fee": "Percentage BTC",
+//     guarantee: "11 Months",
+//     security: "Physical 24/4",
+//     "setup-period": "3 Weeks",
+//     "guaranteed-uptime": "95%",
+//     "mines-to-external-wallet": "Yes",
+//     "setup-fee": 300,
+//     filled: 30,
+//     image: "/images/icons/group.svg",
+//   },
+//   {
+//     id: "d2",
+//     title: "Farm 002 - ASIC",
+//     location: "California 1: US",
+//     "electricity-price": "$5/kWh",
+//     "maintainance-fee": "Percentage BTC",
+//     guarantee: "14 Months",
+//     security: "Physical 24/4",
+//     "setup-period": "2 Weeks",
+//     "guaranteed-uptime": "95%",
+//     "mines-to-external-wallet": "Yes",
+//     "setup-fee": 300,
+//     filled: 60,
+//     image: "/images/icons/group.svg",
+//   },
+// ];
 
 const ASIC = () => {
   let storageStep;
 
   if (localStorage.getItem("activeStep")) {
     storageStep = parseInt(localStorage.getItem("activeStep"));
-    console.log(typeof storageStep);
   } else {
     storageStep = 0;
   }
   const [activeStep, setAciveStep] = useState(0);
+  const [farms, setFarms] = useState([]);
 
   useEffect(() => {
     if (activeStep) {
       localStorage.setItem("activeStep", activeStep);
     }
   }, [activeStep, storageStep]);
+
+  //fetch farm
+  useEffect(() => {
+    let token;
+    if (localStorage.getItem("token")) {
+      token = localStorage.getItem("token");
+    }
+    const farm = async () => {
+      const response = await fetch(`${window.domain}farm/`, {
+        method: "GET",
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+        redirect: "follow",
+      });
+
+      const data = await response.json();
+
+      setFarms(data);
+    };
+
+    farm();
+  }, []);
 
   const activeStepHandler = useCallback(() => {
     if (activeStep < 3) {
@@ -69,7 +92,7 @@ const ASIC = () => {
 
       {activeStep === 0 && (
         <Box>
-          {DUMMY_DATA.map((data) => {
+          {farms.map((data) => {
             return (
               <Farm
                 activeStepHandler={activeStepHandler}

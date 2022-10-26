@@ -1,32 +1,55 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Stack } from "@mui/material";
-import { Box } from "@mui/material";
-import { Typography } from "@mui/material";
+import { Stack, Typography, Box } from "@mui/material";
 import MuiLayout from "../layout/MuiLayout";
 import { CustomButton, MainTitle, PageTitle } from "../../customThemes";
 
-const DUMMY_DATA = [
-  {
-    id: "d1",
-    image: "/images/_placeholderImage.svg",
-    title: "Shared Miners",
-    paragraph:
-      "Lorem Ipsum is simply dummy text of the printing  and typesetting industry.",
-    miners: "1462",
-  },
-  {
-    id: "d2",
-    image: "/images/_placeholderImage (1).svg",
-    title: "ASIC",
-    paragraph:
-      "Lorem Ipsum is simply dummy text of the printing  and typesetting industry.",
-    miners: "576",
-  },
-];
+// const DUMMY_DATA = [
+//   {
+//     id: "d1",
+//     image: "/images/_placeholderImage.svg",
+//     title: "Shared Miners",
+//     paragraph:
+//       "Lorem Ipsum is simply dummy text of the printing  and typesetting industry.",
+//     miners: "1462",
+//   },
+//   {
+//     id: "d2",
+//     image: "/images/_placeholderImage (1).svg",
+//     title: "ASIC",
+//     paragraph:
+//       "Lorem Ipsum is simply dummy text of the printing  and typesetting industry.",
+//     miners: "576",
+//   },
+// ];
 
 //style
 
 const Shop = () => {
+  const [miners, setMiners] = useState([]);
+  useEffect(() => {
+    let token;
+    if (localStorage.getItem("token")) {
+      token = localStorage.getItem("token");
+    }
+
+    const miners = async () => {
+      const response = await fetch(`${window.domain}miners`, {
+        method: "GET",
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+        redirect: "follow",
+      });
+
+      const data = await response.json();
+
+      setMiners(data);
+    };
+
+    miners();
+  }, []);
+
   const navigate = useNavigate();
 
   //route handler
@@ -49,7 +72,7 @@ const Shop = () => {
           width: { xs: "auto", md: "auto" },
         }}
       >
-        {DUMMY_DATA.map((data) => {
+        {miners.map((data) => {
           return (
             <Stack
               key={data.id}
@@ -58,8 +81,10 @@ const Shop = () => {
               <Box>
                 <Box
                   component="img"
-                  src={data.image}
-                  alt={data.title}
+                  src={
+                    data.image === null ? "/images/_placeholderImage.svg" : null
+                  }
+                  alt={data.name}
                   sx={{
                     width: "100%",
                   }}
@@ -67,7 +92,7 @@ const Shop = () => {
               </Box>
 
               <Box sx={{ background: "#fff", textAlign: "center" }}>
-                <MainTitle component="h3">{data.title}</MainTitle>
+                <MainTitle component="h3">{data.name}</MainTitle>
                 <Typography
                   component="p"
                   sx={{
@@ -78,7 +103,7 @@ const Shop = () => {
                     marginBottom: "31px",
                   }}
                 >
-                  {data.paragraph}{" "}
+                  {data.description}{" "}
                 </Typography>
 
                 <Typography
@@ -90,7 +115,7 @@ const Shop = () => {
                     lineHeight: 1,
                   }}
                 >
-                  {data.miners}
+                  {data.miner_count}
                 </Typography>
                 <Typography
                   component="span"
@@ -99,7 +124,7 @@ const Shop = () => {
                   Miners
                 </Typography>
                 <CustomButton
-                  onClick={data.title === "ASIC" ? routeHandler : ""}
+                  onClick={routeHandler}
                   type="submit"
                   variant="contained"
                   sx={{

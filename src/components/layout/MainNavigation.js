@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
   Typography,
@@ -11,6 +11,7 @@ import {
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../store/ui-slice";
 import RightArrow from "../icons/RightArrow";
+import AuthContext from "../../context/auth-context";
 
 const iconStyle = {
   display: "inline-block",
@@ -64,6 +65,9 @@ const MainNavigation = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  //context
+  const authContext = useContext(AuthContext);
+  const { logout } = authContext;
 
   const fiatWalletHandler = () => {
     dispatch(uiActions.fiatWallet());
@@ -76,6 +80,12 @@ const MainNavigation = () => {
   };
   const toggleNavHandler = () => {
     setToggleNav((currPos) => !currPos);
+  };
+
+  //logout Handler
+  const logoutHandler = () => {
+    logout();
+    navigate("/auth");
   };
 
   return (
@@ -267,7 +277,10 @@ const MainNavigation = () => {
           </Typography>
         </Box>
 
-        <Box sx={{ marginTop: { xs: "20px", lg: "34px" } }}>
+        <Box
+          sx={{ marginTop: { xs: "20px", lg: "34px" } }}
+          onClick={logoutHandler}
+        >
           <Box
             component="img"
             src="/images/icons/logout.svg"

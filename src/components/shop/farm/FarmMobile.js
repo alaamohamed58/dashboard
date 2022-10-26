@@ -46,7 +46,7 @@ const FarmMobile = ({
             >
               <Box
                 component="img"
-                src={data.image}
+                src="/images/icons/group.svg"
                 alt="data.title"
                 sx={{
                   width: "100%",
@@ -118,7 +118,7 @@ const FarmMobile = ({
                 </Typography>
                 <Typography compenent="h4" sx={detailStyle}>
                   {" "}
-                  {data["electricity-price"]}{" "}
+                  ${data["electricity_prices"]}kWh
                 </Typography>
               </div>
             </Stack>
@@ -141,7 +141,7 @@ const FarmMobile = ({
               </Typography>
               <Typography compenent="h4" sx={detailStyle}>
                 {" "}
-                {data["maintainance-fee"]}{" "}
+                ${data["maintenance_fee"]}{" "}
               </Typography>
             </div>
 
@@ -171,7 +171,7 @@ const FarmMobile = ({
               </Typography>
               <Typography compenent="h4" sx={detailStyle}>
                 {" "}
-                {data["setup-period"]}{" "}
+                {data["setup_period"]}{" "}
               </Typography>
             </div>
 
@@ -181,7 +181,7 @@ const FarmMobile = ({
               </Typography>
               <Typography compenent="h4" sx={detailStyle}>
                 {" "}
-                {data["guaranteed-uptime"]}{" "}
+                {data["guaranteed_uptime"]}%
               </Typography>
             </div>
 
@@ -191,7 +191,7 @@ const FarmMobile = ({
               </Typography>
               <Typography compenent="h4" sx={detailStyle}>
                 {" "}
-                {data["mines-to-external-wallet"]}{" "}
+                {data["mines_to_external_wallet"] ? "Yes" : "No"}
               </Typography>
             </div>
 
@@ -201,7 +201,7 @@ const FarmMobile = ({
               </Typography>
               <Typography compenent="h4" sx={detailStyle}>
                 {" "}
-                ${data["setup-fee"]}{" "}
+                ${data["setup_fee"]}
               </Typography>
             </div>
           </Stack>

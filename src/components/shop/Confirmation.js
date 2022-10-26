@@ -18,7 +18,7 @@ const Confirmation = () => {
   let plan = useSelector((state) => state.cartReducer.plan);
   let farm = useSelector((state) => state.cartReducer.farm);
 
-  let powerPrice = plan.power.replace(/[^0-9 .]/g, "");
+  let powerPrice = plan.power;
 
   let total = +farm.setupFee + +model.price + +powerPrice;
   const checkoutPageHandler = () => {
@@ -35,7 +35,7 @@ const Confirmation = () => {
         flexWrap: "wrap",
       }}
     >
-      <Box sx={{ width: "calc(50% - 30px)" }}>
+      <Box>
         <Box
           component="img"
           src="/images/as.svg"
@@ -70,8 +70,8 @@ const Confirmation = () => {
             <Box
               sx={{
                 borderBottom: "1px dashed #CEDDF2",
+                padding: { xs: "10px", xl: "47px" },
                 marginBottom: "10px",
-                padding: "10px 47px",
               }}
             >
               <Box
@@ -118,7 +118,7 @@ const Confirmation = () => {
                   {plan.plan}
                 </Typography>
                 <Typography component="span" sx={summaryStyle}>
-                  {plan.power}
+                  ${plan.power}/kW
                 </Typography>
               </Box>
               <Typography
@@ -165,7 +165,7 @@ const Confirmation = () => {
               </Typography>
             </Box>
 
-            <Box sx={{ background: "#CEDDF2", padding: "6px 47px" }}>
+            <Box sx={{ background: "#CEDDF2", padding: "10px 20px" }}>
               <Box
                 sx={{
                   display: "flex",

@@ -11,10 +11,9 @@ const ElectricityData = ({ data, activeStepHandler }) => {
   const dispatch = useDispatch();
 
   const dataHandler = () => {
-    dispatch(cartActions.addPlan({ plan: data.title, power: data.power }));
+    dispatch(cartActions.addPlan({ plan: data.name, power: data.price }));
     activeStepHandler();
   };
-
   return (
     <Box
       component="li"
@@ -27,15 +26,15 @@ const ElectricityData = ({ data, activeStepHandler }) => {
     >
       <Box
         component="img"
-        src={data.image}
-        alt="plan"
+        src="/images/icons/yearplan.svg"
+        alt={data.name}
         sx={{ display: "inline-block", width: "354px", marginRight: "22px" }}
       />
 
       <Stack
         sx={{
-          padding: { xs: "20px 10px", xl: "20px 0" },
-          width: "auto",
+          padding: { xs: "20px 50px" },
+          width: "100%",
         }}
       >
         <Typography
@@ -46,7 +45,7 @@ const ElectricityData = ({ data, activeStepHandler }) => {
             color: "custom.main",
           }}
         >
-          {data.title}
+          {data.name}
         </Typography>
         <Typography
           component="p"
@@ -58,7 +57,7 @@ const ElectricityData = ({ data, activeStepHandler }) => {
             paddingBottom: "24px",
           }}
         >
-          {data.detail}
+          {data.description}
         </Typography>
 
         <Stack
@@ -66,6 +65,7 @@ const ElectricityData = ({ data, activeStepHandler }) => {
             flexDirection: "row",
             alignItems: "center",
             justifyContent: "space-between",
+            width: "100%",
           }}
         >
           <Button
@@ -81,7 +81,7 @@ const ElectricityData = ({ data, activeStepHandler }) => {
             SELECT PACKAGE
           </Button>
 
-          <MainTitle> {data.power} </MainTitle>
+          <MainTitle> ${data.price}/KW </MainTitle>
         </Stack>
       </Stack>
     </Box>

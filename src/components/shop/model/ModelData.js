@@ -36,14 +36,12 @@ const h3Style = {
 const ModelData = (props) => {
   const [quantity, setQuantity] = useState(1);
   const [matches, setMatches] = useState(
-    window.matchMedia("(min-width: 300px)").matches
+    window.matchMedia("(max-width: 992px)").matches
   );
 
   useEffect(() => {
     const handler = (e) => setMatches(e.matches);
-    window
-      .matchMedia("(max-width: 1199px)")
-      .addEventListener("change", handler);
+    window.matchMedia("(max-width: 992px)").addEventListener("change", handler);
   }, []);
 
   const dispatch = useDispatch();
@@ -53,7 +51,7 @@ const ModelData = (props) => {
       cartActions.addModel({
         model: props.model,
         price: props.price,
-        image: props.img,
+        image: props.image,
         warrently: props.warrently,
         quantity: quantity,
       })
@@ -74,7 +72,6 @@ const ModelData = (props) => {
       />
     );
   }
-
   return (
     <Box
       component="li"
@@ -91,11 +88,11 @@ const ModelData = (props) => {
     >
       <Box
         component="img"
-        src={props.img}
+        src="/images/icons/model.svg"
         sx={{ display: "inline-block", width: "263.18px" }}
       />
 
-      <Stack sx={{ width: 1 }}>
+      <Stack sx={{ width: "100%" }}>
         <MainTitle
           component="h2"
           sx={{
