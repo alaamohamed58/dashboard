@@ -31,6 +31,7 @@ const Confirmation = () => {
       sx={{
         alignItems: "center",
         flexDirection: { xs: "column", xl: "row" },
+        justifyContent: "center",
         gap: { xs: 0, xl: "30px" },
         flexWrap: "wrap",
       }}

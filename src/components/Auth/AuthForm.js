@@ -1,4 +1,4 @@
-import { useState, useReducer, useContext } from "react";
+import { useState, useReducer, useContext, useEffect } from "react";
 import * as Yup from "yup";
 import { Box, Typography, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -58,10 +58,13 @@ const AuthForm = () => {
 
   const [isLogin, setIsLogin] = useState(false);
 
+  const navigate = useNavigate();
+
   //context
   const login = useContext(AuthContext);
 
-  const navigate = useNavigate();
+  //navigate after register
+
   const [cookies] = useCookies();
   //validation
   const validate = Yup.object({
@@ -128,14 +131,14 @@ const AuthForm = () => {
     setIsLogin((prevState) => !prevState);
     dispatchFN({ type: "reset", response: null });
   };
-
-  if (
-    actions.data &&
-    actions.data.message &&
-    actions.data.status === 200 &&
-    !isLogin
-  ) {
-    return <MailVerification message={actions.data.message} />;
+  //
+  if (actions.data && actions.data.message && !isLogin) {
+    return (
+      <MailVerification
+        message={actions.data.message}
+        setIsLogin={setIsLogin}
+      />
+    );
   }
 
   if (
@@ -250,12 +253,15 @@ const AuthForm = () => {
             )}
           </Box>
         )}
-        {actions.data && actions.data.message && actions.data.status !== 200 && (
-          <p className="input-error" style={{ textAlign: "center" }}>
-            {" "}
-            {actions.data.message}{" "}
-          </p>
-        )}
+        {actions.data &&
+          actions.data.message &&
+          actions.data.status !== 200 &&
+          !actions.data.message.includes("Thank") && (
+            <p className="input-error" style={{ textAlign: "center" }}>
+              {" "}
+              {actions.data.message}{" "}
+            </p>
+          )}
         <Box sx={containerCss}>
           {!actions.isLoading && (
             <CustomButton

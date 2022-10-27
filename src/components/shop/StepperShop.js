@@ -7,6 +7,12 @@ const StepperShop = ({ activeStep, setAciveStep }) => {
     model = useSelector((state) => state.cartReducer.model),
     plan = useSelector((state) => state.cartReducer.plan);
 
+  // localStorage.setItem("farmtitle", farmTitle.title);
+  // let getFarmTitle;
+  // if (localStorage.getItem("farmtitle")) {
+  //   getFarmTitle = localStorage.getItem("farmtitle");
+  // }
+
   return (
     <Stepper activeStep={activeStep} sx={{ marginBottom: "61px" }}>
       <Step

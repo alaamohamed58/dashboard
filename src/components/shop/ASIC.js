@@ -42,18 +42,16 @@ import Confirmation from "./Confirmation";
 const ASIC = () => {
   let storageStep;
 
-  if (localStorage.getItem("activeStep")) {
-    storageStep = parseInt(localStorage.getItem("activeStep"));
+  if (sessionStorage.getItem("activeStep")) {
+    storageStep = parseInt(sessionStorage.getItem("activeStep"));
   } else {
     storageStep = 0;
   }
-  const [activeStep, setAciveStep] = useState(0);
+  const [activeStep, setAciveStep] = useState(storageStep);
   const [farms, setFarms] = useState([]);
 
   useEffect(() => {
-    if (activeStep) {
-      localStorage.setItem("activeStep", activeStep);
-    }
+    sessionStorage.setItem("activeStep", activeStep);
   }, [activeStep, storageStep]);
 
   //fetch farm
@@ -82,7 +80,7 @@ const ASIC = () => {
   const activeStepHandler = useCallback(() => {
     if (activeStep < 3) {
       setAciveStep((currentStep) => currentStep + 1);
-      localStorage.setItem("activeStep", activeStep);
+      sessionStorage.setItem("activeStep", activeStep);
     }
   }, [activeStep]);
 

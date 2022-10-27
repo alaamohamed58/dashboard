@@ -1,13 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-let storedCart = localStorage.getItem("cart");
+let storedCart = sessionStorage.getItem("cart"),
+  storedFarm = sessionStorage.getItem("farm"),
+  storedModel = sessionStorage.getItem("model"),
+  storedPlan = sessionStorage.getItem("plan");
 
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    farm: {},
-    model: {},
-    plan: {},
+    farm: storedFarm ? JSON.parse(storedFarm) : {},
+    model: storedModel ? JSON.parse(storedModel) : {},
+    plan: storedPlan ? JSON.parse(storedPlan) : {},
     cartItems: storedCart ? JSON.parse(storedCart) : [],
   },
   reducers: {
@@ -15,6 +18,8 @@ const cartSlice = createSlice({
       state.farm.title = action.payload.title;
       state.farm.setupFee = action.payload.fee;
       state.farm.location = action.payload.location;
+
+      sessionStorage.setItem("farm", JSON.stringify(state.farm));
     },
 
     addModel: (state, action) => {
@@ -23,10 +28,12 @@ const cartSlice = createSlice({
       state.model.image = action.payload.image;
       state.model.quantity = action.payload.quantity;
       state.model.warrently = action.payload.warrently;
+      sessionStorage.setItem("model", JSON.stringify(state.model));
     },
     addPlan: (state, action) => {
       state.plan.plan = action.payload.plan;
       state.plan.power = action.payload.power;
+      sessionStorage.setItem("plan", JSON.stringify(state.plan));
     },
 
     addCartItems: (state) => {

@@ -59,7 +59,7 @@ const Farm = ({ data, activeStepHandler }) => {
     <Box
       sx={{
         display: "flex",
-        padding: { xs: "12px", lg: "0" },
+        padding: { xs: "12px" },
         flexDirection: { xs: "column", xl: "row" },
         gap: "23px",
         marginTop: "61px",
