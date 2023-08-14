@@ -11,7 +11,7 @@ const ElectricityData = ({ data, activeStepHandler }) => {
   const dispatch = useDispatch();
 
   const dataHandler = () => {
-    dispatch(cartActions.addPlan({ plan: data.name, power: data.price }));
+    dispatch(cartActions.addPlan({ plan: data.title, power :data.power, price: data.price }));
     activeStepHandler();
   };
   return (
@@ -27,7 +27,7 @@ const ElectricityData = ({ data, activeStepHandler }) => {
       <Box
         component="img"
         src="/images/icons/yearplan.svg"
-        alt={data.name}
+        alt={data.title}
         sx={{ display: "inline-block", width: "354px", marginRight: "22px" }}
       />
 
@@ -45,7 +45,7 @@ const ElectricityData = ({ data, activeStepHandler }) => {
             color: "custom.main",
           }}
         >
-          {data.name}
+          {data.title}
         </Typography>
         <Typography
           component="p"
@@ -57,7 +57,7 @@ const ElectricityData = ({ data, activeStepHandler }) => {
             paddingBottom: "24px",
           }}
         >
-          {data.description}
+          {data.detail}
         </Typography>
 
         <Stack

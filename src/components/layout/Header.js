@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import BarsIcon from "../icons/BarsIcon";
 import ActionNav from "./ActionNav";
@@ -45,12 +45,13 @@ const Header = () => {
           }}
         >
           <Link to="/dashboard">
-            <Box
+            {/* <Box
               component="img"
               sx={{ width: 1 }}
               src="/images/logo.png"
               alt="logo"
-            />
+            /> */}
+            <Typography component="h1" variant="h3" color="#fff">LOGO</Typography>
           </Link>
         </Box>
         <Box

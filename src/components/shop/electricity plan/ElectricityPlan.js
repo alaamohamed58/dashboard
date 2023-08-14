@@ -1,63 +1,43 @@
-import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import ElectricityData from "./ElectricityData";
-import { useSelector } from "react-redux";
-// const DUMMY_DATA = [
-//   {
-//     id: "d1",
-//     title: "Monthly Plan",
-//     detail:
-//       "The electricity cost will be deducted every month from your balance. 1 Month deposit paid in advance.",
-//     power: "$0.099/kW",
-//     image: "/images/icons/monthlyplan.svg",
-//   },
-//   {
-//     id: "d2",
-//     title: "Half Year Plan",
-//     detail:
-//       "electricity cost will be deducted every 6 months from your balance. No deposit required.",
-//     power: "$0.095/kW",
-//     image: "/images/icons/halfyear.svg",
-//   },
-//   {
-//     id: "d3",
-//     title: "Yearly Plan",
-//     detail:
-//       "he electricity cost will be deducted every 6 months from your balance. No deposit required.",
-//     power: "$0.09/kW",
-//     image: "/images/icons/yearplan.svg",
-//   },
-// ];
+const DUMMY_DATA = [
+  {
+    id: "d1",
+    title: "Monthly Plan",
+    detail:
+      "The electricity cost will be deducted every month from your balance. 1 Month deposit paid in advance.",
+    power: "$0.099/kW",
+    image: "/images/icons/monthlyplan.svg",
+    price : "$12.00",
+  },
+  {
+    id: "d2",
+    title: "Half Year Plan",
+    detail:
+      "electricity cost will be deducted every 6 months from your balance. No deposit required.",
+    power: "$0.095/kW",
+    image: "/images/icons/halfyear.svg",
+        price : "$12.00",
+
+  },
+  {
+    id: "d3",
+    title: "Yearly Plan",
+    detail:
+      "he electricity cost will be deducted every 6 months from your balance. No deposit required.",
+    power: "$0.09/kW",
+    image: "/images/icons/yearplan.svg",
+        price : "$12.00",
+
+  },
+];
 
 const ElectricityPlan = ({ activeStepHandler }) => {
-  const [electricityPlan, setElectricityPlan] = useState([]);
-  const cart = useSelector((state) => state.cartReducer.cartItems);
-  console.log(cart, "cart");
-  useEffect(() => {
-    let token;
-    if (localStorage.getItem("token")) {
-      token = localStorage.getItem("token");
-    }
-    const electricityData = async () => {
-      const response = await fetch(`${window.domain}electricity-plans/`, {
-        method: "GET",
-        headers: {
-          Authorization: `Token ${token}`,
-        },
-        redirect: "follow",
-      });
-
-      const data = await response.json();
-
-      setElectricityPlan(data);
-    };
-
-    electricityData();
-  }, []);
+ 
 
   return (
     <Box component="ul">
-      {electricityPlan.map((data) => {
+      {DUMMY_DATA.map((data) => {
         return (
           <ElectricityData
             key={data.id}

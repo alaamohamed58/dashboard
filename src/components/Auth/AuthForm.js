@@ -1,7 +1,7 @@
 import { useState, useReducer, useContext, useEffect } from "react";
 import * as Yup from "yup";
 import { Box, Typography, Button } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CustomButton } from "../../customThemes";
 import CancleIcon from "../icons/CancleIcon";
 import { useFormik } from "formik";
@@ -303,6 +303,11 @@ const AuthForm = () => {
             </Button>
           )}
         </Box>
+
+        <Link to="/dashboard">
+          <Typography component="h6" variant="h4" textAlign='center' color="green">skip</Typography>
+        </Link>
+
         {actions.isLoading && (
           <Typography sx={{ textAlign: "center", fontSize: "22px" }}>
             Wait...

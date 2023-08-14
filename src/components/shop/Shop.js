@@ -1,54 +1,31 @@
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Stack, Typography, Box } from "@mui/material";
 import MuiLayout from "../layout/MuiLayout";
 import { CustomButton, MainTitle, PageTitle } from "../../customThemes";
 
-// const DUMMY_DATA = [
-//   {
-//     id: "d1",
-//     image: "/images/_placeholderImage.svg",
-//     title: "Shared Miners",
-//     paragraph:
-//       "Lorem Ipsum is simply dummy text of the printing  and typesetting industry.",
-//     miners: "1462",
-//   },
-//   {
-//     id: "d2",
-//     image: "/images/_placeholderImage (1).svg",
-//     title: "ASIC",
-//     paragraph:
-//       "Lorem Ipsum is simply dummy text of the printing  and typesetting industry.",
-//     miners: "576",
-//   },
-// ];
+const DUMMY_DATA = [
+  {
+    id: "d1",
+    image: "/images/_placeholderImage.svg",
+    title: "Shared Miners",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing  and typesetting industry.",
+    miners: "1462",
+  },
+  {
+    id: "d2",
+    image: "/images/_placeholderImage (1).svg",
+    title: "ASIC",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing  and typesetting industry.",
+    miners: "576",
+  },
+];
 
 //style
 
 const Shop = () => {
-  const [miners, setMiners] = useState([]);
-  useEffect(() => {
-    let token;
-    if (localStorage.getItem("token")) {
-      token = localStorage.getItem("token");
-    }
 
-    const miners = async () => {
-      const response = await fetch(`${window.domain}miners`, {
-        method: "GET",
-        headers: {
-          Authorization: `Token ${token}`,
-        },
-        redirect: "follow",
-      });
-
-      const data = await response.json();
-
-      setMiners(data);
-    };
-
-    miners();
-  }, []);
 
   const navigate = useNavigate();
 
@@ -72,7 +49,7 @@ const Shop = () => {
           width: { xs: "auto", md: "auto" },
         }}
       >
-        {miners.map((data) => {
+        {DUMMY_DATA.map((data) => {
           return (
             <Stack
               key={data.id}
@@ -84,7 +61,7 @@ const Shop = () => {
                   src={
                     data.image === null ? "/images/_placeholderImage.svg" : null
                   }
-                  alt={data.name}
+                  alt={data.title}
                   sx={{
                     width: "100%",
                   }}
@@ -92,7 +69,7 @@ const Shop = () => {
               </Box>
 
               <Box sx={{ background: "#fff", textAlign: "center" }}>
-                <MainTitle component="h3">{data.name}</MainTitle>
+                <MainTitle component="h3">{data.title}</MainTitle>
                 <Typography
                   component="p"
                   sx={{
